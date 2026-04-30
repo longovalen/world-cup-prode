@@ -369,20 +369,103 @@
     </div>
 
     <script>
-        // World Cup 2026 Matches
+        // World Cup 2026 Matches - Complete Group Stage (72 matches)
         const matches = [
-            { id: 1, team1: "Mexico", team2: "South Africa", date: "06/11/2026 12:00", group: "Group A", venue: "Mexico City" },
-            { id: 2, team1: "USA", team2: "Wales", date: "06/11/2026 15:00", group: "Group B", venue: "Los Angeles" },
-            { id: 3, team1: "Canada", team2: "Morocco", date: "06/11/2026 18:00", group: "Group C", venue: "Toronto" },
-            { id: 4, team1: "Brazil", team2: "Serbia", date: "06/12/2026 12:00", group: "Group D", venue: "Miami" },
-            { id: 5, team1: "Argentina", team2: "Saudi Arabia", date: "06/12/2026 15:00", group: "Group E", venue: "New York" },
-            { id: 6, team1: "England", team2: "Iran", date: "06/12/2026 18:00", group: "Group F", venue: "Dallas" },
-            { id: 7, team1: "France", team2: "Australia", date: "06/13/2026 12:00", group: "Group G", venue: "Atlanta" },
-            { id: 8, team1: "Germany", team2: "Japan", date: "06/13/2026 15:00", group: "Group H", venue: "Seattle" },
-            { id: 9, team1: "Spain", team2: "Costa Rica", date: "06/13/2026 18:00", group: "Group I", venue: "Houston" },
-            { id: 10, team1: "Portugal", team2: "Ghana", date: "06/14/2026 12:00", group: "Group J", venue: "Philadelphia" },
-            { id: 11, team1: "Netherlands", team2: "Senegal", date: "06/14/2026 15:00", group: "Group K", venue: "Kansas City" },
-            { id: 12, team1: "Belgium", team2: "Croatia", date: "06/14/2026 18:00", group: "Group L", venue: "Boston" },
+            // GROUP A
+            { id: 1, team1: "Mexico", team2: "South Africa", date: "06/11/2026 15:00", group: "Group A", venue: "Estadio Azteca, Mexico City" },
+            { id: 2, team1: "South Korea", team2: "UEFA Playoff D", date: "06/11/2026 22:00", group: "Group A", venue: "Estadio Akron, Guadalajara" },
+            { id: 3, team1: "UEFA Playoff D", team2: "South Africa", date: "06/18/2026 12:00", group: "Group A", venue: "Mercedes-Benz Stadium, Atlanta" },
+            { id: 4, team1: "Mexico", team2: "South Korea", date: "06/18/2026 21:00", group: "Group A", venue: "Estadio Akron, Guadalajara" },
+            { id: 5, team1: "UEFA Playoff D", team2: "Mexico", date: "06/24/2026 21:00", group: "Group A", venue: "Estadio Azteca, Mexico City" },
+            { id: 6, team1: "South Africa", team2: "South Korea", date: "06/24/2026 21:00", group: "Group A", venue: "Estadio BBVA, Monterrey" },
+            
+            // GROUP B
+            { id: 7, team1: "Canada", team2: "UEFA Playoff A", date: "06/12/2026 15:00", group: "Group B", venue: "BMO Field, Toronto" },
+            { id: 8, team1: "Qatar", team2: "Switzerland", date: "06/13/2026 15:00", group: "Group B", venue: "Levi's Stadium, Santa Clara" },
+            { id: 9, team1: "UEFA Playoff A", team2: "Switzerland", date: "06/18/2026 15:00", group: "Group B", venue: "SoFi Stadium, Inglewood" },
+            { id: 10, team1: "Canada", team2: "Qatar", date: "06/18/2026 18:00", group: "Group B", venue: "BC Place, Vancouver" },
+            { id: 11, team1: "Switzerland", team2: "Canada", date: "06/24/2026 15:00", group: "Group B", venue: "BC Place, Vancouver" },
+            { id: 12, team1: "UEFA Playoff A", team2: "Qatar", date: "06/24/2026 15:00", group: "Group B", venue: "Lumen Field, Seattle" },
+            
+            // GROUP C
+            { id: 13, team1: "Brazil", team2: "Morocco", date: "06/13/2026 18:00", group: "Group C", venue: "MetLife Stadium, New York/New Jersey" },
+            { id: 14, team1: "Haiti", team2: "Scotland", date: "06/13/2026 21:00", group: "Group C", venue: "Gillette Stadium, Boston" },
+            { id: 15, team1: "Scotland", team2: "Morocco", date: "06/19/2026 18:00", group: "Group C", venue: "Gillette Stadium, Boston" },
+            { id: 16, team1: "Brazil", team2: "Haiti", date: "06/19/2026 21:00", group: "Group C", venue: "Lincoln Financial Field, Philadelphia" },
+            { id: 17, team1: "Scotland", team2: "Brazil", date: "06/24/2026 18:00", group: "Group C", venue: "Hard Rock Stadium, Miami" },
+            { id: 18, team1: "Morocco", team2: "Haiti", date: "06/24/2026 18:00", group: "Group C", venue: "Mercedes-Benz Stadium, Atlanta" },
+            
+            // GROUP D
+            { id: 19, team1: "USA", team2: "Paraguay", date: "06/12/2026 21:00", group: "Group D", venue: "SoFi Stadium, Los Angeles" },
+            { id: 20, team1: "Australia", team2: "UEFA Playoff C", date: "06/13/2026 00:00", group: "Group D", venue: "BC Place, Vancouver" },
+            { id: 21, team1: "UEFA Playoff C", team2: "Paraguay", date: "06/19/2026 00:00", group: "Group D", venue: "Levi's Stadium, Santa Clara" },
+            { id: 22, team1: "USA", team2: "Australia", date: "06/19/2026 15:00", group: "Group D", venue: "Lumen Field, Seattle" },
+            { id: 23, team1: "UEFA Playoff C", team2: "USA", date: "06/25/2026 22:00", group: "Group D", venue: "SoFi Stadium, Los Angeles" },
+            { id: 24, team1: "Paraguay", team2: "Australia", date: "06/25/2026 22:00", group: "Group D", venue: "Levi's Stadium, Santa Clara" },
+            
+            // GROUP E
+            { id: 25, team1: "Germany", team2: "Curaçao", date: "06/14/2026 13:00", group: "Group E", venue: "NRG Stadium, Houston" },
+            { id: 26, team1: "Ivory Coast", team2: "Ecuador", date: "06/14/2026 19:00", group: "Group E", venue: "Lincoln Financial Field, Philadelphia" },
+            { id: 27, team1: "Germany", team2: "Ivory Coast", date: "06/20/2026 16:00", group: "Group E", venue: "BMO Field, Toronto" },
+            { id: 28, team1: "Ecuador", team2: "Curaçao", date: "06/20/2026 20:00", group: "Group E", venue: "Arrowhead Stadium, Kansas City" },
+            { id: 29, team1: "Ecuador", team2: "Germany", date: "06/25/2026 16:00", group: "Group E", venue: "MetLife Stadium, New York/New Jersey" },
+            { id: 30, team1: "Curaçao", team2: "Ivory Coast", date: "06/25/2026 16:00", group: "Group E", venue: "Lincoln Financial Field, Philadelphia" },
+            
+            // GROUP F
+            { id: 31, team1: "Netherlands", team2: "Japan", date: "06/14/2026 18:00", group: "Group F", venue: "AT&T Stadium, Dallas" },
+            { id: 32, team1: "UEFA Playoff B", team2: "Tunisia", date: "06/14/2026 22:00", group: "Group F", venue: "Estadio BBVA, Monterrey" },
+            { id: 33, team1: "Netherlands", team2: "UEFA Playoff B", date: "06/20/2026 13:00", group: "Group F", venue: "NRG Stadium, Houston" },
+            { id: 34, team1: "Tunisia", team2: "Japan", date: "06/20/2026 00:00", group: "Group F", venue: "Estadio BBVA, Monterrey" },
+            { id: 35, team1: "Tunisia", team2: "Netherlands", date: "06/25/2026 19:00", group: "Group F", venue: "Arrowhead Stadium, Kansas City" },
+            { id: 36, team1: "Japan", team2: "UEFA Playoff B", date: "06/25/2026 19:00", group: "Group F", venue: "AT&T Stadium, Arlington" },
+            
+            // GROUP G
+            { id: 37, team1: "Belgium", team2: "Egypt", date: "06/15/2026 15:00", group: "Group G", venue: "Lumen Field, Seattle" },
+            { id: 38, team1: "Iran", team2: "New Zealand", date: "06/15/2026 21:00", group: "Group G", venue: "SoFi Stadium, Los Angeles" },
+            { id: 39, team1: "Belgium", team2: "Iran", date: "06/21/2026 15:00", group: "Group G", venue: "SoFi Stadium, Los Angeles" },
+            { id: 40, team1: "New Zealand", team2: "Egypt", date: "06/21/2026 21:00", group: "Group G", venue: "BC Place, Vancouver" },
+            { id: 41, team1: "New Zealand", team2: "Belgium", date: "06/26/2026 23:00", group: "Group G", venue: "BC Place, Vancouver" },
+            { id: 42, team1: "Egypt", team2: "Iran", date: "06/26/2026 23:00", group: "Group G", venue: "Lumen Field, Seattle" },
+            
+            // GROUP H
+            { id: 43, team1: "Spain", team2: "Cape Verde", date: "06/15/2026 12:00", group: "Group H", venue: "Mercedes-Benz Stadium, Atlanta" },
+            { id: 44, team1: "Saudi Arabia", team2: "Uruguay", date: "06/15/2026 18:00", group: "Group H", venue: "Hard Rock Stadium, Miami" },
+            { id: 45, team1: "Spain", team2: "Saudi Arabia", date: "06/21/2026 12:00", group: "Group H", venue: "Mercedes-Benz Stadium, Atlanta" },
+            { id: 46, team1: "Uruguay", team2: "Cape Verde", date: "06/21/2026 18:00", group: "Group H", venue: "Hard Rock Stadium, Miami" },
+            { id: 47, team1: "Uruguay", team2: "Spain", date: "06/26/2026 20:00", group: "Group H", venue: "Estadio Akron, Guadalajara" },
+            { id: 48, team1: "Cape Verde", team2: "Saudi Arabia", date: "06/26/2026 20:00", group: "Group H", venue: "NRG Stadium, Houston" },
+            
+            // GROUP I
+            { id: 49, team1: "France", team2: "Senegal", date: "06/16/2026 15:00", group: "Group I", venue: "MetLife Stadium, New York/New Jersey" },
+            { id: 50, team1: "FIFA Playoff 2", team2: "Norway", date: "06/16/2026 18:00", group: "Group I", venue: "Gillette Stadium, Foxborough" },
+            { id: 51, team1: "France", team2: "FIFA Playoff 2", date: "06/22/2026 17:00", group: "Group I", venue: "Lincoln Financial Field, Philadelphia" },
+            { id: 52, team1: "Norway", team2: "Senegal", date: "06/22/2026 20:00", group: "Group I", venue: "MetLife Stadium, New York/New Jersey" },
+            { id: 53, team1: "Norway", team2: "France", date: "06/27/2026 15:00", group: "Group I", venue: "Gillette Stadium, Boston" },
+            { id: 54, team1: "Senegal", team2: "FIFA Playoff 2", date: "06/27/2026 15:00", group: "Group I", venue: "Lincoln Financial Field, Philadelphia" },
+            
+            // GROUP J
+            { id: 55, team1: "Argentina", team2: "Algeria", date: "06/16/2026 18:00", group: "Group J", venue: "Arrowhead Stadium, Kansas City" },
+            { id: 56, team1: "Austria", team2: "Jordan", date: "06/16/2026 21:00", group: "Group J", venue: "Levi's Stadium, Santa Clara" },
+            { id: 57, team1: "Argentina", team2: "Austria", date: "06/22/2026 18:00", group: "Group J", venue: "AT&T Stadium, Dallas" },
+            { id: 58, team1: "Jordan", team2: "Algeria", date: "06/22/2026 21:00", group: "Group J", venue: "Levi's Stadium, Santa Clara" },
+            { id: 59, team1: "Jordan", team2: "Argentina", date: "06/27/2026 18:00", group: "Group J", venue: "Hard Rock Stadium, Miami" },
+            { id: 60, team1: "Algeria", team2: "Austria", date: "06/27/2026 18:00", group: "Group J", venue: "Arrowhead Stadium, Kansas City" },
+            
+            // GROUP K
+            { id: 61, team1: "Portugal", team2: "FIFA Playoff 1", date: "06/17/2026 13:00", group: "Group K", venue: "NRG Stadium, Houston" },
+            { id: 62, team1: "Uzbekistan", team2: "Colombia", date: "06/17/2026 21:00", group: "Group K", venue: "Estadio Azteca, Mexico City" },
+            { id: 63, team1: "Portugal", team2: "Uzbekistan", date: "06/23/2026 18:00", group: "Group K", venue: "NRG Stadium, Houston" },
+            { id: 64, team1: "Colombia", team2: "FIFA Playoff 1", date: "06/23/2026 21:00", group: "Group K", venue: "Estadio Akron, Guadalajara" },
+            { id: 65, team1: "Colombia", team2: "Portugal", date: "06/27/2026 21:00", group: "Group K", venue: "Estadio BBVA, Monterrey" },
+            { id: 66, team1: "FIFA Playoff 1", team2: "Uzbekistan", date: "06/27/2026 21:00", group: "Group K", venue: "Estadio Azteca, Mexico City" },
+            
+            // GROUP L
+            { id: 67, team1: "England", team2: "Croatia", date: "06/17/2026 12:00", group: "Group L", venue: "BMO Field, Toronto" },
+            { id: 68, team1: "Ghana", team2: "Panama", date: "06/17/2026 16:00", group: "Group L", venue: "AT&T Stadium, Arlington" },
+            { id: 69, team1: "England", team2: "Ghana", date: "06/23/2026 16:00", group: "Group L", venue: "Gillette Stadium, Boston" },
+            { id: 70, team1: "Panama", team2: "Croatia", date: "06/23/2026 19:00", group: "Group L", venue: "BMO Field, Toronto" },
+            { id: 71, team1: "Panama", team2: "England", date: "06/27/2026 12:00", group: "Group L", venue: "MetLife Stadium, East Rutherford" },
+            { id: 72, team1: "Croatia", team2: "Ghana", date: "06/27/2026 15:00", group: "Group L", venue: "Lincoln Financial Field, Philadelphia" },
         ];
 
         let currentUser = null;
