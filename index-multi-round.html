@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 Predictions - Multi-Round</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .user-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .match {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .match.predicted {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        .match-info {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .match-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .match-date {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .score-inputs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-name {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        input[type="number"]:disabled {
+            background: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .vs {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 2px solid #bee5eb;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
+        }
+
+        .admin-link {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .admin-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .admin-link a:hover {
+            text-decoration: underline;
+        }
+
+        .predicted-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .stats-box {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .stats-box h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stats-box p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .match {
+                flex-direction: column;
+            }
+
+            .score-inputs {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚽ World Cup 2026 Predictions</h1>
+        <p class="subtitle">Multi-Round Prediction System</p>
+
+        <div id="messageContainer"></div>
+        <div id="statsContainer"></div>
+
+        <form id="predictionForm">
+            <div class="user-info">
+                <h3 style="margin-bottom: 15px; color: #333;">Participant Information</h3>
+                
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ibmId">IBM ID *</label>
+                    <input type="text" id="ibmId" required placeholder="e.g., john.doe@ibm.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (optional)</label>
+                    <input type="email" id="email" placeholder="your.email@example.com">
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 20px; color: #333;">Match Predictions</h3>
+
+            <div id="matchesContainer"></div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Submit New Predictions
+            </button>
+        </form>
+
+        <div class="admin-link">
+            <a href="admin.html">🔐 Admin Panel</a>
+        </div>
+    </div>
+
+    <script>
+        // World Cup 2026 Matches
+        const matches = [
+            { id: 1, team1: "Mexico", team2: "South Africa", date: "06/11/2026 12:00", group: "Group A", venue: "Mexico City" },
+            { id: 2, team1: "USA", team2: "Wales", date: "06/11/2026 15:00", group: "Group B", venue: "Los Angeles" },
+            { id: 3, team1: "Canada", team2: "Morocco", date: "06/11/2026 18:00", group: "Group C", venue: "Toronto" },
+            { id: 4, team1: "Brazil", team2: "Serbia", date: "06/12/2026 12:00", group: "Group D", venue: "Miami" },
+            { id: 5, team1: "Argentina", team2: "Saudi Arabia", date: "06/12/2026 15:00", group: "Group E", venue: "New York" },
+            { id: 6, team1: "England", team2: "Iran", date: "06/12/2026 18:00", group: "Group F", venue: "Dallas" },
+            { id: 7, team1: "France", team2: "Australia", date: "06/13/2026 12:00", group: "Group G", venue: "Atlanta" },
+            { id: 8, team1: "Germany", team2: "Japan", date: "06/13/2026 15:00", group: "Group H", venue: "Seattle" },
+            { id: 9, team1: "Spain", team2: "Costa Rica", date: "06/13/2026 18:00", group: "Group I", venue: "Houston" },
+            { id: 10, team1: "Portugal", team2: "Ghana", date: "06/14/2026 12:00", group: "Group J", venue: "Philadelphia" },
+            { id: 11, team1: "Netherlands", team2: "Senegal", date: "06/14/2026 15:00", group: "Group K", venue: "Kansas City" },
+            { id: 12, team1: "Belgium", team2: "Croatia", date: "06/14/2026 18:00", group: "Group L", venue: "Boston" },
+        ];
+
+        let currentUser = null;
+        let existingPredictions = {};
+
+        // Load existing predictions for user
+        function loadUserPredictions(ibmId) {
+            const allPredictions = JSON.parse(localStorage.getItem('worldCupPredictions') || '[]');
+            const userPrediction = allPredictions.find(p => p.ibmId.toLowerCase() === ibmId.toLowerCase());
+            
+            if (userPrediction) {
+                currentUser = userPrediction;
+                existingPredictions = {};
+                userPrediction.predictions.forEach(pred => {
+                    existingPredictions[pred.matchId] = pred;
+                });
+                return true;
+            }
+            return false;
+        }
+
+        // Show user statistics
+        function showUserStats() {
+            if (!currentUser) return;
+            
+            const totalMatches = matches.length;
+            const predictedMatches = Object.keys(existingPredictions).length;
+            const remainingMatches = totalMatches - predictedMatches;
+
+            const statsHtml = `
+                <div class="stats-box">
+                    <h3>👤 Welcome back, ${currentUser.firstName}!</h3>
+                    <p>📊 Total matches: ${totalMatches}</p>
+                    <p>✅ Already predicted: ${predictedMatches}</p>
+                    <p>⏳ Remaining: ${remainingMatches}</p>
+                    ${remainingMatches > 0 ? '<p style="color: #667eea; font-weight: 600;">Fill in your predictions for the new matches below!</p>' : '<p style="color: #28a745; font-weight: 600;">You\'ve predicted all available matches!</p>'}
+                </div>
+            `;
+            document.getElementById('statsContainer').innerHTML = statsHtml;
+        }
+
+        // Render matches
+        function renderMatches() {
+            const container = document.getElementById('matchesContainer');
+            container.innerHTML = '';
+            
+            matches.forEach(match => {
+                const existingPred = existingPredictions[match.id];
+                const isPredicted = !!existingPred;
+                
+                const matchDiv = document.createElement('div');
+                matchDiv.className = 'match' + (isPredicted ? ' predicted' : '');
+                matchDiv.innerHTML = `
+                    <div class="match-info">
+                        <div class="match-title">
+                            ${match.group} - ${match.venue}
+                            ${isPredicted ? '<span class="predicted-badge">✓ Predicted</span>' : ''}
+                        </div>
+                        <div class="match-date">${match.date}</div>
+                    </div>
+                    <div class="score-inputs">
+                        <div class="team-score">
+                            <span class="team-name">${match.team1}</span>
+                            <input type="number" min="0" max="20" 
+                                   id="team1_${match.id}" 
+                                   value="${existingPred ? existingPred.score1 : ''}"
+                                   ${isPredicted ? 'disabled' : 'required'}>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="team-score">
+                            <span class="team-name">${match.team2}</span>
+                            <input type="number" min="0" max="20" 
+                                   id="team2_${match.id}" 
+                                   value="${existingPred ? existingPred.score2 : ''}"
+                                   ${isPredicted ? 'disabled' : 'required'}>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(matchDiv);
+            });
+        }
+
+        // Show message
+        function showMessage(message, type) {
+            const container = document.getElementById('messageContainer');
+            container.innerHTML = `<div class="message ${type}">${message}</div>`;
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 5000);
+        }
+
+        // Check IBM ID on blur
+        document.getElementById('ibmId').addEventListener('blur', function() {
+            const ibmId = this.value.trim();
+            if (ibmId) {
+                if (loadUserPredictions(ibmId)) {
+                    showUserStats();
+                    renderMatches();
+                    
+                    // Pre-fill user info
+                    document.getElementById('firstName').value = currentUser.firstName;
+                    document.getElementById('lastName').value = currentUser.lastName;
+                    document.getElementById('email').value = currentUser.email || '';
+                    
+                    // Disable user info fields
+                    document.getElementById('firstName').disabled = true;
+                    document.getElementById('lastName').disabled = true;
+                    document.getElementById('email').disabled = true;
+                    
+                    showMessage('✅ Welcome back! You can add predictions for new matches.', 'info');
+                } else {
+                    showMessage('👋 New participant! Please fill in all your predictions.', 'info');
+                    renderMatches();
+                }
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const ibmId = document.getElementById('ibmId').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // Collect NEW predictions only
+            const newPredictions = [];
+            matches.forEach(match => {
+                if (!existingPredictions[match.id]) {
+                    const score1Input = document.getElementById(`team1_${match.id}`);
+                    const score2Input = document.getElementById(`team2_${match.id}`);
+                    
+                    if (score1Input && !score1Input.disabled) {
+                        newPredictions.push({
+                            matchId: match.id,
+                            team1: match.team1,
+                            team2: match.team2,
+                            score1: parseInt(score1Input.value),
+                            score2: parseInt(score2Input.value)
+                        });
+                    }
+                }
+            });
+
+            if (newPredictions.length === 0) {
+                showMessage('⚠️ No new predictions to submit. You\'ve already predicted all available matches!', 'warning');
+                return;
+            }
+
+            // Load all predictions
+            const allPredictions = JSON.parse(localStorage.getItem('worldCupPredictions') || '[]');
+            const userIndex = allPredictions.findIndex(p => p.ibmId.toLowerCase() === ibmId.toLowerCase());
+
+            if (userIndex >= 0) {
+                // Update existing user
+                allPredictions[userIndex].predictions.push(...newPredictions);
+                allPredictions[userIndex].lastUpdated = new Date().toISOString();
+                allPredictions[userIndex].lastUpdatedAt = new Date().toLocaleString('en-US');
+            } else {
+                // New user
+                const submissionData = {
+                    firstName,
+                    lastName,
+                    ibmId,
+                    email,
+                    predictions: newPredictions,
+                    timestamp: new Date().toISOString(),
+                    submittedAt: new Date().toLocaleString('en-US'),
+                    lastUpdated: new Date().toISOString(),
+                    lastUpdatedAt: new Date().toLocaleString('en-US')
+                };
+                allPredictions.push(submissionData);
+            }
+
+            // Save
+            localStorage.setItem('worldCupPredictions', JSON.stringify(allPredictions));
+
+            // Show success
+            showMessage(`✅ ${newPredictions.length} new prediction(s) submitted successfully!`, 'success');
+
+            // Reload user data
+            loadUserPredictions(ibmId);
+            showUserStats();
+            renderMatches();
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize
+        renderMatches();
+    </script>
+</body>
+</html>
