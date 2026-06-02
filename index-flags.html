@@ -459,12 +459,12 @@
             "Croatia": "hr",
             "Ghana": "gh",
             "Panama": "pa",
-            "UEFA Playoff A": "eu",
-            "UEFA Playoff B": "eu",
-            "UEFA Playoff C": "eu",
-            "UEFA Playoff D": "eu",
-            "FIFA Playoff 1": "xx",
-            "FIFA Playoff 2": "xx"
+            "Czechia": "cz",
+            "Bosnia and Herzegovina": "ba",
+            "Turkey": "tr",
+            "Sweden": "se",
+            "Congo DR": "cd",
+            "Iraq": "iq"
         };
 
         // Get flag HTML
@@ -477,26 +477,26 @@
         const GROUPS = {
             A: {
                 name: "Group A",
-                teams: ["Mexico", "South Africa", "South Korea", "UEFA Playoff D"],
+                teams: ["Mexico", "South Africa", "South Korea", "Czechia"],
                 matches: [
                     { id: 1, date: "Jun 11", team1: "Mexico", team2: "South Africa" },
-                    { id: 2, date: "Jun 11", team1: "South Korea", team2: "UEFA Playoff D" },
-                    { id: 3, date: "Jun 18", team1: "UEFA Playoff D", team2: "South Africa" },
+                    { id: 2, date: "Jun 11", team1: "South Korea", team2: "Czechia" },
+                    { id: 3, date: "Jun 18", team1: "Czechia", team2: "South Africa" },
                     { id: 4, date: "Jun 18", team1: "Mexico", team2: "South Korea" },
-                    { id: 5, date: "Jun 24", team1: "UEFA Playoff D", team2: "Mexico" },
+                    { id: 5, date: "Jun 24", team1: "Czechia", team2: "Mexico" },
                     { id: 6, date: "Jun 24", team1: "South Africa", team2: "South Korea" }
                 ]
             },
             B: {
                 name: "Group B",
-                teams: ["Canada", "UEFA Playoff A", "Qatar", "Switzerland"],
+                teams: ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
                 matches: [
-                    { id: 7, date: "Jun 12", team1: "Canada", team2: "UEFA Playoff A" },
+                    { id: 7, date: "Jun 12", team1: "Canada", team2: "Bosnia and Herzegovina" },
                     { id: 8, date: "Jun 13", team1: "Qatar", team2: "Switzerland" },
-                    { id: 9, date: "Jun 18", team1: "UEFA Playoff A", team2: "Switzerland" },
+                    { id: 9, date: "Jun 18", team1: "Bosnia and Herzegovina", team2: "Switzerland" },
                     { id: 10, date: "Jun 18", team1: "Canada", team2: "Qatar" },
                     { id: 11, date: "Jun 24", team1: "Switzerland", team2: "Canada" },
-                    { id: 12, date: "Jun 24", team1: "UEFA Playoff A", team2: "Qatar" }
+                    { id: 12, date: "Jun 24", team1: "Bosnia and Herzegovina", team2: "Qatar" }
                 ]
             },
             C: {
@@ -513,13 +513,13 @@
             },
             D: {
                 name: "Group D",
-                teams: ["USA", "Paraguay", "Australia", "UEFA Playoff C"],
+                teams: ["USA", "Paraguay", "Australia", "Turkey"],
                 matches: [
                     { id: 19, date: "Jun 12", team1: "USA", team2: "Paraguay" },
-                    { id: 20, date: "Jun 13", team1: "Australia", team2: "UEFA Playoff C" },
-                    { id: 21, date: "Jun 19", team1: "UEFA Playoff C", team2: "Paraguay" },
+                    { id: 20, date: "Jun 13", team1: "Australia", team2: "Turkey" },
+                    { id: 21, date: "Jun 19", team1: "Turkey", team2: "Paraguay" },
                     { id: 22, date: "Jun 19", team1: "USA", team2: "Australia" },
-                    { id: 23, date: "Jun 25", team1: "UEFA Playoff C", team2: "USA" },
+                    { id: 23, date: "Jun 25", team1: "Turkey", team2: "USA" },
                     { id: 24, date: "Jun 25", team1: "Paraguay", team2: "Australia" }
                 ]
             },
@@ -537,14 +537,14 @@
             },
             F: {
                 name: "Group F",
-                teams: ["Netherlands", "Japan", "UEFA Playoff B", "Tunisia"],
+                teams: ["Netherlands", "Japan", "Sweden", "Tunisia"],
                 matches: [
                     { id: 31, date: "Jun 14", team1: "Netherlands", team2: "Japan" },
-                    { id: 32, date: "Jun 14", team1: "UEFA Playoff B", team2: "Tunisia" },
-                    { id: 33, date: "Jun 20", team1: "Netherlands", team2: "UEFA Playoff B" },
+                    { id: 32, date: "Jun 14", team1: "Sweden", team2: "Tunisia" },
+                    { id: 33, date: "Jun 20", team1: "Netherlands", team2: "Sweden" },
                     { id: 34, date: "Jun 20", team1: "Tunisia", team2: "Japan" },
                     { id: 35, date: "Jun 25", team1: "Tunisia", team2: "Netherlands" },
-                    { id: 36, date: "Jun 25", team1: "Japan", team2: "UEFA Playoff B" }
+                    { id: 36, date: "Jun 25", team1: "Japan", team2: "Sweden" }
                 ]
             },
             G: {
@@ -573,14 +573,14 @@
             },
             I: {
                 name: "Group I",
-                teams: ["France", "Senegal", "FIFA Playoff 2", "Norway"],
+                teams: ["France", "Senegal", "Iraq", "Norway"],
                 matches: [
                     { id: 49, date: "Jun 16", team1: "France", team2: "Senegal" },
-                    { id: 50, date: "Jun 16", team1: "FIFA Playoff 2", team2: "Norway" },
-                    { id: 51, date: "Jun 22", team1: "France", team2: "FIFA Playoff 2" },
+                    { id: 50, date: "Jun 16", team1: "Iraq", team2: "Norway" },
+                    { id: 51, date: "Jun 22", team1: "France", team2: "Iraq" },
                     { id: 52, date: "Jun 22", team1: "Norway", team2: "Senegal" },
                     { id: 53, date: "Jun 27", team1: "Norway", team2: "France" },
-                    { id: 54, date: "Jun 27", team1: "Senegal", team2: "FIFA Playoff 2" }
+                    { id: 54, date: "Jun 27", team1: "Senegal", team2: "Iraq" }
                 ]
             },
             J: {
@@ -597,14 +597,14 @@
             },
             K: {
                 name: "Group K",
-                teams: ["Portugal", "FIFA Playoff 1", "Uzbekistan", "Colombia"],
+                teams: ["Portugal", "Congo DR", "Uzbekistan", "Colombia"],
                 matches: [
-                    { id: 61, date: "Jun 17", team1: "Portugal", team2: "FIFA Playoff 1" },
+                    { id: 61, date: "Jun 17", team1: "Portugal", team2: "Congo DR" },
                     { id: 62, date: "Jun 17", team1: "Uzbekistan", team2: "Colombia" },
                     { id: 63, date: "Jun 23", team1: "Portugal", team2: "Uzbekistan" },
-                    { id: 64, date: "Jun 23", team1: "Colombia", team2: "FIFA Playoff 1" },
+                    { id: 64, date: "Jun 23", team1: "Colombia", team2: "Congo DR" },
                     { id: 65, date: "Jun 27", team1: "Colombia", team2: "Portugal" },
-                    { id: 66, date: "Jun 27", team1: "FIFA Playoff 1", team2: "Uzbekistan" }
+                    { id: 66, date: "Jun 27", team1: "Congo DR", team2: "Uzbekistan" }
                 ]
             },
             L: {
