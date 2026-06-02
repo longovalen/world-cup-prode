@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 - Predictions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .user-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            border-color: #667eea;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .tab.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .group-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .group-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .standings-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .standings-table th {
+            background: #f8f9fa;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.85em;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .standings-table td {
+            padding: 8px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9em;
+        }
+
+        .team-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .matches-section {
+            margin-top: 20px;
+        }
+
+        .matches-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .match-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .match-date {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team {
+            flex: 1;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team.right {
+            justify-content: flex-end;
+        }
+
+        .score-inputs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .score-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .score-input:disabled {
+            background: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .vs {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .match-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .result-exact {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .result-winner {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 2px solid #17a2b8;
+        }
+
+        .result-wrong {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+        }
+
+        .save-section {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .leaderboard {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .leaderboard-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .leaderboard-item.current-user {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+
+        .rank {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            width: 50px;
+        }
+
+        .player-name {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .points {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .info-message {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .groups-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .save-section {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // State
+        let currentUser = null;
+        let userPredictions = {};
+        let actualResults = {};
+        let currentTab = 'groups';
+
+        // Points Configuration
+        const POINTS_CONFIG = {
+            exactMatch: 3,
+            correctWinner: 1
+        };
+
+        // Country Codes for Flags
+        const COUNTRY_CODES = {
+            "Mexico": "mx",
+            "South Africa": "za",
+            "South Korea": "kr",
+            "Canada": "ca",
+            "Qatar": "qa",
+            "Switzerland": "ch",
+            "Brazil": "br",
+            "Morocco": "ma",
+            "Haiti": "ht",
+            "Scotland": "gb-sct",
+            "USA": "us",
+            "Paraguay": "py",
+            "Australia": "au",
+            "Germany": "de",
+            "Curaçao": "cw",
+            "Ivory Coast": "ci",
+            "Ecuador": "ec",
+            "Netherlands": "nl",
+            "Japan": "jp",
+            "Tunisia": "tn",
+            "Belgium": "be",
+            "Egypt": "eg",
+            "Iran": "ir",
+            "New Zealand": "nz",
+            "Spain": "es",
+            "Cape Verde": "cv",
+            "Saudi Arabia": "sa",
+            "Uruguay": "uy",
+            "France": "fr",
+            "Senegal": "sn",
+            "Norway": "no",
+            "Argentina": "ar",
+            "Algeria": "dz",
+            "Austria": "at",
+            "Jordan": "jo",
+            "Portugal": "pt",
+            "Uzbekistan": "uz",
+            "Colombia": "co",
+            "England": "gb-eng",
+            "Croatia": "hr",
+            "Ghana": "gh",
+            "Panama": "pa",
+            "UEFA Playoff A": "eu",
+            "UEFA Playoff B": "eu",
+            "UEFA Playoff C": "eu",
+            "UEFA Playoff D": "eu",
+            "FIFA Playoff 1": "xx",
+            "FIFA Playoff 2": "xx"
+        };
+
+        // Get flag HTML
+        function getFlagHTML(country) {
+            const code = COUNTRY_CODES[country] || "xx";
+            return `<img src="https://flagcdn.com/w40/${code}.png" class="flag-icon" alt="${country}" onerror="this.style.display='none'">`;
+        }
+
+        // Group Stage Data
+        const GROUPS = {
+            A: {
+                name: "Group A",
+                teams: ["Mexico", "South Africa", "South Korea", "UEFA Playoff D"],
+                matches: [
+                    { id: 1, date: "Jun 11", team1: "Mexico", team2: "South Africa" },
+                    { id: 2, date: "Jun 11", team1: "South Korea", team2: "UEFA Playoff D" },
+                    { id: 3, date: "Jun 18", team1: "UEFA Playoff D", team2: "South Africa" },
+                    { id: 4, date: "Jun 18", team1: "Mexico", team2: "South Korea" },
+                    { id: 5, date: "Jun 24", team1: "UEFA Playoff D", team2: "Mexico" },
+                    { id: 6, date: "Jun 24", team1: "South Africa", team2: "South Korea" }
+                ]
+            },
+            B: {
+                name: "Group B",
+                teams: ["Canada", "UEFA Playoff A", "Qatar", "Switzerland"],
+                matches: [
+                    { id: 7, date: "Jun 12", team1: "Canada", team2: "UEFA Playoff A" },
+                    { id: 8, date: "Jun 13", team1: "Qatar", team2: "Switzerland" },
+                    { id: 9, date: "Jun 18", team1: "UEFA Playoff A", team2: "Switzerland" },
+                    { id: 10, date: "Jun 18", team1: "Canada", team2: "Qatar" },
+                    { id: 11, date: "Jun 24", team1: "Switzerland", team2: "Canada" },
+                    { id: 12, date: "Jun 24", team1: "UEFA Playoff A", team2: "Qatar" }
+                ]
+            },
+            C: {
+                name: "Group C",
+                teams: ["Brazil", "Morocco", "Haiti", "Scotland"],
+                matches: [
+                    { id: 13, date: "Jun 13", team1: "Brazil", team2: "Morocco" },
+                    { id: 14, date: "Jun 13", team1: "Haiti", team2: "Scotland" },
+                    { id: 15, date: "Jun 19", team1: "Scotland", team2: "Morocco" },
+                    { id: 16, date: "Jun 19", team1: "Brazil", team2: "Haiti" },
+                    { id: 17, date: "Jun 24", team1: "Scotland", team2: "Brazil" },
+                    { id: 18, date: "Jun 24", team1: "Morocco", team2: "Haiti" }
+                ]
+            },
+            D: {
+                name: "Group D",
+                teams: ["USA", "Paraguay", "Australia", "UEFA Playoff C"],
+                matches: [
+                    { id: 19, date: "Jun 12", team1: "USA", team2: "Paraguay" },
+                    { id: 20, date: "Jun 13", team1: "Australia", team2: "UEFA Playoff C" },
+                    { id: 21, date: "Jun 19", team1: "UEFA Playoff C", team2: "Paraguay" },
+                    { id: 22, date: "Jun 19", team1: "USA", team2: "Australia" },
+                    { id: 23, date: "Jun 25", team1: "UEFA Playoff C", team2: "USA" },
+                    { id: 24, date: "Jun 25", team1: "Paraguay", team2: "Australia" }
+                ]
+            },
+            E: {
+                name: "Group E",
+                teams: ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
+                matches: [
+                    { id: 25, date: "Jun 14", team1: "Germany", team2: "Curaçao" },
+                    { id: 26, date: "Jun 14", team1: "Ivory Coast", team2: "Ecuador" },
+                    { id: 27, date: "Jun 20", team1: "Germany", team2: "Ivory Coast" },
+                    { id: 28, date: "Jun 20", team1: "Ecuador", team2: "Curaçao" },
+                    { id: 29, date: "Jun 25", team1: "Ecuador", team2: "Germany" },
+                    { id: 30, date: "Jun 25", team1: "Curaçao", team2: "Ivory Coast" }
+                ]
+            },
+            F: {
+                name: "Group F",
+                teams: ["Netherlands", "Japan", "UEFA Playoff B", "Tunisia"],
+                matches: [
+                    { id: 31, date: "Jun 14", team1: "Netherlands", team2: "Japan" },
+                    { id: 32, date: "Jun 14", team1: "UEFA Playoff B", team2: "Tunisia" },
+                    { id: 33, date: "Jun 20", team1: "Netherlands", team2: "UEFA Playoff B" },
+                    { id: 34, date: "Jun 20", team1: "Tunisia", team2: "Japan" },
+                    { id: 35, date: "Jun 25", team1: "Tunisia", team2: "Netherlands" },
+                    { id: 36, date: "Jun 25", team1: "Japan", team2: "UEFA Playoff B" }
+                ]
+            },
+            G: {
+                name: "Group G",
+                teams: ["Belgium", "Egypt", "Iran", "New Zealand"],
+                matches: [
+                    { id: 37, date: "Jun 15", team1: "Belgium", team2: "Egypt" },
+                    { id: 38, date: "Jun 15", team1: "Iran", team2: "New Zealand" },
+                    { id: 39, date: "Jun 21", team1: "Belgium", team2: "Iran" },
+                    { id: 40, date: "Jun 21", team1: "New Zealand", team2: "Egypt" },
+                    { id: 41, date: "Jun 26", team1: "New Zealand", team2: "Belgium" },
+                    { id: 42, date: "Jun 26", team1: "Egypt", team2: "Iran" }
+                ]
+            },
+            H: {
+                name: "Group H",
+                teams: ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+                matches: [
+                    { id: 43, date: "Jun 15", team1: "Spain", team2: "Cape Verde" },
+                    { id: 44, date: "Jun 15", team1: "Saudi Arabia", team2: "Uruguay" },
+                    { id: 45, date: "Jun 21", team1: "Spain", team2: "Saudi Arabia" },
+                    { id: 46, date: "Jun 21", team1: "Uruguay", team2: "Cape Verde" },
+                    { id: 47, date: "Jun 26", team1: "Uruguay", team2: "Spain" },
+                    { id: 48, date: "Jun 26", team1: "Cape Verde", team2: "Saudi Arabia" }
+                ]
+            },
+            I: {
+                name: "Group I",
+                teams: ["France", "Senegal", "FIFA Playoff 2", "Norway"],
+                matches: [
+                    { id: 49, date: "Jun 16", team1: "France", team2: "Senegal" },
+                    { id: 50, date: "Jun 16", team1: "FIFA Playoff 2", team2: "Norway" },
+                    { id: 51, date: "Jun 22", team1: "France", team2: "FIFA Playoff 2" },
+                    { id: 52, date: "Jun 22", team1: "Norway", team2: "Senegal" },
+                    { id: 53, date: "Jun 27", team1: "Norway", team2: "France" },
+                    { id: 54, date: "Jun 27", team1: "Senegal", team2: "FIFA Playoff 2" }
+                ]
+            },
+            J: {
+                name: "Group J",
+                teams: ["Argentina", "Algeria", "Austria", "Jordan"],
+                matches: [
+                    { id: 55, date: "Jun 16", team1: "Argentina", team2: "Algeria" },
+                    { id: 56, date: "Jun 16", team1: "Austria", team2: "Jordan" },
+                    { id: 57, date: "Jun 22", team1: "Argentina", team2: "Austria" },
+                    { id: 58, date: "Jun 22", team1: "Jordan", team2: "Algeria" },
+                    { id: 59, date: "Jun 27", team1: "Jordan", team2: "Argentina" },
+                    { id: 60, date: "Jun 27", team1: "Algeria", team2: "Austria" }
+                ]
+            },
+            K: {
+                name: "Group K",
+                teams: ["Portugal", "FIFA Playoff 1", "Uzbekistan", "Colombia"],
+                matches: [
+                    { id: 61, date: "Jun 17", team1: "Portugal", team2: "FIFA Playoff 1" },
+                    { id: 62, date: "Jun 17", team1: "Uzbekistan", team2: "Colombia" },
+                    { id: 63, date: "Jun 23", team1: "Portugal", team2: "Uzbekistan" },
+                    { id: 64, date: "Jun 23", team1: "Colombia", team2: "FIFA Playoff 1" },
+                    { id: 65, date: "Jun 27", team1: "Colombia", team2: "Portugal" },
+                    { id: 66, date: "Jun 27", team1: "FIFA Playoff 1", team2: "Uzbekistan" }
+                ]
+            },
+            L: {
+                name: "Group L",
+                teams: ["England", "Croatia", "Ghana", "Panama"],
+                matches: [
+                    { id: 67, date: "Jun 17", team1: "England", team2: "Croatia" },
+                    { id: 68, date: "Jun 17", team1: "Ghana", team2: "Panama" },
+                    { id: 69, date: "Jun 23", team1: "England", team2: "Ghana" },
+                    { id: 70, date: "Jun 23", team1: "Panama", team2: "Croatia" },
+                    { id: 71, date: "Jun 27", team1: "Panama", team2: "England" },
+                    { id: 72, date: "Jun 27", team1: "Croatia", team2: "Ghana" }
+                ]
+            }
+        };
+
+        // Initialize
+        function init() {
+            loadResults();
+            if (!currentUser) {
+                renderLoginForm();
+            } else {
+                renderApp();
+            }
+        }
+
+        // Load Results
+        function loadResults() {
+            actualResults = JSON.parse(localStorage.getItem('wcResults') || '{}');
+        }
+
+        // Login Form
+        function renderLoginForm() {
+            document.getElementById('app').innerHTML = `
+                <div class="header">
+                    <h1>⚽ World Cup 2026 Predictions</h1>
+                    <p>Track your predictions and compete with friends!</p>
+                </div>
+                <div class="login-form">
+                    <h2 style="margin-bottom: 20px;">Login</h2>
+                    <div id="loginMessage"></div>
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>IBM ID *</label>
+                        <input type="text" id="ibmId" required placeholder="john.doe@ibm.com">
+                    </div>
+                    <button class="btn" onclick="login()">Continue</button>
+                </div>
+            `;
+        }
+
+        // Login
+        function login() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const ibmId = document.getElementById('ibmId').value.trim();
+
+            if (!firstName || !lastName || !ibmId) {
+                showMessage('loginMessage', 'Please fill all fields', 'warning');
+                return;
+            }
+
+            // Load or create user
+            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
+            
+            if (allUsers[ibmId]) {
+                currentUser = allUsers[ibmId];
+                userPredictions = currentUser.predictions || {};
+                showMessage('loginMessage', `Welcome back, ${firstName}!`, 'success');
+            } else {
+                currentUser = {
+                    firstName,
+                    lastName,
+                    ibmId,
+                    predictions: {},
+                    points: 0,
+                    createdAt: new Date().toISOString()
+                };
+                userPredictions = {};
+            }
+
+            setTimeout(() => renderApp(), 1000);
+        }
+
+        // Render Main App
+        function renderApp() {
+            loadResults(); // Refresh results
+            const userPoints = calculateUserPoints();
+            const resultsCount = Object.keys(actualResults).length;
+            
+            document.getElementById('app').innerHTML = `
+                <div class="header">
+                    <h1>⚽ World Cup 2026</h1>
+                    <p>Welcome, ${currentUser.firstName} ${currentUser.lastName}</p>
+                </div>
+
+                <div class="user-info">
+                    <h3>Your Stats</h3>
+                    <div class="user-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">${userPoints}</div>
+                            <div class="stat-label">Total Points</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${Object.keys(userPredictions).length}</div>
+                            <div class="stat-label">Predictions Made</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${resultsCount}</div>
+                            <div class="stat-label">Matches Played</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${72 - resultsCount}</div>
+                            <div class="stat-label">Matches Remaining</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab ${currentTab === 'groups' ? 'active' : ''}" onclick="switchTab('groups')">
+                        Group Stage
+                    </div>
+                    <div class="tab ${currentTab === 'knockout' ? 'active' : ''} ${!isKnockoutUnlocked() ? 'locked' : ''}" 
+                         onclick="${isKnockoutUnlocked() ? 'switchTab(\'knockout\')' : 'alert(\'Knockout stage will unlock after group stage ends\')'}">
+                        🔒 Knockout Stage
+                    </div>
+                    <div class="tab ${currentTab === 'leaderboard' ? 'active' : ''}" onclick="switchTab('leaderboard')">
+                        🏆 Leaderboard
+                    </div>
+                </div>
+
+                <div id="content"></div>
+
+                <div class="save-section">
+                    <button class="btn" onclick="savePredictions()">💾 Save Predictions</button>
+                </div>
+            `;
+
+            renderContent();
+        }
+
+        // Switch Tab
+        function switchTab(tab) {
+            currentTab = tab;
+            renderApp();
+        }
+
+        // Render Content
+        function renderContent() {
+            if (currentTab === 'groups') {
+                renderGroupStage();
+            } else if (currentTab === 'knockout') {
+                renderKnockoutStage();
+            } else if (currentTab === 'leaderboard') {
+                renderLeaderboard();
+            }
+        }
+
+        // Render Group Stage
+        function renderGroupStage() {
+            let html = '<div class="groups-grid">';
+            
+            for (const [key, group] of Object.entries(GROUPS)) {
+                html += renderGroupCard(group);
+            }
+            
+            html += '</div>';
+            document.getElementById('content').innerHTML = html;
+        }
+
+        // Render Group Card
+        function renderGroupCard(group) {
+            return `
+                <div class="group-card">
+                    <div class="group-title">${group.name}</div>
+                    
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Team</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${group.teams.map((team, idx) => `
+                                <tr>
+                                    <td>${idx + 1}</td>
+                                    <td><div class="team-name">${getFlagHTML(team)} ${team}</div></td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <div class="matches-section">
+                        <div class="matches-title">Matches</div>
+                        ${group.matches.map(match => renderMatchCard(match)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Match Card
+        function renderMatchCard(match) {
+            const prediction = userPredictions[match.id] || {};
+            const result = actualResults[match.id] || {};
+            
+            return `
+                <div class="match-card">
+                    <div class="match-date">
+                        <span>${match.date}</span>
+                        ${result.score1 !== undefined ? `<span style="color: #28a745; font-weight: bold;">Final: ${result.score1}-${result.score2}</span>` : ''}
+                    </div>
+                    <div class="match-teams">
+                        <div class="team">
+                            ${getFlagHTML(match.team1)}
+                            <span>${match.team1}</span>
+                        </div>
+                        <div class="score-inputs">
+                            <input type="number" 
+                                   class="score-input" 
+                                   id="match_${match.id}_team1"
+                                   value="${prediction.score1 !== undefined ? prediction.score1 : ''}"
+                                   min="0" max="20"
+                                   ${result.score1 !== undefined ? 'disabled' : ''}
+                                   placeholder="0">
+                            <span class="vs">-</span>
+                            <input type="number" 
+                                   class="score-input" 
+                                   id="match_${match.id}_team2"
+                                   value="${prediction.score2 !== undefined ? prediction.score2 : ''}"
+                                   min="0" max="20"
+                                   ${result.score1 !== undefined ? 'disabled' : ''}
+                                   placeholder="0">
+                        </div>
+                        <div class="team right">
+                            <span>${match.team2}</span>
+                            ${getFlagHTML(match.team2)}
+                        </div>
+                    </div>
+                    ${renderMatchResult(match.id, prediction, result)}
+                </div>
+            `;
+        }
+
+        // Render Match Result
+        function renderMatchResult(matchId, prediction, result) {
+            if (!result || result.score1 === undefined) {
+                return '';
+            }
+
+            if (!prediction || prediction.score1 === undefined) {
+                return `
+                    <div class="match-result result-wrong">
+                        <div style="font-weight: bold;">No prediction made</div>
+                    </div>
+                `;
+            }
+
+            const points = calculateMatchPoints(prediction, result);
+            let resultClass = '';
+            let resultText = '';
+            
+            if (points === 3) {
+                resultClass = 'result-exact';
+                resultText = '🎯 Exact Match! +3 pts';
+            } else if (points === 1) {
+                resultClass = 'result-winner';
+                resultText = '✓ Correct Winner! +1 pt';
+            } else {
+                resultClass = 'result-wrong';
+                resultText = '✗ No points';
+            }
+
+            return `
+                <div class="match-result ${resultClass}">
+                    <div style="font-size: 0.9em; margin-bottom: 5px;">
+                        <strong>Your prediction: ${prediction.score1} - ${prediction.score2}</strong>
+                    </div>
+                    <div style="font-weight: bold;">${resultText}</div>
+                </div>
+            `;
+        }
+
+        // Save Predictions
+        function savePredictions() {
+            let saved = 0;
+            
+            // Collect all predictions
+            for (const group of Object.values(GROUPS)) {
+                for (const match of group.matches) {
+                    const score1Input = document.getElementById(`match_${match.id}_team1`);
+                    const score2Input = document.getElementById(`match_${match.id}_team2`);
+                    
+                    if (score1Input && score2Input && score1Input.value !== '' && score2Input.value !== '') {
+                        userPredictions[match.id] = {
+                            matchId: match.id,
+                            score1: parseInt(score1Input.value),
+                            score2: parseInt(score2Input.value),
+                            team1: match.team1,
+                            team2: match.team2
+                        };
+                        saved++;
+                    }
+                }
+            }
+
+            // Save to localStorage
+            currentUser.predictions = userPredictions;
+            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
+            allUsers[currentUser.ibmId] = currentUser;
+            localStorage.setItem('wcPredictions', JSON.stringify(allUsers));
+
+            alert(`✅ ${saved} predictions saved successfully!`);
+            renderApp();
+        }
+
+        // Calculate User Points
+        function calculateUserPoints() {
+            let points = 0;
+            
+            for (const [matchId, result] of Object.entries(actualResults)) {
+                const prediction = userPredictions[matchId];
+                if (!prediction) continue;
+
+                points += calculateMatchPoints(prediction, result);
+            }
+            
+            return points;
+        }
+
+        // Calculate Match Points
+        function calculateMatchPoints(prediction, result) {
+            if (result.score1 === undefined || result.score2 === undefined) return 0;
+
+            // Exact match: 3 points
+            if (prediction.score1 === result.score1 && prediction.score2 === result.score2) {
+                return POINTS_CONFIG.exactMatch;
+            }
+
+            // Correct winner or draw: 1 point
+            const predWinner = prediction.score1 > prediction.score2 ? 1 : 
+                              prediction.score1 < prediction.score2 ? 2 : 0;
+            const resultWinner = result.score1 > result.score2 ? 1 : 
+                                result.score1 < result.score2 ? 2 : 0;
+
+            if (predWinner === resultWinner) {
+                return POINTS_CONFIG.correctWinner;
+            }
+
+            return 0;
+        }
+
+        // Render Knockout Stage
+        function renderKnockoutStage() {
+            document.getElementById('content').innerHTML = `
+                <div class="group-card">
+                    <h2>Knockout Stage</h2>
+                    <p style="padding: 40px; text-align: center; color: #666;">
+                        Knockout stage predictions will be available after the group stage ends (June 27, 2026).
+                    </p>
+                </div>
+            `;
+        }
+
+        // Is Knockout Unlocked
+        function isKnockoutUnlocked() {
+            // Unlock after June 27, 2026 or when admin enables it
+            return false; // For now, always locked
+        }
+
+        // Render Leaderboard
+        function renderLeaderboard() {
+            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
+            const usersArray = Object.values(allUsers).map(user => ({
+                ...user,
+                points: calculatePointsForUser(user)
+            }));
+            
+            usersArray.sort((a, b) => b.points - a.points);
+
+            const resultsCount = Object.keys(actualResults).length;
+
+            let html = `
+                <div class="leaderboard">
+                    <div class="leaderboard-title">🏆 Leaderboard</div>
+                    ${resultsCount === 0 ? `
+                        <div class="info-message">
+                            <p>⏳ No results have been entered yet. The leaderboard will update as matches are played!</p>
+                        </div>
+                    ` : `
+                        <div class="info-message">
+                            <p>📊 ${resultsCount} of 72 matches have results entered</p>
+                        </div>
+                    `}
+                    ${usersArray.length === 0 ? `
+                        <div style="padding: 40px; text-align: center; color: #666;">
+                            No users have made predictions yet
+                        </div>
+                    ` : usersArray.map((user, idx) => `
+                        <div class="leaderboard-item ${user.ibmId === currentUser.ibmId ? 'current-user' : ''}">
+                            <div class="rank">${idx + 1}</div>
+                            <div class="player-name">
+                                ${user.firstName} ${user.lastName}
+                                ${user.ibmId === currentUser.ibmId ? '<span style="color: #28a745;"> (You)</span>' : ''}
+                            </div>
+                            <div class="points">${user.points} pts</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('content').innerHTML = html;
+        }
+
+        // Calculate Points for User
+        function calculatePointsForUser(user) {
+            let points = 0;
+            const predictions = user.predictions || {};
+            
+            for (const [matchId, result] of Object.entries(actualResults)) {
+                const prediction = predictions[matchId];
+                if (!prediction) continue;
+
+                points += calculateMatchPoints(prediction, result);
+            }
+            
+            return points;
+        }
+
+        // Show Message
+        function showMessage(containerId, message, type) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `<div class="message ${type}">${message}</div>`;
+                setTimeout(() => container.innerHTML = '', 3000);
+            }
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>
