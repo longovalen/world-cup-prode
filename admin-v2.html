@@ -32,33 +32,6 @@
             margin-bottom: 10px;
         }
 
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab {
-            padding: 12px 24px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .tab:hover {
-            border-color: #dc3545;
-        }
-
-        .tab.active {
-            background: #dc3545;
-            color: white;
-            border-color: #dc3545;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -85,14 +58,6 @@
             margin-top: 5px;
         }
 
-        .content-section {
-            display: none;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
         .card {
             background: white;
             border-radius: 10px;
@@ -108,58 +73,6 @@
             color: #333;
         }
 
-        .match-list {
-            display: grid;
-            gap: 15px;
-        }
-
-        .match-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .match-info {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .match-teams {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .match-date {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .result-inputs {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .result-input {
-            width: 50px;
-            height: 40px;
-            text-align: center;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        .result-input:focus {
-            outline: none;
-            border-color: #dc3545;
-        }
-
         .btn {
             padding: 12px 24px;
             background: #dc3545;
@@ -170,6 +83,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            margin-right: 10px;
         }
 
         .btn:hover {
@@ -182,21 +96,6 @@
 
         .btn-success:hover {
             background: #218838;
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         .table-container {
@@ -223,29 +122,6 @@
 
         tr:hover {
             background: #f8f9fa;
-        }
-
-        .message {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .success {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .warning {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .info {
-            background: #d1ecf1;
-            color: #0c5460;
         }
 
         .login-form {
@@ -280,11 +156,29 @@
             border-color: #dc3545;
         }
 
-        @media (max-width: 768px) {
-            .match-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -294,12 +188,9 @@
     <script>
         const ADMIN_PASSWORD = "admin2026";
         let isAuthenticated = false;
-        let currentTab = 'results';
-        let actualResults = {};
 
         // Initialize
         function init() {
-            loadResults();
             if (!isAuthenticated) {
                 renderLogin();
             } else {
@@ -307,22 +198,12 @@
             }
         }
 
-        // Load Results
-        function loadResults() {
-            actualResults = JSON.parse(localStorage.getItem('wcResults') || '{}');
-        }
-
-        // Save Results
-        function saveResults() {
-            localStorage.setItem('wcResults', JSON.stringify(actualResults));
-        }
-
         // Login
         function renderLogin() {
             document.getElementById('app').innerHTML = `
                 <div class="header">
                     <h1>🔐 Admin Panel</h1>
-                    <p>World Cup 2026 - Results Management</p>
+                    <p>World Cup 2026 - View Participants</p>
                 </div>
                 <div class="login-form">
                     <h2 style="margin-bottom: 20px;">Admin Login</h2>
@@ -354,252 +235,105 @@
         function renderAdmin() {
             const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
             const usersCount = Object.keys(allUsers).length;
-            const resultsCount = Object.keys(actualResults).length;
-            const totalMatches = 72;
+            
+            // Calculate total predictions
+            let totalPredictions = 0;
+            Object.values(allUsers).forEach(user => {
+                totalPredictions += Object.keys(user.predictions || {}).length;
+            });
 
             document.getElementById('app').innerHTML = `
                 <div class="header">
                     <h1>🔐 Admin Panel</h1>
-                    <p>World Cup 2026 - Results Management</p>
+                    <p>World Cup 2026 - Participants Overview</p>
                 </div>
 
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">${usersCount}</div>
-                        <div class="stat-label">Total Users</div>
+                        <div class="stat-label">Total Participants</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">${resultsCount}</div>
-                        <div class="stat-label">Results Entered</div>
+                        <div class="stat-number">${totalPredictions}</div>
+                        <div class="stat-label">Total Predictions</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">${totalMatches - resultsCount}</div>
-                        <div class="stat-label">Pending Matches</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">${Math.round((resultsCount/totalMatches)*100)}%</div>
-                        <div class="stat-label">Progress</div>
+                        <div class="stat-number">${usersCount > 0 ? Math.round(totalPredictions / usersCount) : 0}</div>
+                        <div class="stat-label">Avg Predictions/User</div>
                     </div>
                 </div>
 
-                <div class="tabs">
-                    <div class="tab ${currentTab === 'results' ? 'active' : ''}" onclick="switchTab('results')">
-                        Enter Results
-                    </div>
-                    <div class="tab ${currentTab === 'users' ? 'active' : ''}" onclick="switchTab('users')">
-                        View Users
-                    </div>
-                    <div class="tab ${currentTab === 'export' ? 'active' : ''}" onclick="switchTab('export')">
-                        Export Data
-                    </div>
-                </div>
-
-                <div id="content"></div>
-            `;
-
-            renderContent();
-        }
-
-        // Switch Tab
-        function switchTab(tab) {
-            currentTab = tab;
-            renderAdmin();
-        }
-
-        // Render Content
-        function renderContent() {
-            if (currentTab === 'results') {
-                renderResultsTab();
-            } else if (currentTab === 'users') {
-                renderUsersTab();
-            } else if (currentTab === 'export') {
-                renderExportTab();
-            }
-        }
-
-        // Render Results Tab
-        function renderResultsTab() {
-            const GROUPS = getGroupsData();
-            let html = '<div id="message"></div>';
-
-            for (const [key, group] of Object.entries(GROUPS)) {
-                html += `
-                    <div class="card">
-                        <div class="card-title">${group.name}</div>
-                        <div class="match-list">
-                            ${group.matches.map(match => {
-                                const result = actualResults[match.id] || {};
-                                return `
-                                    <div class="match-item">
-                                        <div class="match-info">
-                                            <div class="match-teams">${match.team1} vs ${match.team2}</div>
-                                            <div class="match-date">${match.date}</div>
-                                        </div>
-                                        <div class="result-inputs">
-                                            <input type="number" 
-                                                   class="result-input" 
-                                                   id="result_${match.id}_team1"
-                                                   value="${result.score1 !== undefined ? result.score1 : ''}"
-                                                   min="0" max="20"
-                                                   placeholder="0">
-                                            <span style="font-weight: bold;">-</span>
-                                            <input type="number" 
-                                                   class="result-input" 
-                                                   id="result_${match.id}_team2"
-                                                   value="${result.score2 !== undefined ? result.score2 : ''}"
-                                                   min="0" max="20"
-                                                   placeholder="0">
-                                            <button class="btn btn-success" onclick="saveMatchResult(${match.id})">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </div>
-                                `;
-                            }).join('')}
+                <div class="card">
+                    <div class="card-title">All Participants</div>
+                    
+                    ${usersCount === 0 ? `
+                        <div class="message info">
+                            <p>No participants have registered yet.</p>
                         </div>
-                    </div>
-                `;
-            }
+                    ` : `
+                        <div class="actions">
+                            <button class="btn btn-success" onclick="exportToExcel()">
+                                📊 Export to Excel
+                            </button>
+                            <button class="btn" onclick="exportToCSV()">
+                                📄 Export to CSV
+                            </button>
+                        </div>
 
-            html += `
-                <div class="actions">
-                    <button class="btn btn-success" onclick="saveAllResults()">Save All Results</button>
-                    <button class="btn btn-secondary" onclick="clearAllResults()">Clear All Results</button>
-                </div>
-            `;
-
-            document.getElementById('content').innerHTML = html;
-        }
-
-        // Save Match Result
-        function saveMatchResult(matchId) {
-            const score1Input = document.getElementById(`result_${matchId}_team1`);
-            const score2Input = document.getElementById(`result_${matchId}_team2`);
-
-            if (score1Input.value !== '' && score2Input.value !== '') {
-                actualResults[matchId] = {
-                    score1: parseInt(score1Input.value),
-                    score2: parseInt(score2Input.value)
-                };
-                saveResults();
-                showMessage('message', `Match ${matchId} result saved!`, 'success');
-            } else {
-                showMessage('message', 'Please enter both scores', 'warning');
-            }
-        }
-
-        // Save All Results
-        function saveAllResults() {
-            const GROUPS = getGroupsData();
-            let saved = 0;
-
-            for (const group of Object.values(GROUPS)) {
-                for (const match of group.matches) {
-                    const score1Input = document.getElementById(`result_${match.id}_team1`);
-                    const score2Input = document.getElementById(`result_${match.id}_team2`);
-
-                    if (score1Input && score2Input && score1Input.value !== '' && score2Input.value !== '') {
-                        actualResults[match.id] = {
-                            score1: parseInt(score1Input.value),
-                            score2: parseInt(score2Input.value)
-                        };
-                        saved++;
-                    }
-                }
-            }
-
-            saveResults();
-            showMessage('message', `${saved} results saved successfully!`, 'success');
-            setTimeout(() => renderAdmin(), 2000);
-        }
-
-        // Clear All Results
-        function clearAllResults() {
-            if (confirm('Are you sure you want to clear ALL results? This cannot be undone!')) {
-                actualResults = {};
-                saveResults();
-                showMessage('message', 'All results cleared', 'info');
-                setTimeout(() => renderAdmin(), 2000);
-            }
-        }
-
-        // Render Users Tab
-        function renderUsersTab() {
-            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
-            const usersArray = Object.values(allUsers).map(user => ({
-                ...user,
-                points: calculatePointsForUser(user)
-            }));
-
-            usersArray.sort((a, b) => b.points - a.points);
-
-            let html = `
-                <div class="card">
-                    <div class="card-title">All Users (${usersArray.length})</div>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>IBM ID</th>
-                                    <th>Points</th>
-                                    <th>Predictions</th>
-                                    <th>Joined</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${usersArray.map((user, idx) => `
+                        <div class="table-container">
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td><strong>${idx + 1}</strong></td>
-                                        <td>${user.firstName} ${user.lastName}</td>
-                                        <td>${user.ibmId}</td>
-                                        <td><strong style="color: #28a745;">${user.points} pts</strong></td>
-                                        <td>${Object.keys(user.predictions || {}).length}/72</td>
-                                        <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>IBM ID</th>
+                                        <th>Predictions Made</th>
+                                        <th>Completion</th>
+                                        <th>Joined Date</th>
                                     </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    ${renderUsersTable()}
+                                </tbody>
+                            </table>
+                        </div>
+                    `}
                 </div>
             `;
-
-            document.getElementById('content').innerHTML = html;
         }
 
-        // Render Export Tab
-        function renderExportTab() {
-            let html = `
-                <div class="card">
-                    <div class="card-title">Export Data</div>
-                    <p style="margin-bottom: 20px; color: #666;">
-                        Export all predictions and results to Excel or CSV format.
-                    </p>
-                    <div class="actions">
-                        <button class="btn btn-success" onclick="exportToExcel()">
-                            📊 Export to Excel
-                        </button>
-                        <button class="btn btn-secondary" onclick="exportToCSV()">
-                            📄 Export to CSV
-                        </button>
-                    </div>
-                </div>
+        // Render Users Table
+        function renderUsersTable() {
+            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
+            const usersArray = Object.values(allUsers);
+            
+            // Sort by predictions count (descending)
+            usersArray.sort((a, b) => {
+                const aPreds = Object.keys(a.predictions || {}).length;
+                const bPreds = Object.keys(b.predictions || {}).length;
+                return bPreds - aPreds;
+            });
 
-                <div class="card">
-                    <div class="card-title">Leaderboard Export</div>
-                    <p style="margin-bottom: 20px; color: #666;">
-                        Export current standings and points.
-                    </p>
-                    <div class="actions">
-                        <button class="btn btn-success" onclick="exportLeaderboard()">
-                            🏆 Export Leaderboard
-                        </button>
-                    </div>
-                </div>
-            `;
+            return usersArray.map((user, idx) => {
+                const predsCount = Object.keys(user.predictions || {}).length;
+                const completion = Math.round((predsCount / 72) * 100);
+                const joinDate = new Date(user.createdAt).toLocaleDateString();
 
-            document.getElementById('content').innerHTML = html;
+                return `
+                    <tr>
+                        <td><strong>${idx + 1}</strong></td>
+                        <td>${user.firstName} ${user.lastName}</td>
+                        <td>${user.ibmId}</td>
+                        <td><strong>${predsCount}/72</strong></td>
+                        <td>
+                            <span style="color: ${completion === 100 ? '#28a745' : completion > 50 ? '#ffc107' : '#dc3545'};">
+                                ${completion}%
+                            </span>
+                        </td>
+                        <td>${joinDate}</td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         // Export to Excel
@@ -607,255 +341,68 @@
             const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
             const excelData = [];
 
+            // Summary sheet
+            for (const user of Object.values(allUsers)) {
+                const predsCount = Object.keys(user.predictions || {}).length;
+                excelData.push({
+                    'Name': `${user.firstName} ${user.lastName}`,
+                    'IBM ID': user.ibmId,
+                    'Predictions Made': `${predsCount}/72`,
+                    'Completion %': Math.round((predsCount / 72) * 100),
+                    'Joined Date': new Date(user.createdAt).toLocaleDateString()
+                });
+            }
+
+            const ws = XLSX.utils.json_to_sheet(excelData);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Participants");
+
+            // Detailed predictions sheet
+            const detailedData = [];
             for (const user of Object.values(allUsers)) {
                 const predictions = user.predictions || {};
                 for (const [matchId, pred] of Object.entries(predictions)) {
-                    const result = actualResults[matchId] || {};
-                    const points = calculateMatchPoints(pred, result);
-
-                    excelData.push({
+                    detailedData.push({
                         'User': `${user.firstName} ${user.lastName}`,
                         'IBM ID': user.ibmId,
                         'Match ID': matchId,
                         'Team 1': pred.team1,
                         'Predicted Score 1': pred.score1,
                         'Team 2': pred.team2,
-                        'Predicted Score 2': pred.score2,
-                        'Actual Score 1': result.score1 !== undefined ? result.score1 : '',
-                        'Actual Score 2': result.score2 !== undefined ? result.score2 : '',
-                        'Points Earned': points
+                        'Predicted Score 2': pred.score2
                     });
                 }
             }
 
-            const ws = XLSX.utils.json_to_sheet(excelData);
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "Predictions");
+            if (detailedData.length > 0) {
+                const ws2 = XLSX.utils.json_to_sheet(detailedData);
+                XLSX.utils.book_append_sheet(wb, ws2, "All Predictions");
+            }
 
-            XLSX.writeFile(wb, `world_cup_predictions_${new Date().toISOString().split('T')[0]}.xlsx`);
+            XLSX.writeFile(wb, `world_cup_participants_${new Date().toISOString().split('T')[0]}.xlsx`);
             alert('✅ Excel file downloaded!');
         }
 
         // Export to CSV
         function exportToCSV() {
             const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
-            let csv = 'User,IBM ID,Match ID,Team 1,Predicted Score 1,Team 2,Predicted Score 2,Actual Score 1,Actual Score 2,Points Earned\n';
+            let csv = 'Name,IBM ID,Predictions Made,Completion %,Joined Date\n';
 
             for (const user of Object.values(allUsers)) {
-                const predictions = user.predictions || {};
-                for (const [matchId, pred] of Object.entries(predictions)) {
-                    const result = actualResults[matchId] || {};
-                    const points = calculateMatchPoints(pred, result);
+                const predsCount = Object.keys(user.predictions || {}).length;
+                const completion = Math.round((predsCount / 72) * 100);
+                const joinDate = new Date(user.createdAt).toLocaleDateString();
 
-                    csv += `"${user.firstName} ${user.lastName}","${user.ibmId}",${matchId},"${pred.team1}",${pred.score1},"${pred.team2}",${pred.score2},${result.score1 !== undefined ? result.score1 : ''},${result.score2 !== undefined ? result.score2 : ''},${points}\n`;
-                }
+                csv += `"${user.firstName} ${user.lastName}","${user.ibmId}","${predsCount}/72",${completion}%,${joinDate}\n`;
             }
 
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `world_cup_predictions_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = `world_cup_participants_${new Date().toISOString().split('T')[0]}.csv`;
             a.click();
             alert('✅ CSV file downloaded!');
-        }
-
-        // Export Leaderboard
-        function exportLeaderboard() {
-            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
-            const usersArray = Object.values(allUsers).map(user => ({
-                'Rank': 0,
-                'Name': `${user.firstName} ${user.lastName}`,
-                'IBM ID': user.ibmId,
-                'Total Points': calculatePointsForUser(user),
-                'Predictions Made': Object.keys(user.predictions || {}).length,
-                'Joined Date': new Date(user.createdAt).toLocaleDateString()
-            }));
-
-            usersArray.sort((a, b) => b['Total Points'] - a['Total Points']);
-            usersArray.forEach((user, idx) => user.Rank = idx + 1);
-
-            const ws = XLSX.utils.json_to_sheet(usersArray);
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "Leaderboard");
-
-            XLSX.writeFile(wb, `leaderboard_${new Date().toISOString().split('T')[0]}.xlsx`);
-            alert('✅ Leaderboard exported!');
-        }
-
-        // Calculate Points for User
-        function calculatePointsForUser(user) {
-            let points = 0;
-            const predictions = user.predictions || {};
-
-            for (const [matchId, result] of Object.entries(actualResults)) {
-                const prediction = predictions[matchId];
-                if (prediction) {
-                    points += calculateMatchPoints(prediction, result);
-                }
-            }
-
-            return points;
-        }
-
-        // Calculate Match Points
-        function calculateMatchPoints(prediction, result) {
-            if (!result.score1 !== undefined) return 0;
-
-            // Exact match
-            if (prediction.score1 === result.score1 && prediction.score2 === result.score2) {
-                return 3;
-            }
-
-            // Correct winner or draw
-            const predWinner = prediction.score1 > prediction.score2 ? 1 : 
-                              prediction.score1 < prediction.score2 ? 2 : 0;
-            const resultWinner = result.score1 > result.score2 ? 1 : 
-                                result.score1 < result.score2 ? 2 : 0;
-
-            if (predWinner === resultWinner) {
-                return 1;
-            }
-
-            return 0;
-        }
-
-        // Get Groups Data
-        function getGroupsData() {
-            return {
-                A: {
-                    name: "Group A",
-                    matches: [
-                        { id: 1, date: "Jun 11", team1: "Mexico", team2: "South Africa" },
-                        { id: 2, date: "Jun 11", team1: "South Korea", team2: "UEFA Playoff D" },
-                        { id: 3, date: "Jun 18", team1: "UEFA Playoff D", team2: "South Africa" },
-                        { id: 4, date: "Jun 18", team1: "Mexico", team2: "South Korea" },
-                        { id: 5, date: "Jun 24", team1: "UEFA Playoff D", team2: "Mexico" },
-                        { id: 6, date: "Jun 24", team1: "South Africa", team2: "South Korea" }
-                    ]
-                },
-                B: {
-                    name: "Group B",
-                    matches: [
-                        { id: 7, date: "Jun 12", team1: "Canada", team2: "UEFA Playoff A" },
-                        { id: 8, date: "Jun 13", team1: "Qatar", team2: "Switzerland" },
-                        { id: 9, date: "Jun 18", team1: "UEFA Playoff A", team2: "Switzerland" },
-                        { id: 10, date: "Jun 18", team1: "Canada", team2: "Qatar" },
-                        { id: 11, date: "Jun 24", team1: "Switzerland", team2: "Canada" },
-                        { id: 12, date: "Jun 24", team1: "UEFA Playoff A", team2: "Qatar" }
-                    ]
-                },
-                C: {
-                    name: "Group C",
-                    matches: [
-                        { id: 13, date: "Jun 13", team1: "Brazil", team2: "Morocco" },
-                        { id: 14, date: "Jun 13", team1: "Haiti", team2: "Scotland" },
-                        { id: 15, date: "Jun 19", team1: "Scotland", team2: "Morocco" },
-                        { id: 16, date: "Jun 19", team1: "Brazil", team2: "Haiti" },
-                        { id: 17, date: "Jun 24", team1: "Scotland", team2: "Brazil" },
-                        { id: 18, date: "Jun 24", team1: "Morocco", team2: "Haiti" }
-                    ]
-                },
-                D: {
-                    name: "Group D",
-                    matches: [
-                        { id: 19, date: "Jun 12", team1: "USA", team2: "Paraguay" },
-                        { id: 20, date: "Jun 13", team1: "Australia", team2: "UEFA Playoff C" },
-                        { id: 21, date: "Jun 19", team1: "UEFA Playoff C", team2: "Paraguay" },
-                        { id: 22, date: "Jun 19", team1: "USA", team2: "Australia" },
-                        { id: 23, date: "Jun 25", team1: "UEFA Playoff C", team2: "USA" },
-                        { id: 24, date: "Jun 25", team1: "Paraguay", team2: "Australia" }
-                    ]
-                },
-                E: {
-                    name: "Group E",
-                    matches: [
-                        { id: 25, date: "Jun 14", team1: "Germany", team2: "Curaçao" },
-                        { id: 26, date: "Jun 14", team1: "Ivory Coast", team2: "Ecuador" },
-                        { id: 27, date: "Jun 20", team1: "Germany", team2: "Ivory Coast" },
-                        { id: 28, date: "Jun 20", team1: "Ecuador", team2: "Curaçao" },
-                        { id: 29, date: "Jun 25", team1: "Ecuador", team2: "Germany" },
-                        { id: 30, date: "Jun 25", team1: "Curaçao", team2: "Ivory Coast" }
-                    ]
-                },
-                F: {
-                    name: "Group F",
-                    matches: [
-                        { id: 31, date: "Jun 14", team1: "Netherlands", team2: "Japan" },
-                        { id: 32, date: "Jun 14", team1: "UEFA Playoff B", team2: "Tunisia" },
-                        { id: 33, date: "Jun 20", team1: "Netherlands", team2: "UEFA Playoff B" },
-                        { id: 34, date: "Jun 20", team1: "Tunisia", team2: "Japan" },
-                        { id: 35, date: "Jun 25", team1: "Tunisia", team2: "Netherlands" },
-                        { id: 36, date: "Jun 25", team1: "Japan", team2: "UEFA Playoff B" }
-                    ]
-                },
-                G: {
-                    name: "Group G",
-                    matches: [
-                        { id: 37, date: "Jun 15", team1: "Belgium", team2: "Egypt" },
-                        { id: 38, date: "Jun 15", team1: "Iran", team2: "New Zealand" },
-                        { id: 39, date: "Jun 21", team1: "Belgium", team2: "Iran" },
-                        { id: 40, date: "Jun 21", team1: "New Zealand", team2: "Egypt" },
-                        { id: 41, date: "Jun 26", team1: "New Zealand", team2: "Belgium" },
-                        { id: 42, date: "Jun 26", team1: "Egypt", team2: "Iran" }
-                    ]
-                },
-                H: {
-                    name: "Group H",
-                    matches: [
-                        { id: 43, date: "Jun 15", team1: "Spain", team2: "Cape Verde" },
-                        { id: 44, date: "Jun 15", team1: "Saudi Arabia", team2: "Uruguay" },
-                        { id: 45, date: "Jun 21", team1: "Spain", team2: "Saudi Arabia" },
-                        { id: 46, date: "Jun 21", team1: "Uruguay", team2: "Cape Verde" },
-                        { id: 47, date: "Jun 26", team1: "Uruguay", team2: "Spain" },
-                        { id: 48, date: "Jun 26", team1: "Cape Verde", team2: "Saudi Arabia" }
-                    ]
-                },
-                I: {
-                    name: "Group I",
-                    matches: [
-                        { id: 49, date: "Jun 16", team1: "France", team2: "Senegal" },
-                        { id: 50, date: "Jun 16", team1: "FIFA Playoff 2", team2: "Norway" },
-                        { id: 51, date: "Jun 22", team1: "France", team2: "FIFA Playoff 2" },
-                        { id: 52, date: "Jun 22", team1: "Norway", team2: "Senegal" },
-                        { id: 53, date: "Jun 27", team1: "Norway", team2: "France" },
-                        { id: 54, date: "Jun 27", team1: "Senegal", team2: "FIFA Playoff 2" }
-                    ]
-                },
-                J: {
-                    name: "Group J",
-                    matches: [
-                        { id: 55, date: "Jun 16", team1: "Argentina", team2: "Algeria" },
-                        { id: 56, date: "Jun 16", team1: "Austria", team2: "Jordan" },
-                        { id: 57, date: "Jun 22", team1: "Argentina", team2: "Austria" },
-                        { id: 58, date: "Jun 22", team1: "Jordan", team2: "Algeria" },
-                        { id: 59, date: "Jun 27", team1: "Jordan", team2: "Argentina" },
-                        { id: 60, date: "Jun 27", team1: "Algeria", team2: "Austria" }
-                    ]
-                },
-                K: {
-                    name: "Group K",
-                    matches: [
-                        { id: 61, date: "Jun 17", team1: "Portugal", team2: "FIFA Playoff 1" },
-                        { id: 62, date: "Jun 17", team1: "Uzbekistan", team2: "Colombia" },
-                        { id: 63, date: "Jun 23", team1: "Portugal", team2: "Uzbekistan" },
-                        { id: 64, date: "Jun 23", team1: "Colombia", team2: "FIFA Playoff 1" },
-                        { id: 65, date: "Jun 27", team1: "Colombia", team2: "Portugal" },
-                        { id: 66, date: "Jun 27", team1: "FIFA Playoff 1", team2: "Uzbekistan" }
-                    ]
-                },
-                L: {
-                    name: "Group L",
-                    matches: [
-                        { id: 67, date: "Jun 17", team1: "England", team2: "Croatia" },
-                        { id: 68, date: "Jun 17", team1: "Ghana", team2: "Panama" },
-                        { id: 69, date: "Jun 23", team1: "England", team2: "Ghana" },
-                        { id: 70, date: "Jun 23", team1: "Panama", team2: "Croatia" },
-                        { id: 71, date: "Jun 27", team1: "Panama", team2: "England" },
-                        { id: 72, date: "Jun 27", team1: "Croatia", team2: "Ghana" }
-                    ]
-                }
-            };
         }
 
         // Show Message
