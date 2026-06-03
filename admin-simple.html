@@ -287,6 +287,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>IBM ID</th>
+                                        <th>Points</th>
                                         <th>Predictions Made</th>
                                         <th>Completion</th>
                                         <th>Joined Date</th>
@@ -307,14 +308,21 @@
             const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
             const usersArray = Object.values(allUsers);
             
-            // Sort by predictions count (descending)
-            usersArray.sort((a, b) => {
+            // Calculate points for each user
+            const usersWithPoints = usersArray.map(user => ({
+                ...user,
+                points: calculateUserPoints(user)
+            }));
+            
+            // Sort by points (descending), then by predictions count
+            usersWithPoints.sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
                 const aPreds = Object.keys(a.predictions || {}).length;
                 const bPreds = Object.keys(b.predictions || {}).length;
                 return bPreds - aPreds;
             });
 
-            return usersArray.map((user, idx) => {
+            return usersWithPoints.map((user, idx) => {
                 const predsCount = Object.keys(user.predictions || {}).length;
                 const completion = Math.round((predsCount / 72) * 100);
                 const joinDate = new Date(user.createdAt).toLocaleDateString();
@@ -324,6 +332,7 @@
                         <td><strong>${idx + 1}</strong></td>
                         <td>${user.firstName} ${user.lastName}</td>
                         <td>${user.ibmId}</td>
+                        <td><strong style="color: #667eea; font-size: 1.1em;">${user.points}</strong></td>
                         <td><strong>${predsCount}/72</strong></td>
                         <td>
                             <span style="color: ${completion === 100 ? '#28a745' : completion > 50 ? '#ffc107' : '#dc3545'};">
@@ -344,9 +353,11 @@
             // Summary sheet
             for (const user of Object.values(allUsers)) {
                 const predsCount = Object.keys(user.predictions || {}).length;
+                const points = calculateUserPoints(user);
                 excelData.push({
                     'Name': `${user.firstName} ${user.lastName}`,
                     'IBM ID': user.ibmId,
+                    'Points': points,
                     'Predictions Made': `${predsCount}/72`,
                     'Completion %': Math.round((predsCount / 72) * 100),
                     'Joined Date': new Date(user.createdAt).toLocaleDateString()
