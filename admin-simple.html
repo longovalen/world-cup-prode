@@ -197,6 +197,48 @@
                 renderAdmin();
             }
         }
+        // Calculate points for a single match
+        function calculateMatchPoints(prediction, result) {
+            if (!result || result.score1 === undefined || result.score2 === undefined) {
+                return 0; // No result yet
+            }
+            
+            const predScore1 = parseInt(prediction.score1);
+            const predScore2 = parseInt(prediction.score2);
+            const resScore1 = parseInt(result.score1);
+            const resScore2 = parseInt(result.score2);
+            
+            // Exact match = 3 points
+            if (predScore1 === resScore1 && predScore2 === resScore2) {
+                return 3;
+            }
+            
+            // Correct winner = 1 point
+            const predWinner = predScore1 > predScore2 ? 'team1' : predScore1 < predScore2 ? 'team2' : 'draw';
+            const resWinner = resScore1 > resScore2 ? 'team1' : resScore1 < resScore2 ? 'team2' : 'draw';
+            
+            if (predWinner === resWinner) {
+                return 1;
+            }
+            
+            return 0;
+        }
+
+        // Calculate total points for a user
+        function calculateUserPoints(user) {
+            const results = JSON.parse(localStorage.getItem('wcResults') || '{}');
+            let totalPoints = 0;
+            
+            if (!user.predictions) return 0;
+            
+            for (const [matchId, prediction] of Object.entries(user.predictions)) {
+                const result = results[matchId];
+                totalPoints += calculateMatchPoints(prediction, result);
+            }
+            
+            return totalPoints;
+        }
+
 
         // Login
         function renderLogin() {
