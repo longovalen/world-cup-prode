@@ -187,6 +187,43 @@
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .match-card.urgent-24h {
+            background: #ffe6e6;
+            border-left: 4px solid #dc3545;
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+        }
+
+        .match-card.urgent-48h {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+        }
+
+        .match-card.locked {
+            background: #e9ecef;
+            opacity: 0.7;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .urgency-badge.urgent-24h {
+            background: #dc3545;
+            color: white;
+        }
+
+        .urgency-badge.urgent-48h {
+            background: #ffc107;
+            color: #333;
         }
 
         .match-date {
@@ -649,6 +686,30 @@
             return now >= matchTime;
         }
 
+        // Get match urgency level
+        function getMatchUrgency(match) {
+            if (!match.datetime) return null;
+            const matchTime = new Date(match.datetime);
+            const now = new Date();
+            const hoursUntilMatch = (matchTime - now) / (1000 * 60 * 60);
+            
+            if (hoursUntilMatch < 0) return 'locked'; // Already started
+            if (hoursUntilMatch <= 24) return 'urgent-24h'; // Within 24 hours
+            if (hoursUntilMatch <= 48) return 'urgent-48h'; // Within 48 hours
+            return null; // More than 48 hours away
+        }
+
+        // Get urgency badge HTML
+        function getUrgencyBadge(urgency) {
+            if (urgency === 'urgent-24h') {
+                return '<span class="urgency-badge urgent-24h">⚠️ URGENT - Less than 24h</span>';
+            }
+            if (urgency === 'urgent-48h') {
+                return '<span class="urgency-badge urgent-48h">⏰ Soon - Less than 48h</span>';
+            }
+            return '';
+        }
+
         // Format match time for display
         function formatMatchTime(match) {
             if (!match.datetime) return match.date;
@@ -878,13 +939,16 @@
             const result = actualResults[match.id] || {};
             const matchStarted = hasMatchStarted(match);
             const isLocked = result.score1 !== undefined || matchStarted;
+            const urgency = getMatchUrgency(match);
+            const urgencyClass = urgency ? urgency : '';
             
             return `
-                <div class="match-card">
+                <div class="match-card ${urgencyClass}">
                     <div class="match-date">
                         <span>${formatMatchTime(match)}</span>
                         ${result.score1 !== undefined ? `<span style="color: #28a745; font-weight: bold;">Final: ${result.score1}-${result.score2}</span>` : ''}
                         ${matchStarted && result.score1 === undefined ? `<span style="color: #dc3545; font-weight: bold;">🔒 Match Started</span>` : ''}
+                        ${!matchStarted && !result.score1 ? getUrgencyBadge(urgency) : ''}
                     </div>
                     <div class="match-teams">
                         <div class="team">
