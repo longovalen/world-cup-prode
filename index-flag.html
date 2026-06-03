@@ -172,6 +172,53 @@
             color: #667eea;
         }
 
+        .urgency-legend {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .urgency-legend-title {
+            font-weight: 600;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        .urgency-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .urgency-legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #ddd;
+        }
+
+        .urgency-legend-color.red {
+            background: #ffe6e6;
+            border-color: #dc3545;
+        }
+
+        .urgency-legend-color.yellow {
+            background: #fff9e6;
+            border-color: #ffc107;
+        }
+
+        .urgency-legend-color.gray {
+            background: #e9ecef;
+            border-color: #999;
+        }
+
         .matches-section {
             margin-top: 20px;
         }
@@ -833,6 +880,22 @@
                             <div class="stat-number">${72 - resultsCount}</div>
                             <div class="stat-label">Matches Remaining</div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="urgency-legend">
+                    <span class="urgency-legend-title">🎨 Match Colors:</span>
+                    <div class="urgency-legend-item">
+                        <div class="urgency-legend-color red"></div>
+                        <span>🔴 Urgent (<24h)</span>
+                    </div>
+                    <div class="urgency-legend-item">
+                        <div class="urgency-legend-color yellow"></div>
+                        <span>🟡 Soon (<48h)</span>
+                    </div>
+                    <div class="urgency-legend-item">
+                        <div class="urgency-legend-color gray"></div>
+                        <span>🔒 Locked/Ended</span>
                     </div>
                 </div>
 
