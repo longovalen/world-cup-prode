@@ -129,6 +129,12 @@
             text-align: left;
             font-size: 0.85em;
             border-bottom: 2px solid #e0e0e0;
+            position: relative;
+            cursor: help;
+        }
+
+        .standings-table th[title] {
+            text-decoration: underline dotted;
         }
 
         .standings-table td {
@@ -150,6 +156,20 @@
             object-fit: cover;
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .table-legend {
+            background: #f0f4ff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.85em;
+            color: #555;
+            border-left: 3px solid #667eea;
+        }
+
+        .table-legend strong {
+            color: #667eea;
         }
 
         .matches-section {
@@ -473,153 +493,175 @@
             return `<img src="https://flagcdn.com/w40/${code}.png" class="flag-icon" alt="${country}" onerror="this.style.display='none'">`;
         }
 
-        // Group Stage Data
+        // Group Stage Data (All times in EDT - Eastern Daylight Time)
         const GROUPS = {
             A: {
                 name: "Group A",
                 teams: ["Mexico", "South Africa", "South Korea", "Czechia"],
                 matches: [
-                    { id: 1, date: "Jun 11", team1: "Mexico", team2: "South Africa" },
-                    { id: 2, date: "Jun 11", team1: "South Korea", team2: "Czechia" },
-                    { id: 3, date: "Jun 18", team1: "Czechia", team2: "South Africa" },
-                    { id: 4, date: "Jun 18", team1: "Mexico", team2: "South Korea" },
-                    { id: 5, date: "Jun 24", team1: "Czechia", team2: "Mexico" },
-                    { id: 6, date: "Jun 24", team1: "South Africa", team2: "South Korea" }
+                    { id: 1, date: "Jun 11", datetime: "2026-06-11T15:00:00-04:00", team1: "Mexico", team2: "South Africa" },
+                    { id: 2, date: "Jun 11", datetime: "2026-06-11T18:00:00-04:00", team1: "South Korea", team2: "Czechia" },
+                    { id: 3, date: "Jun 18", datetime: "2026-06-18T15:00:00-04:00", team1: "Czechia", team2: "South Africa" },
+                    { id: 4, date: "Jun 18", datetime: "2026-06-18T18:00:00-04:00", team1: "Mexico", team2: "South Korea" },
+                    { id: 5, date: "Jun 24", datetime: "2026-06-24T15:00:00-04:00", team1: "Czechia", team2: "Mexico" },
+                    { id: 6, date: "Jun 24", datetime: "2026-06-24T15:00:00-04:00", team1: "South Africa", team2: "South Korea" }
                 ]
             },
             B: {
                 name: "Group B",
                 teams: ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
                 matches: [
-                    { id: 7, date: "Jun 12", team1: "Canada", team2: "Bosnia and Herzegovina" },
-                    { id: 8, date: "Jun 13", team1: "Qatar", team2: "Switzerland" },
-                    { id: 9, date: "Jun 18", team1: "Bosnia and Herzegovina", team2: "Switzerland" },
-                    { id: 10, date: "Jun 18", team1: "Canada", team2: "Qatar" },
-                    { id: 11, date: "Jun 24", team1: "Switzerland", team2: "Canada" },
-                    { id: 12, date: "Jun 24", team1: "Bosnia and Herzegovina", team2: "Qatar" }
+                    { id: 7, date: "Jun 12", datetime: "2026-06-12T15:00:00-04:00", team1: "Canada", team2: "Bosnia and Herzegovina" },
+                    { id: 8, date: "Jun 13", datetime: "2026-06-13T12:00:00-04:00", team1: "Qatar", team2: "Switzerland" },
+                    { id: 9, date: "Jun 18", datetime: "2026-06-18T12:00:00-04:00", team1: "Bosnia and Herzegovina", team2: "Switzerland" },
+                    { id: 10, date: "Jun 18", datetime: "2026-06-18T15:00:00-04:00", team1: "Canada", team2: "Qatar" },
+                    { id: 11, date: "Jun 24", datetime: "2026-06-24T18:00:00-04:00", team1: "Switzerland", team2: "Canada" },
+                    { id: 12, date: "Jun 24", datetime: "2026-06-24T18:00:00-04:00", team1: "Bosnia and Herzegovina", team2: "Qatar" }
                 ]
             },
             C: {
                 name: "Group C",
                 teams: ["Brazil", "Morocco", "Haiti", "Scotland"],
                 matches: [
-                    { id: 13, date: "Jun 13", team1: "Brazil", team2: "Morocco" },
-                    { id: 14, date: "Jun 13", team1: "Haiti", team2: "Scotland" },
-                    { id: 15, date: "Jun 19", team1: "Scotland", team2: "Morocco" },
-                    { id: 16, date: "Jun 19", team1: "Brazil", team2: "Haiti" },
-                    { id: 17, date: "Jun 24", team1: "Scotland", team2: "Brazil" },
-                    { id: 18, date: "Jun 24", team1: "Morocco", team2: "Haiti" }
+                    { id: 13, date: "Jun 13", datetime: "2026-06-13T15:00:00-04:00", team1: "Brazil", team2: "Morocco" },
+                    { id: 14, date: "Jun 13", datetime: "2026-06-13T18:00:00-04:00", team1: "Haiti", team2: "Scotland" },
+                    { id: 15, date: "Jun 19", datetime: "2026-06-19T12:00:00-04:00", team1: "Scotland", team2: "Morocco" },
+                    { id: 16, date: "Jun 19", datetime: "2026-06-19T15:00:00-04:00", team1: "Brazil", team2: "Haiti" },
+                    { id: 17, date: "Jun 24", datetime: "2026-06-24T12:00:00-04:00", team1: "Scotland", team2: "Brazil" },
+                    { id: 18, date: "Jun 24", datetime: "2026-06-24T12:00:00-04:00", team1: "Morocco", team2: "Haiti" }
                 ]
             },
             D: {
                 name: "Group D",
                 teams: ["USA", "Paraguay", "Australia", "Turkey"],
                 matches: [
-                    { id: 19, date: "Jun 12", team1: "USA", team2: "Paraguay" },
-                    { id: 20, date: "Jun 13", team1: "Australia", team2: "Turkey" },
-                    { id: 21, date: "Jun 19", team1: "Turkey", team2: "Paraguay" },
-                    { id: 22, date: "Jun 19", team1: "USA", team2: "Australia" },
-                    { id: 23, date: "Jun 25", team1: "Turkey", team2: "USA" },
-                    { id: 24, date: "Jun 25", team1: "Paraguay", team2: "Australia" }
+                    { id: 19, date: "Jun 12", datetime: "2026-06-12T18:00:00-04:00", team1: "USA", team2: "Paraguay" },
+                    { id: 20, date: "Jun 13", datetime: "2026-06-13T15:00:00-04:00", team1: "Australia", team2: "Turkey" },
+                    { id: 21, date: "Jun 19", datetime: "2026-06-19T18:00:00-04:00", team1: "Turkey", team2: "Paraguay" },
+                    { id: 22, date: "Jun 19", datetime: "2026-06-19T21:00:00-04:00", team1: "USA", team2: "Australia" },
+                    { id: 23, date: "Jun 25", datetime: "2026-06-25T15:00:00-04:00", team1: "Turkey", team2: "USA" },
+                    { id: 24, date: "Jun 25", datetime: "2026-06-25T15:00:00-04:00", team1: "Paraguay", team2: "Australia" }
                 ]
             },
             E: {
                 name: "Group E",
                 teams: ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
                 matches: [
-                    { id: 25, date: "Jun 14", team1: "Germany", team2: "Curaçao" },
-                    { id: 26, date: "Jun 14", team1: "Ivory Coast", team2: "Ecuador" },
-                    { id: 27, date: "Jun 20", team1: "Germany", team2: "Ivory Coast" },
-                    { id: 28, date: "Jun 20", team1: "Ecuador", team2: "Curaçao" },
-                    { id: 29, date: "Jun 25", team1: "Ecuador", team2: "Germany" },
-                    { id: 30, date: "Jun 25", team1: "Curaçao", team2: "Ivory Coast" }
+                    { id: 25, date: "Jun 14", datetime: "2026-06-14T12:00:00-04:00", team1: "Germany", team2: "Curaçao" },
+                    { id: 26, date: "Jun 14", datetime: "2026-06-14T15:00:00-04:00", team1: "Ivory Coast", team2: "Ecuador" },
+                    { id: 27, date: "Jun 20", datetime: "2026-06-20T15:00:00-04:00", team1: "Germany", team2: "Ivory Coast" },
+                    { id: 28, date: "Jun 20", datetime: "2026-06-20T18:00:00-04:00", team1: "Ecuador", team2: "Curaçao" },
+                    { id: 29, date: "Jun 25", datetime: "2026-06-25T18:00:00-04:00", team1: "Ecuador", team2: "Germany" },
+                    { id: 30, date: "Jun 25", datetime: "2026-06-25T18:00:00-04:00", team1: "Curaçao", team2: "Ivory Coast" }
                 ]
             },
             F: {
                 name: "Group F",
                 teams: ["Netherlands", "Japan", "Sweden", "Tunisia"],
                 matches: [
-                    { id: 31, date: "Jun 14", team1: "Netherlands", team2: "Japan" },
-                    { id: 32, date: "Jun 14", team1: "Sweden", team2: "Tunisia" },
-                    { id: 33, date: "Jun 20", team1: "Netherlands", team2: "Sweden" },
-                    { id: 34, date: "Jun 20", team1: "Tunisia", team2: "Japan" },
-                    { id: 35, date: "Jun 25", team1: "Tunisia", team2: "Netherlands" },
-                    { id: 36, date: "Jun 25", team1: "Japan", team2: "Sweden" }
+                    { id: 31, date: "Jun 14", datetime: "2026-06-14T18:00:00-04:00", team1: "Netherlands", team2: "Japan" },
+                    { id: 32, date: "Jun 14", datetime: "2026-06-14T21:00:00-04:00", team1: "Sweden", team2: "Tunisia" },
+                    { id: 33, date: "Jun 20", datetime: "2026-06-20T12:00:00-04:00", team1: "Netherlands", team2: "Sweden" },
+                    { id: 34, date: "Jun 20", datetime: "2026-06-20T15:00:00-04:00", team1: "Tunisia", team2: "Japan" },
+                    { id: 35, date: "Jun 25", datetime: "2026-06-25T12:00:00-04:00", team1: "Tunisia", team2: "Netherlands" },
+                    { id: 36, date: "Jun 25", datetime: "2026-06-25T12:00:00-04:00", team1: "Japan", team2: "Sweden" }
                 ]
             },
             G: {
                 name: "Group G",
                 teams: ["Belgium", "Egypt", "Iran", "New Zealand"],
                 matches: [
-                    { id: 37, date: "Jun 15", team1: "Belgium", team2: "Egypt" },
-                    { id: 38, date: "Jun 15", team1: "Iran", team2: "New Zealand" },
-                    { id: 39, date: "Jun 21", team1: "Belgium", team2: "Iran" },
-                    { id: 40, date: "Jun 21", team1: "New Zealand", team2: "Egypt" },
-                    { id: 41, date: "Jun 26", team1: "New Zealand", team2: "Belgium" },
-                    { id: 42, date: "Jun 26", team1: "Egypt", team2: "Iran" }
+                    { id: 37, date: "Jun 15", datetime: "2026-06-15T12:00:00-04:00", team1: "Belgium", team2: "Egypt" },
+                    { id: 38, date: "Jun 15", datetime: "2026-06-15T15:00:00-04:00", team1: "Iran", team2: "New Zealand" },
+                    { id: 39, date: "Jun 21", datetime: "2026-06-21T12:00:00-04:00", team1: "Belgium", team2: "Iran" },
+                    { id: 40, date: "Jun 21", datetime: "2026-06-21T15:00:00-04:00", team1: "New Zealand", team2: "Egypt" },
+                    { id: 41, date: "Jun 26", datetime: "2026-06-26T15:00:00-04:00", team1: "New Zealand", team2: "Belgium" },
+                    { id: 42, date: "Jun 26", datetime: "2026-06-26T15:00:00-04:00", team1: "Egypt", team2: "Iran" }
                 ]
             },
             H: {
                 name: "Group H",
                 teams: ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
                 matches: [
-                    { id: 43, date: "Jun 15", team1: "Spain", team2: "Cape Verde" },
-                    { id: 44, date: "Jun 15", team1: "Saudi Arabia", team2: "Uruguay" },
-                    { id: 45, date: "Jun 21", team1: "Spain", team2: "Saudi Arabia" },
-                    { id: 46, date: "Jun 21", team1: "Uruguay", team2: "Cape Verde" },
-                    { id: 47, date: "Jun 26", team1: "Uruguay", team2: "Spain" },
-                    { id: 48, date: "Jun 26", team1: "Cape Verde", team2: "Saudi Arabia" }
+                    { id: 43, date: "Jun 15", datetime: "2026-06-15T18:00:00-04:00", team1: "Spain", team2: "Cape Verde" },
+                    { id: 44, date: "Jun 15", datetime: "2026-06-15T21:00:00-04:00", team1: "Saudi Arabia", team2: "Uruguay" },
+                    { id: 45, date: "Jun 21", datetime: "2026-06-21T18:00:00-04:00", team1: "Spain", team2: "Saudi Arabia" },
+                    { id: 46, date: "Jun 21", datetime: "2026-06-21T21:00:00-04:00", team1: "Uruguay", team2: "Cape Verde" },
+                    { id: 47, date: "Jun 26", datetime: "2026-06-26T18:00:00-04:00", team1: "Uruguay", team2: "Spain" },
+                    { id: 48, date: "Jun 26", datetime: "2026-06-26T18:00:00-04:00", team1: "Cape Verde", team2: "Saudi Arabia" }
                 ]
             },
             I: {
                 name: "Group I",
                 teams: ["France", "Senegal", "Iraq", "Norway"],
                 matches: [
-                    { id: 49, date: "Jun 16", team1: "France", team2: "Senegal" },
-                    { id: 50, date: "Jun 16", team1: "Iraq", team2: "Norway" },
-                    { id: 51, date: "Jun 22", team1: "France", team2: "Iraq" },
-                    { id: 52, date: "Jun 22", team1: "Norway", team2: "Senegal" },
-                    { id: 53, date: "Jun 27", team1: "Norway", team2: "France" },
-                    { id: 54, date: "Jun 27", team1: "Senegal", team2: "Iraq" }
+                    { id: 49, date: "Jun 16", datetime: "2026-06-16T12:00:00-04:00", team1: "France", team2: "Senegal" },
+                    { id: 50, date: "Jun 16", datetime: "2026-06-16T15:00:00-04:00", team1: "Iraq", team2: "Norway" },
+                    { id: 51, date: "Jun 22", datetime: "2026-06-22T12:00:00-04:00", team1: "France", team2: "Iraq" },
+                    { id: 52, date: "Jun 22", datetime: "2026-06-22T15:00:00-04:00", team1: "Norway", team2: "Senegal" },
+                    { id: 53, date: "Jun 27", datetime: "2026-06-27T15:00:00-04:00", team1: "Norway", team2: "France" },
+                    { id: 54, date: "Jun 27", datetime: "2026-06-27T15:00:00-04:00", team1: "Senegal", team2: "Iraq" }
                 ]
             },
             J: {
                 name: "Group J",
                 teams: ["Argentina", "Algeria", "Austria", "Jordan"],
                 matches: [
-                    { id: 55, date: "Jun 16", team1: "Argentina", team2: "Algeria" },
-                    { id: 56, date: "Jun 16", team1: "Austria", team2: "Jordan" },
-                    { id: 57, date: "Jun 22", team1: "Argentina", team2: "Austria" },
-                    { id: 58, date: "Jun 22", team1: "Jordan", team2: "Algeria" },
-                    { id: 59, date: "Jun 27", team1: "Jordan", team2: "Argentina" },
-                    { id: 60, date: "Jun 27", team1: "Algeria", team2: "Austria" }
+                    { id: 55, date: "Jun 16", datetime: "2026-06-16T18:00:00-04:00", team1: "Argentina", team2: "Algeria" },
+                    { id: 56, date: "Jun 16", datetime: "2026-06-16T21:00:00-04:00", team1: "Austria", team2: "Jordan" },
+                    { id: 57, date: "Jun 22", datetime: "2026-06-22T18:00:00-04:00", team1: "Argentina", team2: "Austria" },
+                    { id: 58, date: "Jun 22", datetime: "2026-06-22T21:00:00-04:00", team1: "Jordan", team2: "Algeria" },
+                    { id: 59, date: "Jun 27", datetime: "2026-06-27T18:00:00-04:00", team1: "Jordan", team2: "Argentina" },
+                    { id: 60, date: "Jun 27", datetime: "2026-06-27T18:00:00-04:00", team1: "Algeria", team2: "Austria" }
                 ]
             },
             K: {
                 name: "Group K",
                 teams: ["Portugal", "Congo DR", "Uzbekistan", "Colombia"],
                 matches: [
-                    { id: 61, date: "Jun 17", team1: "Portugal", team2: "Congo DR" },
-                    { id: 62, date: "Jun 17", team1: "Uzbekistan", team2: "Colombia" },
-                    { id: 63, date: "Jun 23", team1: "Portugal", team2: "Uzbekistan" },
-                    { id: 64, date: "Jun 23", team1: "Colombia", team2: "Congo DR" },
-                    { id: 65, date: "Jun 27", team1: "Colombia", team2: "Portugal" },
-                    { id: 66, date: "Jun 27", team1: "Congo DR", team2: "Uzbekistan" }
+                    { id: 61, date: "Jun 17", datetime: "2026-06-17T12:00:00-04:00", team1: "Portugal", team2: "Congo DR" },
+                    { id: 62, date: "Jun 17", datetime: "2026-06-17T15:00:00-04:00", team1: "Uzbekistan", team2: "Colombia" },
+                    { id: 63, date: "Jun 23", datetime: "2026-06-23T12:00:00-04:00", team1: "Portugal", team2: "Uzbekistan" },
+                    { id: 64, date: "Jun 23", datetime: "2026-06-23T15:00:00-04:00", team1: "Colombia", team2: "Congo DR" },
+                    { id: 65, date: "Jun 27", datetime: "2026-06-27T12:00:00-04:00", team1: "Colombia", team2: "Portugal" },
+                    { id: 66, date: "Jun 27", datetime: "2026-06-27T12:00:00-04:00", team1: "Congo DR", team2: "Uzbekistan" }
                 ]
             },
             L: {
                 name: "Group L",
                 teams: ["England", "Croatia", "Ghana", "Panama"],
                 matches: [
-                    { id: 67, date: "Jun 17", team1: "England", team2: "Croatia" },
-                    { id: 68, date: "Jun 17", team1: "Ghana", team2: "Panama" },
-                    { id: 69, date: "Jun 23", team1: "England", team2: "Ghana" },
-                    { id: 70, date: "Jun 23", team1: "Panama", team2: "Croatia" },
-                    { id: 71, date: "Jun 27", team1: "Panama", team2: "England" },
-                    { id: 72, date: "Jun 27", team1: "Croatia", team2: "Ghana" }
+                    { id: 67, date: "Jun 17", datetime: "2026-06-17T18:00:00-04:00", team1: "England", team2: "Croatia" },
+                    { id: 68, date: "Jun 17", datetime: "2026-06-17T21:00:00-04:00", team1: "Ghana", team2: "Panama" },
+                    { id: 69, date: "Jun 23", datetime: "2026-06-23T18:00:00-04:00", team1: "England", team2: "Ghana" },
+                    { id: 70, date: "Jun 23", datetime: "2026-06-23T21:00:00-04:00", team1: "Panama", team2: "Croatia" },
+                    { id: 71, date: "Jun 27", datetime: "2026-06-27T21:00:00-04:00", team1: "Panama", team2: "England" },
+                    { id: 72, date: "Jun 27", datetime: "2026-06-27T21:00:00-04:00", team1: "Croatia", team2: "Ghana" }
                 ]
             }
         };
+
+        // Check if match has started (based on EDT timezone)
+        function hasMatchStarted(match) {
+            if (!match.datetime) return false;
+            const matchTime = new Date(match.datetime);
+            const now = new Date();
+            return now >= matchTime;
+        }
+
+        // Format match time for display
+        function formatMatchTime(match) {
+            if (!match.datetime) return match.date;
+            const matchTime = new Date(match.datetime);
+            const options = {
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            };
+            return matchTime.toLocaleString('en-US', options);
+        }
 
         // Initialize
         function init() {
@@ -706,6 +748,9 @@
                 <div class="header">
                     <h1>⚽ World Cup 2026</h1>
                     <p>Welcome, ${currentUser.firstName} ${currentUser.lastName}</p>
+                    <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">
+                        ⏰ All times shown in ET (Eastern Time - New York) • Predictions lock when matches start
+                    </p>
                 </div>
 
                 <div class="user-info">
@@ -728,6 +773,10 @@
                             <div class="stat-label">Matches Remaining</div>
                         </div>
                     </div>
+                </div>
+
+                <div class="table-legend">
+                    <strong>Table Key:</strong> P = Played • W = Won • D = Draw • L = Lost • Pts = Points
                 </div>
 
                 <div class="tabs">
@@ -793,11 +842,11 @@
                             <tr>
                                 <th>#</th>
                                 <th>Team</th>
-                                <th>P</th>
-                                <th>W</th>
-                                <th>D</th>
-                                <th>L</th>
-                                <th>Pts</th>
+                                <th title="Played - Matches played">P</th>
+                                <th title="Won - Matches won">W</th>
+                                <th title="Draw - Matches tied">D</th>
+                                <th title="Lost - Matches lost">L</th>
+                                <th title="Points - Total points">Pts</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -827,12 +876,15 @@
         function renderMatchCard(match) {
             const prediction = userPredictions[match.id] || {};
             const result = actualResults[match.id] || {};
+            const matchStarted = hasMatchStarted(match);
+            const isLocked = result.score1 !== undefined || matchStarted;
             
             return `
                 <div class="match-card">
                     <div class="match-date">
-                        <span>${match.date}</span>
+                        <span>${formatMatchTime(match)}</span>
                         ${result.score1 !== undefined ? `<span style="color: #28a745; font-weight: bold;">Final: ${result.score1}-${result.score2}</span>` : ''}
+                        ${matchStarted && result.score1 === undefined ? `<span style="color: #dc3545; font-weight: bold;">🔒 Match Started</span>` : ''}
                     </div>
                     <div class="match-teams">
                         <div class="team">
@@ -840,21 +892,23 @@
                             <span>${match.team1}</span>
                         </div>
                         <div class="score-inputs">
-                            <input type="number" 
-                                   class="score-input" 
+                            <input type="number"
+                                   class="score-input"
                                    id="match_${match.id}_team1"
                                    value="${prediction.score1 !== undefined ? prediction.score1 : ''}"
                                    min="0" max="20"
-                                   ${result.score1 !== undefined ? 'disabled' : ''}
-                                   placeholder="0">
+                                   ${isLocked ? 'disabled' : ''}
+                                   placeholder="0"
+                                   title="${isLocked ? 'Match has started or ended - predictions locked' : 'Enter your prediction'}">
                             <span class="vs">-</span>
-                            <input type="number" 
-                                   class="score-input" 
+                            <input type="number"
+                                   class="score-input"
                                    id="match_${match.id}_team2"
                                    value="${prediction.score2 !== undefined ? prediction.score2 : ''}"
                                    min="0" max="20"
-                                   ${result.score1 !== undefined ? 'disabled' : ''}
-                                   placeholder="0">
+                                   ${isLocked ? 'disabled' : ''}
+                                   placeholder="0"
+                                   title="${isLocked ? 'Match has started or ended - predictions locked' : 'Enter your prediction'}">
                         </div>
                         <div class="team right">
                             <span>${match.team2}</span>
@@ -908,6 +962,8 @@
         // Save Predictions
         function savePredictions() {
             let saved = 0;
+            let skipped = 0;
+            let skippedMatches = [];
             
             // Collect all predictions
             for (const group of Object.values(GROUPS)) {
@@ -916,14 +972,29 @@
                     const score2Input = document.getElementById(`match_${match.id}_team2`);
                     
                     if (score1Input && score2Input && score1Input.value !== '' && score2Input.value !== '') {
-                        userPredictions[match.id] = {
-                            matchId: match.id,
-                            score1: parseInt(score1Input.value),
-                            score2: parseInt(score2Input.value),
-                            team1: match.team1,
-                            team2: match.team2
-                        };
-                        saved++;
+                        // Check if match has started or has results
+                        const result = actualResults[match.id];
+                        const matchStarted = hasMatchStarted(match);
+                        
+                        if (result && result.score1 !== undefined) {
+                            // Match has ended - skip
+                            skipped++;
+                            skippedMatches.push(`${match.team1} vs ${match.team2} (ended)`);
+                        } else if (matchStarted) {
+                            // Match has started - skip
+                            skipped++;
+                            skippedMatches.push(`${match.team1} vs ${match.team2} (started)`);
+                        } else {
+                            // Save prediction
+                            userPredictions[match.id] = {
+                                matchId: match.id,
+                                score1: parseInt(score1Input.value),
+                                score2: parseInt(score2Input.value),
+                                team1: match.team1,
+                                team2: match.team2
+                            };
+                            saved++;
+                        }
                     }
                 }
             }
@@ -934,7 +1005,15 @@
             allUsers[currentUser.ibmId] = currentUser;
             localStorage.setItem('wcPredictions', JSON.stringify(allUsers));
 
-            alert(`✅ ${saved} predictions saved successfully!`);
+            let message = `✅ ${saved} predictions saved successfully!`;
+            if (skipped > 0) {
+                message += `\n\n⚠️ ${skipped} predictions were skipped because the matches have already started or ended:\n${skippedMatches.slice(0, 5).join('\n')}`;
+                if (skippedMatches.length > 5) {
+                    message += `\n... and ${skippedMatches.length - 5} more`;
+                }
+            }
+            
+            alert(message);
             renderApp();
         }
 
