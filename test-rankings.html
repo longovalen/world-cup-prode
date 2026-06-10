@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rankings JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .url-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            word-break: break-all;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-card">
+        <h1>🔍 Rankings JSON Diagnostic Tool</h1>
+        
+        <div id="currentUrl" class="info">
+            <strong>Current Page URL:</strong>
+            <div class="url-display" id="pageUrl"></div>
+        </div>
+
+        <div id="expectedUrl" class="info">
+            <strong>Expected rankings.json URL:</strong>
+            <div class="url-display" id="rankingsUrl"></div>
+        </div>
+
+        <button onclick="testRankingsFile()">🧪 Test Rankings File</button>
+        <button onclick="testWithCache()">🔄 Test (Bypass Cache)</button>
+        <button onclick="copyUrl()">📋 Copy Rankings URL</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Display current URLs
+        const currentUrl = window.location.href;
+        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+        const rankingsUrl = baseUrl + 'rankings.json';
+
+        document.getElementById('pageUrl').textContent = currentUrl;
+        document.getElementById('rankingsUrl').textContent = rankingsUrl;
+
+        async function testRankingsFile() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="info">⏳ Testing rankings.json file...</div>';
+
+            try {
+                console.log('Fetching from:', rankingsUrl);
+                const response = await fetch(rankingsUrl);
+                
+                resultsDiv.innerHTML = `
+                    <div class="status ${response.ok ? 'success' : 'error'}">
+                        <strong>HTTP Status:</strong> ${response.status} ${response.statusText}
+                    </div>
+                `;
+
+                if (response.ok) {
+                    const contentType = response.headers.get('content-type');
+                    resultsDiv.innerHTML += `
+                        <div class="status info">
+                            <strong>Content-Type:</strong> ${contentType}
+                        </div>
+                    `;
+
+                    const text = await response.text();
+                    
+                    try {
+                        const data = JSON.parse(text);
+                        resultsDiv.innerHTML += `
+                            <div class="status success">
+                                ✅ <strong>JSON is valid!</strong>
+                            </div>
+                            <div class="status info">
+                                <strong>Rankings Data:</strong><br>
+                                • Last Updated: ${new Date(data.lastUpdated).toLocaleString()}<br>
+                                • Total Users: ${data.totalUsers}<br>
+                                • Rankings Count: ${data.rankings ? data.rankings.length : 0}
+                            </div>
+                            <details>
+                                <summary style="cursor: pointer; padding: 10px; background: #f8f9fa; margin: 10px 0; border-radius: 5px;">
+                                    <strong>📄 View Full JSON</strong>
+                                </summary>
+                                <pre>${JSON.stringify(data, null, 2)}</pre>
+                            </details>
+                        `;
+
+                        if (data.rankings && data.rankings.length > 0) {
+                            resultsDiv.innerHTML += `
+                                <div class="status success">
+                                    <strong>✅ Top 3 Rankings:</strong><br>
+                                    ${data.rankings.slice(0, 3).map((user, idx) => 
+                                        `${idx + 1}. ${user.firstName} ${user.lastName} - ${user.points} pts`
+                                    ).join('<br>')}
+                                </div>
+                            `;
+                        }
+                    } catch (parseError) {
+                        resultsDiv.innerHTML += `
+                            <div class="status error">
+                                ❌ <strong>JSON Parse Error:</strong> ${parseError.message}
+                            </div>
+                            <details>
+                                <summary style="cursor: pointer; padding: 10px; background: #f8f9fa; margin: 10px 0; border-radius: 5px;">
+                                    <strong>📄 View Raw Response</strong>
+                                </summary>
+                                <pre>${text}</pre>
+                            </details>
+                        `;
+                    }
+                } else {
+                    resultsDiv.innerHTML += `
+                        <div class="status error">
+                            ❌ <strong>File not found or not accessible</strong><br><br>
+                            <strong>Possible reasons:</strong><br>
+                            • File not uploaded to GitHub Pages<br>
+                            • File in wrong directory (should be in root)<br>
+                            • File named incorrectly (must be exactly "rankings.json")<br>
+                            • GitHub Pages not deployed yet (wait 1-2 minutes)<br>
+                            • CORS issue (if testing locally)
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `
+                    <div class="status error">
+                        ❌ <strong>Network Error:</strong> ${error.message}<br><br>
+                        <strong>This usually means:</strong><br>
+                        • File doesn't exist at this URL<br>
+                        • CORS blocking (if testing locally)<br>
+                        • Network connectivity issue
+                    </div>
+                `;
+                console.error('Fetch error:', error);
+            }
+        }
+
+        async function testWithCache() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="info">⏳ Testing with cache bypass...</div>';
+
+            try {
+                const cacheBuster = '?t=' + new Date().getTime();
+                const response = await fetch(rankingsUrl + cacheBuster, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                resultsDiv.innerHTML = `
+                    <div class="status ${response.ok ? 'success' : 'error'}">
+                        <strong>HTTP Status (No Cache):</strong> ${response.status} ${response.statusText}
+                    </div>
+                `;
+
+                if (response.ok) {
+                    const data = await response.json();
+                    resultsDiv.innerHTML += `
+                        <div class="status success">
+                            ✅ <strong>File accessible with cache bypass!</strong><br>
+                            Last Updated: ${new Date(data.lastUpdated).toLocaleString()}<br>
+                            Total Users: ${data.totalUsers}
+                        </div>
+                        <div class="status warning">
+                            ⚠️ If this works but normal test doesn't, users may need to clear their browser cache.
+                        </div>
+                    `;
+                } else {
+                    resultsDiv.innerHTML += `
+                        <div class="status error">
+                            ❌ File still not accessible even with cache bypass
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `
+                    <div class="status error">
+                        ❌ <strong>Error:</strong> ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function copyUrl() {
+            navigator.clipboard.writeText(rankingsUrl).then(() => {
+                alert('✅ Rankings URL copied to clipboard!\n\n' + rankingsUrl);
+            }).catch(err => {
+                alert('❌ Could not copy URL: ' + err);
+            });
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            setTimeout(testRankingsFile, 500);
+        });
+    </script>
+</body>
+</html>
