@@ -228,6 +228,7 @@
             </div>
 
             <button class="btn btn-success" onclick="exportToExcel()">📊 Export to Excel</button>
+            <button class="btn" onclick="exportToJSON()">💾 Export Rankings JSON</button>
             <button class="btn" onclick="copyRanking()">📋 Copy Ranking</button>
 
             <table id="rankingTable">
@@ -401,6 +402,48 @@
             XLSX.writeFile(wb, `world_cup_rankings_${new Date().toISOString().split('T')[0]}.xlsx`);
             showMessage('✅ Excel file downloaded!', 'success');
         }
+        function exportToJSON() {
+            if (allUsers.length === 0) {
+                showMessage('No users to export', 'error');
+                return;
+            }
+
+            const usersWithPoints = allUsers.map(user => ({
+                ...user,
+                points: calculateUserPoints(user),
+                predictionsCount: Object.keys(user.predictions || {}).length
+            }));
+
+            usersWithPoints.sort((a, b) => b.points - a.points);
+
+            const rankingsData = {
+                lastUpdated: new Date().toISOString(),
+                totalUsers: usersWithPoints.length,
+                rankings: usersWithPoints.map((user, idx) => ({
+                    rank: idx + 1,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    ibmId: user.ibmId,
+                    points: user.points,
+                    predictionsCount: user.predictionsCount,
+                    completion: Math.round((user.predictionsCount / 72) * 100)
+                }))
+            };
+
+            const dataStr = JSON.stringify(rankingsData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `rankings_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showMessage('✅ Rankings JSON downloaded! Upload this file to GitHub.', 'success');
+        }
+
 
         function copyRanking() {
             const usersWithPoints = allUsers.map(user => ({
