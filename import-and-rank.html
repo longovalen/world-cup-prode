@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import & Rank - World Cup 2026</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9em;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .rank.gold { color: #FFD700; }
+        .rank.silver { color: #C0C0C0; }
+        .rank.bronze { color: #CD7F32; }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Import & Rank Tool</h1>
+            <p>World Cup 2026 - Compile Rankings from Emails</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📥 Step 1: Import User Data</div>
+            
+            <div class="info">
+                <strong>How to use:</strong>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Open each email you received</li>
+                    <li>Copy the JSON data (the part between { and })</li>
+                    <li>Paste it in the box below</li>
+                    <li>Click "Add User"</li>
+                    <li>Repeat for all users</li>
+                </ol>
+            </div>
+
+            <textarea id="jsonInput" placeholder='Paste JSON here, for example:
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "ibmId": "john.doe@ibm.com",
+  "predictions": { ... },
+  "createdAt": "2026-06-10T17:00:00.000Z"
+}'></textarea>
+
+            <button class="btn" onclick="addUser()">➕ Add User</button>
+            <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+
+            <div id="message"></div>
+        </div>
+
+        <div class="card" id="rankingCard" style="display: none;">
+            <div class="card-title">🏆 Current Rankings</div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalUsers">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalPredictions">0</div>
+                    <div class="stat-label">Total Predictions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="avgPredictions">0</div>
+                    <div class="stat-label">Avg per User</div>
+                </div>
+            </div>
+
+            <button class="btn btn-success" onclick="exportToExcel()">📊 Export to Excel</button>
+            <button class="btn" onclick="copyRanking()">📋 Copy Ranking</button>
+
+            <table id="rankingTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>IBM ID</th>
+                        <th>Points</th>
+                        <th>Predictions</th>
+                        <th>Completion</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allUsers = [];
+
+        function addUser() {
+            const input = document.getElementById('jsonInput').value.trim();
+            
+            if (!input) {
+                showMessage('Please paste JSON data', 'error');
+                return;
+            }
+
+            try {
+                const userData = JSON.parse(input);
+                
+                // Validate required fields
+                if (!userData.firstName || !userData.lastName || !userData.ibmId) {
+                    showMessage('Invalid JSON: Missing required fields (firstName, lastName, ibmId)', 'error');
+                    return;
+                }
+
+                // Check if user already exists
+                const existingIndex = allUsers.findIndex(u => u.ibmId === userData.ibmId);
+                if (existingIndex >= 0) {
+                    allUsers[existingIndex] = userData;
+                    showMessage(`✅ Updated: ${userData.firstName} ${userData.lastName}`, 'success');
+                } else {
+                    allUsers.push(userData);
+                    showMessage(`✅ Added: ${userData.firstName} ${userData.lastName}`, 'success');
+                }
+
+                document.getElementById('jsonInput').value = '';
+                updateRanking();
+            } catch (error) {
+                showMessage('Invalid JSON format. Please check the data and try again.', 'error');
+                console.error(error);
+            }
+        }
+
+        function calculateMatchPoints(prediction, result) {
+            if (!result || result.score1 === undefined || result.score2 === undefined) {
+                return 0;
+            }
+            
+            const predScore1 = parseInt(prediction.score1);
+            const predScore2 = parseInt(prediction.score2);
+            const resScore1 = parseInt(result.score1);
+            const resScore2 = parseInt(result.score2);
+            
+            // Exact match = 3 points
+            if (predScore1 === resScore1 && predScore2 === resScore2) {
+                return 3;
+            }
+            
+            // Correct winner = 1 point
+            const predWinner = predScore1 > predScore2 ? 'team1' : predScore1 < predScore2 ? 'team2' : 'draw';
+            const resWinner = resScore1 > resScore2 ? 'team1' : resScore1 < resScore2 ? 'team2' : 'draw';
+            
+            if (predWinner === resWinner) {
+                return 1;
+            }
+            
+            return 0;
+        }
+
+        function calculateUserPoints(user) {
+            const results = JSON.parse(localStorage.getItem('wcResults') || '{}');
+            let totalPoints = 0;
+            
+            if (!user.predictions) return 0;
+            
+            for (const [matchId, prediction] of Object.entries(user.predictions)) {
+                const result = results[matchId];
+                totalPoints += calculateMatchPoints(prediction, result);
+            }
+            
+            return totalPoints;
+        }
+
+        function updateRanking() {
+            if (allUsers.length === 0) {
+                document.getElementById('rankingCard').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('rankingCard').style.display = 'block';
+
+            // Calculate points for each user
+            const usersWithPoints = allUsers.map(user => ({
+                ...user,
+                points: calculateUserPoints(user),
+                predictionsCount: Object.keys(user.predictions || {}).length
+            }));
+
+            // Sort by points
+            usersWithPoints.sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                return b.predictionsCount - a.predictionsCount;
+            });
+
+            // Update stats
+            const totalPredictions = usersWithPoints.reduce((sum, u) => sum + u.predictionsCount, 0);
+            document.getElementById('totalUsers').textContent = allUsers.length;
+            document.getElementById('totalPredictions').textContent = totalPredictions;
+            document.getElementById('avgPredictions').textContent = Math.round(totalPredictions / allUsers.length);
+
+            // Update table
+            const tbody = document.getElementById('rankingBody');
+            tbody.innerHTML = usersWithPoints.map((user, idx) => {
+                const rankClass = idx === 0 ? 'gold' : idx === 1 ? 'silver' : idx === 2 ? 'bronze' : '';
+                const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '';
+                const completion = Math.round((user.predictionsCount / 72) * 100);
+                
+                return `
+                    <tr>
+                        <td class="rank ${rankClass}">${medal || (idx + 1)}</td>
+                        <td>${user.firstName} ${user.lastName}</td>
+                        <td>${user.ibmId}</td>
+                        <td><strong style="color: #667eea; font-size: 1.1em;">${user.points}</strong></td>
+                        <td>${user.predictionsCount}/72</td>
+                        <td>${completion}%</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function exportToExcel() {
+            if (allUsers.length === 0) {
+                showMessage('No users to export', 'error');
+                return;
+            }
+
+            const usersWithPoints = allUsers.map(user => ({
+                ...user,
+                points: calculateUserPoints(user),
+                predictionsCount: Object.keys(user.predictions || {}).length
+            }));
+
+            usersWithPoints.sort((a, b) => b.points - a.points);
+
+            const excelData = usersWithPoints.map((user, idx) => ({
+                'Rank': idx + 1,
+                'Name': `${user.firstName} ${user.lastName}`,
+                'IBM ID': user.ibmId,
+                'Points': user.points,
+                'Predictions': `${user.predictionsCount}/72`,
+                'Completion %': Math.round((user.predictionsCount / 72) * 100)
+            }));
+
+            const ws = XLSX.utils.json_to_sheet(excelData);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Rankings");
+
+            XLSX.writeFile(wb, `world_cup_rankings_${new Date().toISOString().split('T')[0]}.xlsx`);
+            showMessage('✅ Excel file downloaded!', 'success');
+        }
+
+        function copyRanking() {
+            const usersWithPoints = allUsers.map(user => ({
+                ...user,
+                points: calculateUserPoints(user),
+                predictionsCount: Object.keys(user.predictions || {}).length
+            }));
+
+            usersWithPoints.sort((a, b) => b.points - a.points);
+
+            let text = '🏆 WORLD CUP 2026 RANKINGS 🏆\n\n';
+            usersWithPoints.forEach((user, idx) => {
+                const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx + 1}.`;
+                text += `${medal} ${user.firstName} ${user.lastName} - ${user.points} pts (${user.predictionsCount}/72)\n`;
+            });
+
+            navigator.clipboard.writeText(text);
+            showMessage('✅ Ranking copied to clipboard!', 'success');
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all users?')) {
+                allUsers = [];
+                updateRanking();
+                showMessage('✅ All users cleared', 'success');
+            }
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.className = type;
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+            messageDiv.style.marginTop = '15px';
+
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
