@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-10T18:37:05.934Z",
-  "totalUsers": 2,
+  "lastUpdated": "2026-06-10T18:57:44.770Z",
+  "totalUsers": 3,
   "rankings": [
     {
       "rank": 1,
@@ -19,6 +19,15 @@
       "points": 0,
       "predictionsCount": 72,
       "completion": 100
+    },
+    {
+      "rank": 3,
+      "firstName": "Clarence",
+      "lastName": "James",
+      "ibmId": "cljames@us.ibm.com",
+      "points": 0,
+      "predictionsCount": 2,
+      "completion": 3
     }
   ]
 }
