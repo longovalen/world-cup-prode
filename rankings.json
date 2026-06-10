@@ -1,0 +1,24 @@
+{
+  "lastUpdated": "2026-06-10T18:37:05.934Z",
+  "totalUsers": 2,
+  "rankings": [
+    {
+      "rank": 1,
+      "firstName": "Valentina",
+      "lastName": "Longo",
+      "ibmId": "valentina.longo@ibm.com",
+      "points": 0,
+      "predictionsCount": 4,
+      "completion": 6
+    },
+    {
+      "rank": 2,
+      "firstName": "Anderson",
+      "lastName": "Caichiolo",
+      "ibmId": "acachiol@br.ibm.com",
+      "points": 0,
+      "predictionsCount": 72,
+      "completion": 100
+    }
+  ]
+}
