@@ -1306,15 +1306,25 @@ Copy the JSON above to import into your system.
                 </div>
             `;
 
-            // Try to fetch rankings from JSON file
+            // Try to fetch rankings from JSON file with cache busting
             let rankingsData = null;
             try {
-                const response = await fetch('rankings.json');
+                // Add timestamp to prevent caching
+                const cacheBuster = '?t=' + new Date().getTime();
+                const response = await fetch('rankings.json' + cacheBuster, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
                 if (response.ok) {
                     rankingsData = await response.json();
+                    console.log('✅ Rankings loaded successfully:', rankingsData);
                 }
             } catch (error) {
-                console.log('Rankings file not available yet');
+                console.log('Rankings file not available yet:', error);
             }
 
             let html = `
