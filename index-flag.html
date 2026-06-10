@@ -1137,6 +1137,9 @@
             allUsers[currentUser.ibmId] = currentUser;
             localStorage.setItem('wcPredictions', JSON.stringify(allUsers));
 
+            // Send email to admin with predictions
+            sendEmailToAdmin(currentUser, saved);
+
             let message = `✅ ${saved} predictions saved successfully!`;
             if (skipped > 0) {
                 message += `\n\n⚠️ ${skipped} predictions were skipped because the matches have already started or ended:\n${skippedMatches.slice(0, 5).join('\n')}`;
@@ -1147,6 +1150,90 @@
             
             alert(message);
             renderApp();
+        }
+
+        // Send email to admin with user predictions
+        async function sendEmailToAdmin(user, predictionsCount) {
+            try {
+                // Calculate current points
+                const currentPoints = calculatePointsForUser(user);
+                const resultsCount = Object.keys(actualResults).length;
+                
+                // Create detailed predictions list
+                let predictionsList = '';
+                for (const [matchId, pred] of Object.entries(user.predictions || {})) {
+                    const result = actualResults[matchId];
+                    let pointsEarned = 0;
+                    let status = '⏳ Pending';
+                    
+                    if (result) {
+                        pointsEarned = calculateMatchPoints(pred, result);
+                        status = pointsEarned === 3 ? '🎯 Exact (3pts)' :
+                                 pointsEarned === 1 ? '✅ Winner (1pt)' :
+                                 '❌ Wrong (0pts)';
+                    }
+                    
+                    predictionsList += `${pred.team1} ${pred.score1}-${pred.score2} ${pred.team2} ${status}\n`;
+                }
+
+                const emailData = {
+                    to: 'valentina.longo@ibm.com',
+                    subject: `World Cup 2026 - Prediction from ${user.firstName} ${user.lastName} (${currentPoints} pts)`,
+                    name: `${user.firstName} ${user.lastName}`,
+                    ibmId: user.ibmId,
+                    predictionsCount: predictionsCount,
+                    totalPredictions: Object.keys(user.predictions || {}).length,
+                    currentPoints: currentPoints,
+                    resultsCount: resultsCount,
+                    timestamp: new Date().toLocaleString('en-US', {
+                        timeZone: 'America/New_York',
+                        dateStyle: 'full',
+                        timeStyle: 'long'
+                    }),
+                    predictionsList: predictionsList,
+                    userData: JSON.stringify(user, null, 2)
+                };
+
+                // Using Formspree (free service, no signup needed)
+                const response = await fetch('https://formspree.io/f/xanyqwpk', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: 'valentina.longo@ibm.com',
+                        subject: emailData.subject,
+                        message: `
+NEW PREDICTION SUBMISSION
+========================
+
+Name: ${emailData.name}
+IBM ID: ${emailData.ibmId}
+Predictions Saved: ${emailData.predictionsCount}
+Total Predictions: ${emailData.totalPredictions}
+Current Points: ${emailData.currentPoints} (based on ${emailData.resultsCount} matches played)
+Submitted: ${emailData.timestamp}
+
+PREDICTIONS DETAIL:
+${emailData.predictionsList}
+
+FULL DATA (JSON):
+${emailData.userData}
+
+========================
+Copy the JSON above to import into your system.
+                        `
+                    })
+                });
+
+                if (response.ok) {
+                    console.log('✅ Email sent to admin successfully');
+                } else {
+                    console.warn('⚠️ Email sending failed, but predictions were saved locally');
+                }
+            } catch (error) {
+                console.warn('⚠️ Could not send email to admin, but predictions were saved locally:', error);
+            }
         }
 
         // Calculate User Points
@@ -1205,42 +1292,46 @@
 
         // Render Leaderboard
         function renderLeaderboard() {
-            const allUsers = JSON.parse(localStorage.getItem('wcPredictions') || '{}');
-            const usersArray = Object.values(allUsers).map(user => ({
-                ...user,
-                points: calculatePointsForUser(user)
-            }));
-            
-            usersArray.sort((a, b) => b.points - a.points);
-
+            const myPoints = calculatePointsForUser(currentUser);
+            const myPredictions = Object.keys(currentUser.predictions || {}).length;
             const resultsCount = Object.keys(actualResults).length;
 
             let html = `
                 <div class="leaderboard">
                     <div class="leaderboard-title">🏆 Leaderboard</div>
+                    
+                    <div class="info-message" style="background: #fff3cd; color: #856404; margin-bottom: 20px;">
+                        <p><strong>📊 View Full Leaderboard</strong></p>
+                        <p style="margin-top: 10px;">To see all participants and rankings, click the button below:</p>
+                        <a href="leaderboard.html" target="_blank" style="display: inline-block; margin-top: 15px; padding: 12px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                            🏆 Open Full Leaderboard
+                        </a>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Opens in a new tab</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #333;">📈 Your Stats</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; font-weight: bold; color: #667eea;">${myPoints}</div>
+                                <div style="color: #666; font-size: 0.9em;">Your Points</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; font-weight: bold; color: #28a745;">${myPredictions}</div>
+                                <div style="color: #666; font-size: 0.9em;">Predictions Made</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; font-weight: bold; color: #ffc107;">${resultsCount}</div>
+                                <div style="color: #666; font-size: 0.9em;">Matches Played</div>
+                            </div>
+                        </div>
+                    </div>
+
                     ${resultsCount === 0 ? `
-                        <div class="info-message">
+                        <div class="info-message" style="margin-top: 20px;">
                             <p>⏳ No results have been entered yet. The leaderboard will update as matches are played!</p>
                         </div>
-                    ` : `
-                        <div class="info-message">
-                            <p>📊 ${resultsCount} of 72 matches have results entered</p>
-                        </div>
-                    `}
-                    ${usersArray.length === 0 ? `
-                        <div style="padding: 40px; text-align: center; color: #666;">
-                            No users have made predictions yet
-                        </div>
-                    ` : usersArray.map((user, idx) => `
-                        <div class="leaderboard-item ${user.ibmId === currentUser.ibmId ? 'current-user' : ''}">
-                            <div class="rank">${idx + 1}</div>
-                            <div class="player-name">
-                                ${user.firstName} ${user.lastName}
-                                ${user.ibmId === currentUser.ibmId ? '<span style="color: #28a745;"> (You)</span>' : ''}
-                            </div>
-                            <div class="points">${user.points} pts</div>
-                        </div>
-                    `).join('')}
+                    ` : ''}
                 </div>
             `;
 
