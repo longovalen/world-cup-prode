@@ -205,6 +205,15 @@
 
             <button class="btn" onclick="addUser()">➕ Add User</button>
             <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                <strong>🔄 Restore from Backup:</strong>
+                <p style="margin: 10px 0; color: #856404;">If you lost your data, you can restore it from your rankings.json backup file.</p>
+                <input type="file" id="backupFile" accept=".json" style="display: none;" onchange="handleBackupFile(event)">
+                <button class="btn" onclick="document.getElementById('backupFile').click()" style="background: #ffc107; margin-top: 10px;">
+                    📂 Import from rankings.json
+                </button>
+            </div>
 
             <div id="message"></div>
         </div>
@@ -513,6 +522,89 @@
                 showMessage('✅ All users cleared', 'success');
             }
         }
+        function handleBackupFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const rankingsData = JSON.parse(e.target.result);
+                    
+                    if (!rankingsData.rankings || !Array.isArray(rankingsData.rankings)) {
+                        showMessage('❌ Invalid rankings.json format', 'error');
+                        return;
+                    }
+
+                    // Ask user if they want to merge or replace
+                    const currentCount = allUsers.length;
+                    const newCount = rankingsData.rankings.length;
+                    
+                    let action = 'merge';
+                    if (currentCount > 0) {
+                        const userChoice = confirm(
+                            `You currently have ${currentCount} users loaded.\n\n` +
+                            `The backup file contains ${newCount} users.\n\n` +
+                            `Click OK to MERGE (add new users, keep existing)\n` +
+                            `Click CANCEL to REPLACE (delete current and load backup)`
+                        );
+                        action = userChoice ? 'merge' : 'replace';
+                    }
+
+                    if (action === 'replace') {
+                        allUsers = [];
+                    }
+
+                    // Import users from rankings
+                    let imported = 0;
+                    let updated = 0;
+                    let skipped = 0;
+
+                    rankingsData.rankings.forEach(rankingUser => {
+                        // Check if user already exists
+                        const existingIndex = allUsers.findIndex(u => u.ibmId === rankingUser.ibmId);
+                        
+                        if (existingIndex >= 0) {
+                            // User exists - keep their full data (predictions)
+                            skipped++;
+                        } else {
+                            // New user - create basic structure
+                            // Note: We don't have their predictions, they'll need to be added from emails
+                            allUsers.push({
+                                firstName: rankingUser.firstName,
+                                lastName: rankingUser.lastName,
+                                ibmId: rankingUser.ibmId,
+                                predictions: {}, // Empty - will be filled when you paste their JSON from email
+                                timestamp: rankingsData.lastUpdated
+                            });
+                            imported++;
+                        }
+                    });
+
+                    saveData();
+                    updateRanking();
+
+                    let message = `✅ Backup imported successfully!\n\n`;
+                    message += `• ${imported} new users added\n`;
+                    message += `• ${skipped} existing users kept (with their predictions)\n`;
+                    if (imported > 0) {
+                        message += `\n⚠️ Note: New users from backup don't have predictions yet.\n`;
+                        message += `You'll need to paste their full JSON from emails to add predictions.`;
+                    }
+
+                    showMessage(message, 'success');
+                    
+                    // Reset file input
+                    event.target.value = '';
+
+                } catch (error) {
+                    showMessage('❌ Error reading backup file: ' + error.message, 'error');
+                    console.error(error);
+                }
+            };
+            reader.readAsText(file);
+        }
+
 
         function showMessage(text, type) {
             const messageDiv = document.getElementById('message');
