@@ -140,7 +140,7 @@ function selectMatch() {
 // Save match result
 function saveMatchResult() {
     const select = document.getElementById('matchSelect');
-    const matchId = select.value;
+    const matchId = parseInt(select.value);
     
     if (!matchId) {
         showResultsMessage('Please select a match first', 'error');
