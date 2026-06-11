@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-11T18:59:32.191Z",
-  "totalUsers": 29,
+  "lastUpdated": "2026-06-11T19:13:49.175Z",
+  "totalUsers": 31,
   "rankings": [
     {
       "rank": 1,
@@ -262,6 +262,24 @@
       "points": 0,
       "predictionsCount": 5,
       "completion": 7
+    },
+    {
+      "rank": 30,
+      "firstName": "Martin",
+      "lastName": "Bertolino",
+      "ibmId": "martin.bertolino@ibm.com",
+      "points": 0,
+      "predictionsCount": 3,
+      "completion": 4
+    },
+    {
+      "rank": 31,
+      "firstName": "Carolina",
+      "lastName": "Sanchez",
+      "ibmId": "carolina.sanchez1@ibm.com",
+      "points": 0,
+      "predictionsCount": 21,
+      "completion": 29
     }
   ]
 }
