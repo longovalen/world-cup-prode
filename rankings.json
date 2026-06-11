@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-10T18:57:44.770Z",
-  "totalUsers": 3,
+  "lastUpdated": "2026-06-11T12:05:06.834Z",
+  "totalUsers": 10,
   "rankings": [
     {
       "rank": 1,
@@ -28,6 +28,69 @@
       "points": 0,
       "predictionsCount": 2,
       "completion": 3
+    },
+    {
+      "rank": 4,
+      "firstName": "Tiago",
+      "lastName": "Ramos",
+      "ibmId": "tiagoor@br.ibm.com",
+      "points": 0,
+      "predictionsCount": 7,
+      "completion": 10
+    },
+    {
+      "rank": 5,
+      "firstName": "David",
+      "lastName": "Nasser",
+      "ibmId": "david.nasser@ibm.com",
+      "points": 0,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 6,
+      "firstName": "Agnieszka",
+      "lastName": "Pajurek",
+      "ibmId": "agnieszka.pajurek@ibm.com",
+      "points": 0,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 7,
+      "firstName": "Rita",
+      "lastName": "Kiss-Barta",
+      "ibmId": "rita.kiss-barta@hu.ibm.com",
+      "points": 0,
+      "predictionsCount": 22,
+      "completion": 31
+    },
+    {
+      "rank": 8,
+      "firstName": "Istvan",
+      "lastName": "Ollari",
+      "ibmId": "istvan.ollari@hu.ibm.com",
+      "points": 0,
+      "predictionsCount": 71,
+      "completion": 99
+    },
+    {
+      "rank": 9,
+      "firstName": "Jessica",
+      "lastName": "Calderon",
+      "ibmId": "CalderonJ@ibm.com",
+      "points": 0,
+      "predictionsCount": 2,
+      "completion": 3
+    },
+    {
+      "rank": 10,
+      "firstName": "Neide",
+      "lastName": "Pereira",
+      "ibmId": "neide.pereira@pt.ibm.com",
+      "points": 0,
+      "predictionsCount": 72,
+      "completion": 100
     }
   ]
 }
