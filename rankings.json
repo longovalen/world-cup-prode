@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T18:20:19.709Z",
+  "lastUpdated": "2026-06-11T18:51:22.332Z",
   "totalUsers": 29,
   "rankings": [
     {
@@ -242,8 +242,8 @@
       "lastName": "Moreno",
       "ibmId": "maria.moreno2@ibm.com",
       "points": 0,
-      "predictionsCount": 6,
-      "completion": 8
+      "predictionsCount": 7,
+      "completion": 10
     },
     {
       "rank": 28,
