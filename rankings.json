@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T18:51:22.332Z",
+  "lastUpdated": "2026-06-11T18:59:32.191Z",
   "totalUsers": 29,
   "rankings": [
     {
@@ -8,8 +8,8 @@
       "lastName": "Longo",
       "ibmId": "valentina.longo@ibm.com",
       "points": 0,
-      "predictionsCount": 5,
-      "completion": 7
+      "predictionsCount": 7,
+      "completion": 10
     },
     {
       "rank": 2,
