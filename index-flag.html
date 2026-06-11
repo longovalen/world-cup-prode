@@ -772,8 +772,8 @@
         }
 
         // Initialize
-        function init() {
-            loadResults();
+        async function init() {
+            await loadResults();
             if (!currentUser) {
                 renderLoginForm();
             } else {
@@ -781,8 +781,35 @@
             }
         }
 
-        // Load Results
-        function loadResults() {
+        // Load Results from server and localStorage
+        async function loadResults() {
+            // First, try to load from server (results.json)
+            try {
+                const cacheBuster = '?t=' + new Date().getTime();
+                const response = await fetch('results.json' + cacheBuster, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.results) {
+                        actualResults = data.results;
+                        console.log('✅ Loaded', Object.keys(actualResults).length, 'results from server');
+                        // Save to localStorage as backup
+                        localStorage.setItem('wcResults', JSON.stringify(actualResults));
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.log('No results.json file found on server, using localStorage');
+            }
+            
+            // Fallback to localStorage
             actualResults = JSON.parse(localStorage.getItem('wcResults') || '{}');
         }
 

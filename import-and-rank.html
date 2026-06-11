@@ -238,6 +238,7 @@
 
             <button class="btn btn-success" onclick="exportToExcel()">📊 Export to Excel</button>
             <button class="btn" onclick="exportToJSON()">💾 Export Rankings JSON</button>
+            <button class="btn" onclick="exportResults()">⚽ Export Results JSON</button>
             <button class="btn" onclick="copyRanking()">📋 Copy Ranking</button>
 
             <table id="rankingTable">
@@ -253,6 +254,50 @@
                 </thead>
                 <tbody id="rankingBody"></tbody>
             </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">⚽ Step 2: Enter Match Results</div>
+            
+            <div class="info">
+                <strong>How to use:</strong>
+                <p style="margin-top: 10px;">After each match is played, enter the real result here. This will be used to calculate points for all participants.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Select Match:</label>
+                <select id="matchSelect" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" onchange="selectMatch()">
+                    <option value="">-- Select a match --</option>
+                </select>
+            </div>
+
+            <div id="matchResultForm" style="display: none;">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 id="selectedMatchTitle" style="margin-bottom: 15px; color: #333;"></h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; margin-bottom: 20px;">
+                        <div style="text-align: right;">
+                            <div id="team1Name" style="font-weight: 600; margin-bottom: 10px;"></div>
+                            <input type="number" id="score1" min="0" max="20" style="width: 80px; padding: 10px; font-size: 18px; text-align: center; border: 2px solid #667eea; border-radius: 5px;">
+                        </div>
+                        <div style="font-size: 24px; font-weight: bold; color: #666;">-</div>
+                        <div style="text-align: left;">
+                            <div id="team2Name" style="font-weight: 600; margin-bottom: 10px;"></div>
+                            <input type="number" id="score2" min="0" max="20" style="width: 80px; padding: 10px; font-size: 18px; text-align: center; border: 2px solid #667eea; border-radius: 5px;">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success" onclick="saveMatchResult()">💾 Save Result</button>
+                    <button class="btn btn-danger" onclick="clearMatchResult()" style="margin-left: 10px;">🗑️ Clear Result</button>
+                </div>
+
+                <div id="resultsMessage" style="display: none; padding: 15px; border-radius: 8px; margin-top: 15px;"></div>
+            </div>
+
+            <div id="savedResults" style="margin-top: 30px;">
+                <h3 style="margin-bottom: 15px; color: #333;">📋 Saved Results (<span id="resultsCount">0</span>/72)</h3>
+                <div id="resultsList" style="max-height: 400px; overflow-y: auto;"></div>
+            </div>
         </div>
     </div>
 
@@ -283,6 +328,9 @@
                 }
             }
             
+            // Load matches dropdown and saved results display
+            loadMatchesDropdown();
+            updateSavedResultsList();
             updateRanking();
         }
 
@@ -622,6 +670,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadSavedData();
         });
+    <script src="results-functions.js"></script>
     </script>
 </body>
 </html>
