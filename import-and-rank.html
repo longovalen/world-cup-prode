@@ -410,7 +410,7 @@
         }
 
         function calculateUserPoints(user) {
-            const results = JSON.parse(localStorage.getItem('wcResults') || '{}');
+            const results = actualResults; // Use the actualResults variable that's already loaded
             let totalPoints = 0;
             
             if (!user.predictions) return 0;
