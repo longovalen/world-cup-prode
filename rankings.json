@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T16:23:21.649Z",
+  "lastUpdated": "2026-06-11T17:07:30.467Z",
   "totalUsers": 28,
   "rankings": [
     {
@@ -206,8 +206,8 @@
       "lastName": "Vajda-Gabor",
       "ibmId": "katalin.gabor@hu.ibm.com",
       "points": 0,
-      "predictionsCount": 4,
-      "completion": 6
+      "predictionsCount": 5,
+      "completion": 7
     },
     {
       "rank": 24,
