@@ -1031,7 +1031,7 @@
             const prediction = userPredictions[match.id] || {};
             const result = actualResults[match.id] || {};
             const matchStarted = hasMatchStarted(match);
-            const isLocked = result.score1 !== undefined; // Only lock if results are entered
+            const isLocked = matchStarted || result.score1 !== undefined; // Lock if match started OR results entered
             const urgency = getMatchUrgency(match);
             const urgencyClass = urgency ? urgency : '';
             
@@ -1057,7 +1057,7 @@
                                    ${isLocked ? 'disabled' : ''}
                                    placeholder="-"
                                    onfocus="if(this.value === '') this.value = '0'"
-                                   title="${isLocked ? 'Results already entered - locked' : 'Click to enter prediction (starts at 0)'}">
+                                   title="${isLocked ? (result.score1 !== undefined ? 'Match finished - locked' : 'Match started - locked') : 'Click to enter prediction (starts at 0)'}">
                             <span class="vs">-</span>
                             <input type="number"
                                    class="score-input"
@@ -1067,7 +1067,7 @@
                                    ${isLocked ? 'disabled' : ''}
                                    placeholder="-"
                                    onfocus="if(this.value === '') this.value = '0'"
-                                   title="${isLocked ? 'Results already entered - locked' : 'Click to enter prediction (starts at 0)'}">
+                                   title="${isLocked ? (result.score1 !== undefined ? 'Match finished - locked' : 'Match started - locked') : 'Click to enter prediction (starts at 0)'}">
                         </div>
                         <div class="team right">
                             <span>${match.team2}</span>
