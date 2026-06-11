@@ -424,12 +424,16 @@
         }
 
         function updateRanking() {
+            // Always show the card (for export buttons)
+            document.getElementById('rankingCard').style.display = 'block';
+            
             if (allUsers.length === 0) {
-                document.getElementById('rankingCard').style.display = 'none';
+                document.getElementById('rankingBody').innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: #666;">No users imported yet. Import user predictions to see rankings.</td></tr>';
+                document.getElementById('totalUsers').textContent = '0';
+                document.getElementById('totalPredictions').textContent = '0';
+                document.getElementById('avgPredictions').textContent = '0';
                 return;
             }
-
-            document.getElementById('rankingCard').style.display = 'block';
 
             // Calculate points for each user
             const usersWithPoints = allUsers.map(user => ({
