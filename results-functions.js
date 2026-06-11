@@ -107,7 +107,7 @@ function loadMatchesDropdown() {
 // Select a match to enter result
 function selectMatch() {
     const select = document.getElementById('matchSelect');
-    const matchId = select.value;
+    const matchId = parseInt(select.value);
     
     if (!matchId) {
         document.getElementById('matchResultForm').style.display = 'none';
