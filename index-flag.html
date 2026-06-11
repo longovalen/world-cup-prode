@@ -985,8 +985,73 @@
             document.getElementById('content').innerHTML = html;
         }
 
+        // Calculate team standings based on actual results
+        function calculateGroupStandings(group) {
+            const standings = {};
+            
+            // Initialize standings for each team
+            group.teams.forEach(team => {
+                standings[team] = {
+                    played: 0,
+                    won: 0,
+                    draw: 0,
+                    lost: 0,
+                    points: 0
+                };
+            });
+            
+            // Process each match in the group
+            group.matches.forEach(match => {
+                const result = actualResults[match.id];
+                if (result && result.score1 !== undefined && result.score2 !== undefined) {
+                    const team1 = match.team1;
+                    const team2 = match.team2;
+                    const score1 = result.score1;
+                    const score2 = result.score2;
+                    
+                    // Update played count
+                    standings[team1].played++;
+                    standings[team2].played++;
+                    
+                    // Determine winner and update stats
+                    if (score1 > score2) {
+                        // Team 1 wins
+                        standings[team1].won++;
+                        standings[team1].points += 3;
+                        standings[team2].lost++;
+                    } else if (score2 > score1) {
+                        // Team 2 wins
+                        standings[team2].won++;
+                        standings[team2].points += 3;
+                        standings[team1].lost++;
+                    } else {
+                        // Draw
+                        standings[team1].draw++;
+                        standings[team2].draw++;
+                        standings[team1].points += 1;
+                        standings[team2].points += 1;
+                    }
+                }
+            });
+            
+            return standings;
+        }
+
         // Render Group Card
         function renderGroupCard(group) {
+            const standings = calculateGroupStandings(group);
+            
+            // Sort teams by points (descending), then by wins, then alphabetically
+            const sortedTeams = [...group.teams].sort((a, b) => {
+                if (standings[b].points !== standings[a].points) {
+                    return standings[b].points - standings[a].points;
+                }
+                if (standings[b].won !== standings[a].won) {
+                    return standings[b].won - standings[a].won;
+                }
+                return a.localeCompare(b);
+            });
+            
             return `
                 <div class="group-card">
                     <div class="group-title">${group.name}</div>
@@ -1004,17 +1069,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            ${group.teams.map((team, idx) => `
+                            ${sortedTeams.map((team, idx) => {
+                                const stats = standings[team];
+                                return `
                                 <tr>
                                     <td>${idx + 1}</td>
                                     <td><div class="team-name">${getFlagHTML(team)} ${team}</div></td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td>${stats.played}</td>
+                                    <td>${stats.won}</td>
+                                    <td>${stats.draw}</td>
+                                    <td>${stats.lost}</td>
+                                    <td><strong>${stats.points}</strong></td>
                                 </tr>
-                            `).join('')}
+                                `;
+                            }).join('')}
                         </tbody>
                     </table>
 
