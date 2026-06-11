@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-11T17:07:30.467Z",
-  "totalUsers": 28,
+  "lastUpdated": "2026-06-11T17:43:30.866Z",
+  "totalUsers": 29,
   "rankings": [
     {
       "rank": 1,
@@ -253,6 +253,15 @@
       "points": 0,
       "predictionsCount": 2,
       "completion": 3
+    },
+    {
+      "rank": 29,
+      "firstName": "Srinath",
+      "lastName": "RL",
+      "ibmId": "srinathr@us.ibm.com",
+      "points": 0,
+      "predictionsCount": 5,
+      "completion": 7
     }
   ]
 }
