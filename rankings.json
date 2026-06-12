@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-12T14:30:57.089Z",
-  "totalUsers": 39,
+  "lastUpdated": "2026-06-12T17:14:01.320Z",
+  "totalUsers": 40,
   "rankings": [
     {
       "rank": 1,
@@ -352,6 +352,15 @@
       "points": 0,
       "predictionsCount": 2,
       "completion": 3
+    },
+    {
+      "rank": 40,
+      "firstName": "Juan Ignacio",
+      "lastName": "Franco",
+      "ibmId": "nacho.franco@ibm.com",
+      "points": 0,
+      "predictionsCount": 12,
+      "completion": 17
     }
   ]
 }
