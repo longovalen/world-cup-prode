@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T13:21:28.223Z",
+  "lastUpdated": "2026-06-12T13:40:35.710Z",
   "totalUsers": 39,
   "rankings": [
     {
@@ -8,8 +8,8 @@
       "lastName": "Tomcsanyine Nagy",
       "ibmId": "bnagy@hu.ibm.com",
       "points": 6,
-      "predictionsCount": 2,
-      "completion": 3
+      "predictionsCount": 4,
+      "completion": 6
     },
     {
       "rank": 2,
@@ -35,8 +35,8 @@
       "lastName": "SIRI",
       "ibmId": "siria@ar.ibm.com",
       "points": 4,
-      "predictionsCount": 4,
-      "completion": 6
+      "predictionsCount": 5,
+      "completion": 7
     },
     {
       "rank": 5,
