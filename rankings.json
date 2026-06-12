@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-12T12:55:25.251Z",
-  "totalUsers": 38,
+  "lastUpdated": "2026-06-12T12:59:23.549Z",
+  "totalUsers": 39,
   "rankings": [
     {
       "rank": 1,
@@ -343,6 +343,15 @@
       "points": 0,
       "predictionsCount": 3,
       "completion": 4
+    },
+    {
+      "rank": 39,
+      "firstName": "CARLOS",
+      "lastName": "MONGE",
+      "ibmId": "calmonge@br.ibm.com",
+      "points": 0,
+      "predictionsCount": 2,
+      "completion": 3
     }
   ]
 }
