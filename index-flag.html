@@ -1238,15 +1238,7 @@
             // Send email to admin with predictions
             sendEmailToAdmin(currentUser, saved);
 
-            let message = `✅ ${saved} predictions saved successfully!`;
-            if (skipped > 0) {
-                message += `\n\n⚠️ ${skipped} predictions were skipped because the matches have already started or ended:\n${skippedMatches.slice(0, 5).join('\n')}`;
-                if (skippedMatches.length > 5) {
-                    message += `\n... and ${skippedMatches.length - 5} more`;
-                }
-            }
-            
-            alert(message);
+            alert(`✅ ${saved} predictions saved successfully!`);
             renderApp();
         }
 
