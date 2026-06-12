@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T12:52:52.556Z",
+  "lastUpdated": "2026-06-12T12:55:25.251Z",
   "totalUsers": 38,
   "rankings": [
     {
@@ -44,8 +44,8 @@
       "lastName": "Tan",
       "ibmId": "tanmc@my.ibm.com",
       "points": 4,
-      "predictionsCount": 2,
-      "completion": 3
+      "predictionsCount": 8,
+      "completion": 11
     },
     {
       "rank": 6,
@@ -260,8 +260,8 @@
       "lastName": "Lopez Hirschmann",
       "ibmId": "hirsexe@ar.ibm.com",
       "points": 1,
-      "predictionsCount": 2,
-      "completion": 3
+      "predictionsCount": 4,
+      "completion": 6
     },
     {
       "rank": 30,
