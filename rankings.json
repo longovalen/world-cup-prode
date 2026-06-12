@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T13:40:35.710Z",
+  "lastUpdated": "2026-06-12T14:30:57.089Z",
   "totalUsers": 39,
   "rankings": [
     {
@@ -53,8 +53,8 @@
       "lastName": "Berardoni",
       "ibmId": "bruno.berardoni1@ibm.com",
       "points": 4,
-      "predictionsCount": 4,
-      "completion": 6
+      "predictionsCount": 72,
+      "completion": 100
     },
     {
       "rank": 7,
