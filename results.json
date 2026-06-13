@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-12T20:59:50.500Z",
-  "totalMatches": 4,
+  "lastUpdated": "2026-06-13T03:43:26.633Z",
+  "totalMatches": 5,
   "results": {
     "1": {
       "score1": 2,
@@ -24,6 +24,14 @@
       "team1": "Canada",
       "team2": "Bosnia and Herzegovina",
       "group": "B",
+      "date": "Jun 12"
+    },
+    "19": {
+      "score1": 4,
+      "score2": 1,
+      "team1": "USA",
+      "team2": "Paraguay",
+      "group": "D",
       "date": "Jun 12"
     },
     "match_1": {
