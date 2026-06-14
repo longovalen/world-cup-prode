@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-14T19:06:52.298Z",
-  "totalMatches": 10,
+  "lastUpdated": "2026-06-14T23:47:47.546Z",
+  "totalMatches": 11,
   "results": {
     "1": {
       "score1": 2,
@@ -72,6 +72,14 @@
       "team1": "Germany",
       "team2": "Curaçao",
       "group": "E",
+      "date": "Jun 14"
+    },
+    "31": {
+      "score1": 2,
+      "score2": 2,
+      "team1": "Netherlands",
+      "team2": "Japan",
+      "group": "F",
       "date": "Jun 14"
     },
     "match_1": {
