@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-15T11:43:55.056Z",
-  "totalMatches": 13,
+  "lastUpdated": "2026-06-15T17:59:35.048Z",
+  "totalMatches": 14,
   "results": {
     "1": {
       "score1": 2,
@@ -97,6 +97,14 @@
       "team2": "Tunisia",
       "group": "F",
       "date": "Jun 14"
+    },
+    "43": {
+      "score1": 0,
+      "score2": 0,
+      "team1": "Spain",
+      "team2": "Cape Verde",
+      "group": "H",
+      "date": "Jun 15"
     },
     "match_1": {
       "score1": 2,
