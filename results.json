@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-15T17:59:35.048Z",
-  "totalMatches": 14,
+  "lastUpdated": "2026-06-15T23:12:05.422Z",
+  "totalMatches": 15,
   "results": {
     "1": {
       "score1": 2,
@@ -97,6 +97,14 @@
       "team2": "Tunisia",
       "group": "F",
       "date": "Jun 14"
+    },
+    "37": {
+      "score1": 1,
+      "score2": 1,
+      "team1": "Belgium",
+      "team2": "Egypt",
+      "group": "G",
+      "date": "Jun 15"
     },
     "43": {
       "score1": 0,
