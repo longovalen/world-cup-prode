@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-15T23:12:05.422Z",
-  "totalMatches": 15,
+  "lastUpdated": "2026-06-16T00:27:01.105Z",
+  "totalMatches": 16,
   "results": {
     "1": {
       "score1": 2,
@@ -111,6 +111,14 @@
       "score2": 0,
       "team1": "Spain",
       "team2": "Cape Verde",
+      "group": "H",
+      "date": "Jun 15"
+    },
+    "44": {
+      "score1": 1,
+      "score2": 1,
+      "team1": "Saudi Arabia",
+      "team2": "Uruguay",
       "group": "H",
       "date": "Jun 15"
     },
