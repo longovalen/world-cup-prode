@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-16T10:17:13.118Z",
-  "totalMatches": 17,
+  "lastUpdated": "2026-06-16T21:30:09.302Z",
+  "totalMatches": 18,
   "results": {
     "1": {
       "score1": 2,
@@ -129,6 +129,14 @@
       "team2": "Uruguay",
       "group": "H",
       "date": "Jun 15"
+    },
+    "49": {
+      "score1": 3,
+      "score2": 1,
+      "team1": "France",
+      "team2": "Senegal",
+      "group": "I",
+      "date": "Jun 16"
     },
     "match_1": {
       "score1": 2,
