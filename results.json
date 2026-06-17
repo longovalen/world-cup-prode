@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-16T21:30:09.302Z",
-  "totalMatches": 18,
+  "lastUpdated": "2026-06-17T03:41:46.901Z",
+  "totalMatches": 20,
   "results": {
     "1": {
       "score1": 2,
@@ -136,6 +136,22 @@
       "team1": "France",
       "team2": "Senegal",
       "group": "I",
+      "date": "Jun 16"
+    },
+    "50": {
+      "score1": 1,
+      "score2": 4,
+      "team1": "Iraq",
+      "team2": "Norway",
+      "group": "I",
+      "date": "Jun 16"
+    },
+    "55": {
+      "score1": 3,
+      "score2": 0,
+      "team1": "Argentina",
+      "team2": "Algeria",
+      "group": "J",
       "date": "Jun 16"
     },
     "match_1": {
