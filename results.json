@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-17T12:10:32.982Z",
-  "totalMatches": 21,
+  "lastUpdated": "2026-06-17T19:34:17.183Z",
+  "totalMatches": 22,
   "results": {
     "1": {
       "score1": 2,
@@ -161,6 +161,14 @@
       "team2": "Jordan",
       "group": "J",
       "date": "Jun 16"
+    },
+    "61": {
+      "score1": 1,
+      "score2": 1,
+      "team1": "Portugal",
+      "team2": "Congo DR",
+      "group": "K",
+      "date": "Jun 17"
     },
     "match_1": {
       "score1": 2,
