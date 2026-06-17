@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-17T03:41:46.901Z",
-  "totalMatches": 20,
+  "lastUpdated": "2026-06-17T12:10:32.982Z",
+  "totalMatches": 21,
   "results": {
     "1": {
       "score1": 2,
@@ -151,6 +151,14 @@
       "score2": 0,
       "team1": "Argentina",
       "team2": "Algeria",
+      "group": "J",
+      "date": "Jun 16"
+    },
+    "56": {
+      "score1": 3,
+      "score2": 1,
+      "team1": "Austria",
+      "team2": "Jordan",
       "group": "J",
       "date": "Jun 16"
     },
