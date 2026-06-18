@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T18:09:25.473Z",
+  "lastUpdated": "2026-06-18T21:21:57.574Z",
   "totalUsers": 56,
   "rankings": [
     {
@@ -7,7 +7,7 @@
       "firstName": "Valerie",
       "lastName": "Tan",
       "ibmId": "tanmc@my.ibm.com",
-      "points": 25,
+      "points": 26,
       "predictionsCount": 32,
       "completion": 44
     },
@@ -16,12 +16,21 @@
       "firstName": "Neide",
       "lastName": "Pereira",
       "ibmId": "neide.pereira@pt.ibm.com",
-      "points": 24,
+      "points": 25,
       "predictionsCount": 72,
       "completion": 100
     },
     {
       "rank": 3,
+      "firstName": "Tatiana",
+      "lastName": "Kubaszek",
+      "ibmId": "tatiana.kubaszek@ibm.com",
+      "points": 23,
+      "predictionsCount": 32,
+      "completion": 44
+    },
+    {
+      "rank": 4,
       "firstName": "Bianka",
       "lastName": "Tomcsanyine Nagy",
       "ibmId": "bnagy@hu.ibm.com",
@@ -30,20 +39,11 @@
       "completion": 39
     },
     {
-      "rank": 4,
-      "firstName": "Tatiana",
-      "lastName": "Kubaszek",
-      "ibmId": "tatiana.kubaszek@ibm.com",
-      "points": 22,
-      "predictionsCount": 32,
-      "completion": 44
-    },
-    {
       "rank": 5,
       "firstName": "Valentino",
       "lastName": "Capano",
       "ibmId": "valentino.capano@ibm.com",
-      "points": 22,
+      "points": 23,
       "predictionsCount": 72,
       "completion": 100
     },
@@ -53,11 +53,20 @@
       "lastName": "RL",
       "ibmId": "srinathr@us.ibm.com",
       "points": 21,
-      "predictionsCount": 28,
-      "completion": 39
+      "predictionsCount": 33,
+      "completion": 46
     },
     {
       "rank": 7,
+      "firstName": "Marcio",
+      "lastName": "Zago",
+      "ibmId": "mzago@br.ibm.com",
+      "points": 21,
+      "predictionsCount": 39,
+      "completion": 54
+    },
+    {
+      "rank": 8,
       "firstName": "Agnieszka",
       "lastName": "Pajurek",
       "ibmId": "agnieszka.pajurek@ibm.com",
@@ -66,7 +75,7 @@
       "completion": 100
     },
     {
-      "rank": 8,
+      "rank": 9,
       "firstName": "Ian",
       "lastName": "Baldwin",
       "ibmId": "ianbald1@uk.ibm.com",
@@ -75,25 +84,34 @@
       "completion": 97
     },
     {
-      "rank": 9,
+      "rank": 10,
       "firstName": "Bernardo",
       "lastName": "Kraus",
       "ibmId": "bekraus@ar.ibm.com",
       "points": 20,
-      "predictionsCount": 28,
-      "completion": 39
-    },
-    {
-      "rank": 10,
-      "firstName": "Marcio",
-      "lastName": "Zago",
-      "ibmId": "mzago@br.ibm.com",
-      "points": 20,
-      "predictionsCount": 39,
-      "completion": 54
+      "predictionsCount": 32,
+      "completion": 44
     },
     {
       "rank": 11,
+      "firstName": "Jessica",
+      "lastName": "Calderon",
+      "ibmId": "CalderonJ@ibm.com",
+      "points": 19,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 12,
+      "firstName": "Karen",
+      "lastName": "Dunfee",
+      "ibmId": "kdunfee@us.ibm.com",
+      "points": 19,
+      "predictionsCount": 29,
+      "completion": 40
+    },
+    {
+      "rank": 13,
       "firstName": "Francisco Javier",
       "lastName": "Cañás",
       "ibmId": "francisco.j.canas@ibm.com",
@@ -102,25 +120,25 @@
       "completion": 65
     },
     {
-      "rank": 12,
-      "firstName": "Jessica",
-      "lastName": "Calderon",
-      "ibmId": "CalderonJ@ibm.com",
+      "rank": 14,
+      "firstName": "David",
+      "lastName": "Nasser",
+      "ibmId": "david.nasser@ibm.com",
       "points": 18,
       "predictionsCount": 72,
       "completion": 100
     },
     {
-      "rank": 13,
-      "firstName": "Karen",
-      "lastName": "Dunfee",
-      "ibmId": "kdunfee@us.ibm.com",
+      "rank": 15,
+      "firstName": "Katalin",
+      "lastName": "Vajda-Gabor",
+      "ibmId": "katalin.gabor@hu.ibm.com",
       "points": 18,
-      "predictionsCount": 29,
-      "completion": 40
+      "predictionsCount": 36,
+      "completion": 50
     },
     {
-      "rank": 14,
+      "rank": 16,
       "firstName": "Carlos",
       "lastName": "Monge",
       "ibmId": "calmonge@br.ibm.com",
@@ -129,40 +147,22 @@
       "completion": 100
     },
     {
-      "rank": 15,
-      "firstName": "David",
-      "lastName": "Nasser",
-      "ibmId": "david.nasser@ibm.com",
-      "points": 17,
-      "predictionsCount": 72,
-      "completion": 100
-    },
-    {
-      "rank": 16,
-      "firstName": "Katalin",
-      "lastName": "Vajda-Gabor",
-      "ibmId": "katalin.gabor@hu.ibm.com",
-      "points": 17,
-      "predictionsCount": 36,
-      "completion": 50
-    },
-    {
       "rank": 17,
+      "firstName": "Rita",
+      "lastName": "Kiss-Barta",
+      "ibmId": "rita.kiss-barta@hu.ibm.com",
+      "points": 16,
+      "predictionsCount": 28,
+      "completion": 39
+    },
+    {
+      "rank": 18,
       "firstName": "Nahuel Nicolas",
       "lastName": "Foti",
       "ibmId": "nnfoti@ar.ibm.com",
       "points": 16,
       "predictionsCount": 67,
       "completion": 93
-    },
-    {
-      "rank": 18,
-      "firstName": "Rita",
-      "lastName": "Kiss-Barta",
-      "ibmId": "rita.kiss-barta@hu.ibm.com",
-      "points": 15,
-      "predictionsCount": 28,
-      "completion": 39
     },
     {
       "rank": 19,
@@ -175,6 +175,15 @@
     },
     {
       "rank": 20,
+      "firstName": "Pete",
+      "lastName": "Bedell",
+      "ibmId": "pbedell@us.ibm.com",
+      "points": 14,
+      "predictionsCount": 42,
+      "completion": 58
+    },
+    {
+      "rank": 21,
       "firstName": "Sebastian",
       "lastName": "Martin",
       "ibmId": "sebastian.martin@ibm.com",
@@ -183,16 +192,25 @@
       "completion": 100
     },
     {
-      "rank": 21,
-      "firstName": "Pete",
-      "lastName": "Bedell",
-      "ibmId": "pbedell@us.ibm.com",
+      "rank": 22,
+      "firstName": "ARIADNA",
+      "lastName": "SIRI",
+      "ibmId": "siria@ar.ibm.com",
       "points": 13,
-      "predictionsCount": 42,
-      "completion": 58
+      "predictionsCount": 28,
+      "completion": 39
     },
     {
-      "rank": 22,
+      "rank": 23,
+      "firstName": "Bruno",
+      "lastName": "Berardoni",
+      "ibmId": "bruno.berardoni1@ibm.com",
+      "points": 13,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 24,
       "firstName": "Valentina",
       "lastName": "Longo",
       "ibmId": "valentina.longo@ibm.com",
@@ -201,29 +219,11 @@
       "completion": 74
     },
     {
-      "rank": 23,
-      "firstName": "ARIADNA",
-      "lastName": "SIRI",
-      "ibmId": "siria@ar.ibm.com",
-      "points": 12,
-      "predictionsCount": 28,
-      "completion": 39
-    },
-    {
-      "rank": 24,
-      "firstName": "Bruno",
-      "lastName": "Berardoni",
-      "ibmId": "bruno.berardoni1@ibm.com",
-      "points": 12,
-      "predictionsCount": 72,
-      "completion": 100
-    },
-    {
       "rank": 25,
       "firstName": "Viktor",
       "lastName": "Földvári",
       "ibmId": "viktor.foldvari@ibm.com",
-      "points": 11,
+      "points": 12,
       "predictionsCount": 72,
       "completion": 100
     },
@@ -232,7 +232,7 @@
       "firstName": "Trevor",
       "lastName": "Andrews",
       "ibmId": "trevor.andrews@no.ibm.com",
-      "points": 11,
+      "points": 12,
       "predictionsCount": 64,
       "completion": 89
     },
@@ -241,7 +241,7 @@
       "firstName": "Caoimhe",
       "lastName": "Doyle Kennedy",
       "ibmId": "cdoyle2@ibm.com",
-      "points": 11,
+      "points": 12,
       "predictionsCount": 52,
       "completion": 72
     },
@@ -250,12 +250,21 @@
       "firstName": "NURUL AIFAA",
       "lastName": "ROSLAN",
       "ibmId": "Nurul.Aifaa.Roslan@ibm.com",
-      "points": 11,
+      "points": 12,
       "predictionsCount": 28,
       "completion": 39
     },
     {
       "rank": 29,
+      "firstName": "Joe",
+      "lastName": "Como",
+      "ibmId": "jcomo@us.ibm.com",
+      "points": 12,
+      "predictionsCount": 28,
+      "completion": 39
+    },
+    {
+      "rank": 30,
       "firstName": "Carolina",
       "lastName": "Sanchez",
       "ibmId": "carolina.sanchez1@ibm.com",
@@ -264,20 +273,11 @@
       "completion": 33
     },
     {
-      "rank": 30,
-      "firstName": "Joe",
-      "lastName": "Como",
-      "ibmId": "jcomo@us.ibm.com",
-      "points": 11,
-      "predictionsCount": 28,
-      "completion": 39
-    },
-    {
       "rank": 31,
       "firstName": "chu",
       "lastName": "emily",
       "ibmId": "emily.chu@ibm.com",
-      "points": 9,
+      "points": 10,
       "predictionsCount": 17,
       "completion": 24
     },
@@ -286,7 +286,7 @@
       "firstName": "Charlene",
       "lastName": "Teng",
       "ibmId": "yenhoong.teng@ibm.com",
-      "points": 8,
+      "points": 9,
       "predictionsCount": 16,
       "completion": 22
     },
@@ -295,7 +295,7 @@
       "firstName": "Chu",
       "lastName": "Emily",
       "ibmId": "Emily.chu@ibm.com",
-      "points": 8,
+      "points": 9,
       "predictionsCount": 36,
       "completion": 50
     },
@@ -304,27 +304,27 @@
       "firstName": "Tiago",
       "lastName": "Ramos",
       "ibmId": "tiagoor@br.ibm.com",
-      "points": 7,
+      "points": 8,
       "predictionsCount": 27,
       "completion": 38
     },
     {
       "rank": 35,
+      "firstName": "Santiago",
+      "lastName": "Padilla",
+      "ibmId": "samapa@ar.ibm.com",
+      "points": 8,
+      "predictionsCount": 36,
+      "completion": 50
+    },
+    {
+      "rank": 36,
       "firstName": "debora",
       "lastName": "sztatman",
       "ibmId": "drsztatm@ar.ibm.com",
       "points": 7,
       "predictionsCount": 12,
       "completion": 17
-    },
-    {
-      "rank": 36,
-      "firstName": "Santiago",
-      "lastName": "Padilla",
-      "ibmId": "samapa@ar.ibm.com",
-      "points": 7,
-      "predictionsCount": 36,
-      "completion": 50
     },
     {
       "rank": 37,
@@ -346,21 +346,21 @@
     },
     {
       "rank": 39,
+      "firstName": "Nicole",
+      "lastName": "Soh",
+      "ibmId": "sohncp@my.ibm.com",
+      "points": 5,
+      "predictionsCount": 9,
+      "completion": 13
+    },
+    {
+      "rank": 40,
       "firstName": "Jacob",
       "lastName": "Cherian",
       "ibmId": "jacob.cherian@ibm.com",
       "points": 5,
       "predictionsCount": 4,
       "completion": 6
-    },
-    {
-      "rank": 40,
-      "firstName": "Nicole",
-      "lastName": "Soh",
-      "ibmId": "sohncp@my.ibm.com",
-      "points": 4,
-      "predictionsCount": 9,
-      "completion": 13
     },
     {
       "rank": 41,
@@ -373,6 +373,15 @@
     },
     {
       "rank": 42,
+      "firstName": "ILI",
+      "lastName": "NADIAH",
+      "ibmId": "ili.nadiah@ibm.com",
+      "points": 4,
+      "predictionsCount": 8,
+      "completion": 11
+    },
+    {
+      "rank": 43,
       "firstName": "Josefina",
       "lastName": "Moreno",
       "ibmId": "maria.moreno2@ibm.com",
@@ -381,7 +390,7 @@
       "completion": 10
     },
     {
-      "rank": 43,
+      "rank": 44,
       "firstName": "Armand",
       "lastName": "Runte",
       "ibmId": "Armand.runte@ibm.com",
@@ -390,7 +399,7 @@
       "completion": 3
     },
     {
-      "rank": 44,
+      "rank": 45,
       "firstName": "Javier",
       "lastName": "Tarrio",
       "ibmId": "091510",
@@ -399,40 +408,31 @@
       "completion": 32
     },
     {
-      "rank": 45,
-      "firstName": "ILI",
-      "lastName": "NADIAH",
-      "ibmId": "ili.nadiah@ibm.com",
-      "points": 3,
-      "predictionsCount": 8,
-      "completion": 11
-    },
-    {
       "rank": 46,
       "firstName": "Felipe",
       "lastName": "Telesca",
       "ibmId": "felipe.telesca@ibm.com",
-      "points": 2,
-      "predictionsCount": 13,
-      "completion": 18
+      "points": 3,
+      "predictionsCount": 53,
+      "completion": 74
     },
     {
       "rank": 47,
+      "firstName": "Armand",
+      "lastName": "Runte",
+      "ibmId": "armand.runte@ibm.com",
+      "points": 2,
+      "predictionsCount": 10,
+      "completion": 14
+    },
+    {
+      "rank": 48,
       "firstName": "Istvan",
       "lastName": "Ollari",
       "ibmId": "istvan.ollari@hu.ibm.com",
       "points": 1,
       "predictionsCount": 4,
       "completion": 6
-    },
-    {
-      "rank": 48,
-      "firstName": "Armand",
-      "lastName": "Runte",
-      "ibmId": "armand.runte@ibm.com",
-      "points": 1,
-      "predictionsCount": 10,
-      "completion": 14
     },
     {
       "rank": 49,
@@ -454,6 +454,24 @@
     },
     {
       "rank": 51,
+      "firstName": "Eve",
+      "lastName": "Silmberg",
+      "ibmId": "Eve.Silmberg@ibm.com",
+      "points": 1,
+      "predictionsCount": 5,
+      "completion": 7
+    },
+    {
+      "rank": 52,
+      "firstName": "Lucca",
+      "lastName": "Romano",
+      "ibmId": "lucca.romano@ibm.com",
+      "points": 1,
+      "predictionsCount": 7,
+      "completion": 10
+    },
+    {
+      "rank": 53,
       "firstName": "Clarence",
       "lastName": "James",
       "ibmId": "cljames@us.ibm.com",
@@ -462,7 +480,7 @@
       "completion": 3
     },
     {
-      "rank": 52,
+      "rank": 54,
       "firstName": "Martin",
       "lastName": "Bertolino",
       "ibmId": "martin.bertolino@ibm.com",
@@ -471,7 +489,7 @@
       "completion": 4
     },
     {
-      "rank": 53,
+      "rank": 55,
       "firstName": "Rohit",
       "lastName": "Vinayak",
       "ibmId": "0B9314649",
@@ -480,31 +498,13 @@
       "completion": 4
     },
     {
-      "rank": 54,
+      "rank": 56,
       "firstName": "Jessie Angelo",
       "lastName": "Lee",
       "ibmId": "Jessie.Angelo.Lee1@ibm.com",
       "points": 0,
       "predictionsCount": 0,
       "completion": 0
-    },
-    {
-      "rank": 55,
-      "firstName": "Eve",
-      "lastName": "Silmberg",
-      "ibmId": "Eve.Silmberg@ibm.com",
-      "points": 0,
-      "predictionsCount": 5,
-      "completion": 7
-    },
-    {
-      "rank": 56,
-      "firstName": "Lucca",
-      "lastName": "Romano",
-      "ibmId": "lucca.romano@ibm.com",
-      "points": 0,
-      "predictionsCount": 7,
-      "completion": 10
     }
   ]
 }

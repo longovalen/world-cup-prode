@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-18T18:09:26.453Z",
-  "totalMatches": 26,
+  "lastUpdated": "2026-06-18T21:21:58.112Z",
+  "totalMatches": 27,
   "results": {
     "1": {
       "score1": 2,
@@ -41,6 +41,14 @@
       "team2": "Switzerland",
       "group": "B",
       "date": "Jun 13"
+    },
+    "9": {
+      "score1": 1,
+      "score2": 4,
+      "team1": "Bosnia and Herzegovina",
+      "team2": "Switzerland",
+      "group": "B",
+      "date": "Jun 18"
     },
     "13": {
       "score1": 1,
