@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T12:28:40.101Z",
+  "lastUpdated": "2026-06-19T14:18:10.211Z",
   "totalUsers": 56,
   "rankings": [
     {
@@ -197,8 +197,8 @@
       "lastName": "Longo",
       "ibmId": "valentina.longo@ibm.com",
       "points": 14,
-      "predictionsCount": 53,
-      "completion": 74
+      "predictionsCount": 59,
+      "completion": 82
     },
     {
       "rank": 23,
@@ -206,8 +206,8 @@
       "lastName": "SIRI",
       "ibmId": "siria@ar.ibm.com",
       "points": 14,
-      "predictionsCount": 28,
-      "completion": 39
+      "predictionsCount": 40,
+      "completion": 56
     },
     {
       "rank": 24,
@@ -251,8 +251,8 @@
       "lastName": "Como",
       "ibmId": "jcomo@us.ibm.com",
       "points": 14,
-      "predictionsCount": 28,
-      "completion": 39
+      "predictionsCount": 40,
+      "completion": 56
     },
     {
       "rank": 29,
@@ -269,8 +269,8 @@
       "lastName": "Sanchez",
       "ibmId": "carolina.sanchez1@ibm.com",
       "points": 11,
-      "predictionsCount": 24,
-      "completion": 33
+      "predictionsCount": 35,
+      "completion": 49
     },
     {
       "rank": 31,
@@ -314,8 +314,8 @@
       "lastName": "Teng",
       "ibmId": "yenhoong.teng@ibm.com",
       "points": 9,
-      "predictionsCount": 24,
-      "completion": 33
+      "predictionsCount": 25,
+      "completion": 35
     },
     {
       "rank": 36,
@@ -377,8 +377,8 @@
       "lastName": "NADIAH",
       "ibmId": "ili.nadiah@ibm.com",
       "points": 4,
-      "predictionsCount": 8,
-      "completion": 11
+      "predictionsCount": 16,
+      "completion": 22
     },
     {
       "rank": 43,
@@ -431,8 +431,8 @@
       "lastName": "Silmberg",
       "ibmId": "Eve.Silmberg@ibm.com",
       "points": 2,
-      "predictionsCount": 21,
-      "completion": 29
+      "predictionsCount": 36,
+      "completion": 50
     },
     {
       "rank": 49,
@@ -467,8 +467,8 @@
       "lastName": "Romano",
       "ibmId": "lucca.romano@ibm.com",
       "points": 1,
-      "predictionsCount": 7,
-      "completion": 10
+      "predictionsCount": 10,
+      "completion": 14
     },
     {
       "rank": 53,
