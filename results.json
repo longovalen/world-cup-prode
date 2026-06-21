@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-20T14:22:20.945Z",
-  "totalMatches": 33,
+  "lastUpdated": "2026-06-21T04:23:42.534Z",
+  "totalMatches": 36,
   "results": {
     "1": {
       "score1": 2,
@@ -146,6 +146,22 @@
       "group": "E",
       "date": "Jun 14"
     },
+    "27": {
+      "score1": 2,
+      "score2": 1,
+      "team1": "Germany",
+      "team2": "Ivory Coast",
+      "group": "E",
+      "date": "Jun 20"
+    },
+    "28": {
+      "score1": 0,
+      "score2": 0,
+      "team1": "Ecuador",
+      "team2": "Curaçao",
+      "group": "E",
+      "date": "Jun 20"
+    },
     "31": {
       "score1": 2,
       "score2": 2,
@@ -161,6 +177,14 @@
       "team2": "Tunisia",
       "group": "F",
       "date": "Jun 14"
+    },
+    "33": {
+      "score1": 5,
+      "score2": 1,
+      "team1": "Netherlands",
+      "team2": "Sweden",
+      "group": "F",
+      "date": "Jun 20"
     },
     "37": {
       "score1": 1,
