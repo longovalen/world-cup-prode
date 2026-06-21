@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T18:10:40.962Z",
+  "lastUpdated": "2026-06-21T21:57:20.864Z",
   "totalUsers": 60,
   "rankings": [
     {
@@ -25,7 +25,7 @@
       "firstName": "Bianka",
       "lastName": "Tomcsanyine Nagy",
       "ibmId": "bnagy@hu.ibm.com",
-      "points": 35,
+      "points": 36,
       "predictionsCount": 40,
       "completion": 56
     },
@@ -49,6 +49,15 @@
     },
     {
       "rank": 6,
+      "firstName": "Tatiana",
+      "lastName": "Kubaszek",
+      "ibmId": "tatiana.kubaszek@ibm.com",
+      "points": 31,
+      "predictionsCount": 44,
+      "completion": 61
+    },
+    {
+      "rank": 7,
       "firstName": "Francisco Javier",
       "lastName": "Cañás",
       "ibmId": "francisco.j.canas@ibm.com",
@@ -57,22 +66,13 @@
       "completion": 65
     },
     {
-      "rank": 7,
+      "rank": 8,
       "firstName": "Jessica",
       "lastName": "Calderon",
       "ibmId": "CalderonJ@ibm.com",
       "points": 30,
       "predictionsCount": 72,
       "completion": 100
-    },
-    {
-      "rank": 8,
-      "firstName": "Tatiana",
-      "lastName": "Kubaszek",
-      "ibmId": "tatiana.kubaszek@ibm.com",
-      "points": 30,
-      "predictionsCount": 44,
-      "completion": 61
     },
     {
       "rank": 9,
@@ -157,21 +157,21 @@
     },
     {
       "rank": 18,
+      "firstName": "Carlos",
+      "lastName": "Monge",
+      "ibmId": "calmonge@br.ibm.com",
+      "points": 26,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 19,
       "firstName": "ARIADNA",
       "lastName": "SIRI",
       "ibmId": "siria@ar.ibm.com",
       "points": 25,
       "predictionsCount": 40,
       "completion": 56
-    },
-    {
-      "rank": 19,
-      "firstName": "Carlos",
-      "lastName": "Monge",
-      "ibmId": "calmonge@br.ibm.com",
-      "points": 25,
-      "predictionsCount": 72,
-      "completion": 100
     },
     {
       "rank": 20,
@@ -358,9 +358,9 @@
       "firstName": "Erika Cristina",
       "lastName": "Lessa Ramirez",
       "ibmId": "elessa@br.ibm.com",
-      "points": 8,
-      "predictionsCount": 11,
-      "completion": 15
+      "points": 9,
+      "predictionsCount": 42,
+      "completion": 58
     },
     {
       "rank": 41,
