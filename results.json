@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-21T21:57:21.400Z",
-  "totalMatches": 39,
+  "lastUpdated": "2026-06-22T12:33:12.743Z",
+  "totalMatches": 40,
   "results": {
     "1": {
       "score1": 2,
@@ -215,6 +215,14 @@
       "score2": 0,
       "team1": "Belgium",
       "team2": "Iran",
+      "group": "G",
+      "date": "Jun 21"
+    },
+    "40": {
+      "score1": 1,
+      "score2": 3,
+      "team1": "New Zealand",
+      "team2": "Egypt",
       "group": "G",
       "date": "Jun 21"
     },
