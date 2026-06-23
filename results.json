@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-23T19:10:36.418Z",
-  "totalMatches": 46,
+  "lastUpdated": "2026-06-23T22:03:48.489Z",
+  "totalMatches": 47,
   "results": {
     "1": {
       "score1": 2,
@@ -361,6 +361,14 @@
       "team2": "Panama",
       "group": "L",
       "date": "Jun 17"
+    },
+    "69": {
+      "score1": 0,
+      "score2": 0,
+      "team1": "England",
+      "team2": "Ghana",
+      "group": "L",
+      "date": "Jun 23"
     },
     "match_1": {
       "score1": 2,
