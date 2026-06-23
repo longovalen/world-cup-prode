@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-23T01:09:51.423Z",
-  "totalMatches": 43,
+  "lastUpdated": "2026-06-23T12:55:34.477Z",
+  "totalMatches": 45,
   "results": {
     "1": {
       "score1": 2,
@@ -282,6 +282,14 @@
       "group": "I",
       "date": "Jun 22"
     },
+    "52": {
+      "score1": 3,
+      "score2": 2,
+      "team1": "Norway",
+      "team2": "Senegal",
+      "group": "I",
+      "date": "Jun 22"
+    },
     "55": {
       "score1": 3,
       "score2": 0,
@@ -303,6 +311,14 @@
       "score2": 0,
       "team1": "Argentina",
       "team2": "Austria",
+      "group": "J",
+      "date": "Jun 22"
+    },
+    "58": {
+      "score1": 1,
+      "score2": 2,
+      "team1": "Jordan",
+      "team2": "Algeria",
       "group": "J",
       "date": "Jun 22"
     },
