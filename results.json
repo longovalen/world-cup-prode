@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-23T12:55:34.477Z",
-  "totalMatches": 45,
+  "lastUpdated": "2026-06-23T19:10:36.418Z",
+  "totalMatches": 46,
   "results": {
     "1": {
       "score1": 2,
@@ -337,6 +337,14 @@
       "team2": "Colombia",
       "group": "K",
       "date": "Jun 17"
+    },
+    "63": {
+      "score1": 5,
+      "score2": 0,
+      "team1": "Portugal",
+      "team2": "Uzbekistan",
+      "group": "K",
+      "date": "Jun 23"
     },
     "67": {
       "score1": 4,
