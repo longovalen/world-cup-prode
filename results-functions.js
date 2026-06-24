@@ -1,7 +1,7 @@
 // World Cup 2026 - Match Results Functions
 // This file contains all the functions needed for the results system
 
-// All 72 matches from the group stage
+// All 104 matches (72 group stage + 32 knockout stage)
 const ALL_MATCHES = [
     // Group A
     { id: 1, group: "A", date: "Jun 11", team1: "Mexico", team2: "South Africa" },
@@ -86,7 +86,49 @@ const ALL_MATCHES = [
     { id: 69, group: "L", date: "Jun 23", team1: "England", team2: "Ghana" },
     { id: 70, group: "L", date: "Jun 23", team1: "Panama", team2: "Croatia" },
     { id: 71, group: "L", date: "Jun 27", team1: "Panama", team2: "England" },
-    { id: 72, group: "L", date: "Jun 27", team1: "Croatia", team2: "Ghana" }
+    { id: 72, group: "L", date: "Jun 27", team1: "Croatia", team2: "Ghana" },
+
+    // Round of 32
+    { id: 73, group: "R32", date: "Jun 29", team1: "Germany", team2: "TBD" },
+    { id: 74, group: "R32", date: "Jun 30", team1: "TBD", team2: "TBD" },
+    { id: 75, group: "R32", date: "Jun 28", team1: "TBD", team2: "TBD" },
+    { id: 76, group: "R32", date: "Jun 29", team1: "TBD", team2: "TBD" },
+    { id: 77, group: "R32", date: "Jul 2", team1: "TBD", team2: "TBD" },
+    { id: 78, group: "R32", date: "Jul 2", team1: "TBD", team2: "TBD" },
+    { id: 79, group: "R32", date: "Jul 1", team1: "USA", team2: "TBD" },
+    { id: 80, group: "R32", date: "Jul 1", team1: "TBD", team2: "TBD" },
+    { id: 81, group: "R32", date: "Jun 29", team1: "TBD", team2: "TBD" },
+    { id: 82, group: "R32", date: "Jun 30", team1: "TBD", team2: "TBD" },
+    { id: 83, group: "R32", date: "Jun 30", team1: "Mexico", team2: "TBD" },
+    { id: 84, group: "R32", date: "Jul 1", team1: "TBD", team2: "TBD" },
+    { id: 85, group: "R32", date: "Jul 3", team1: "Argentina", team2: "TBD" },
+    { id: 86, group: "R32", date: "Jul 3", team1: "TBD", team2: "TBD" },
+    { id: 87, group: "R32", date: "Jul 2", team1: "TBD", team2: "TBD" },
+    { id: 88, group: "R32", date: "Jul 3", team1: "TBD", team2: "TBD" },
+
+    // Round of 16
+    { id: 89, group: "R16", date: "Jul 4", team1: "TBD", team2: "TBD" },
+    { id: 90, group: "R16", date: "Jul 4", team1: "TBD", team2: "TBD" },
+    { id: 91, group: "R16", date: "Jul 6", team1: "TBD", team2: "TBD" },
+    { id: 92, group: "R16", date: "Jul 6", team1: "TBD", team2: "TBD" },
+    { id: 93, group: "R16", date: "Jul 5", team1: "TBD", team2: "TBD" },
+    { id: 94, group: "R16", date: "Jul 5", team1: "TBD", team2: "TBD" },
+    { id: 95, group: "R16", date: "Jul 7", team1: "TBD", team2: "TBD" },
+    { id: 96, group: "R16", date: "Jul 7", team1: "TBD", team2: "TBD" },
+
+    // Quarterfinals
+    { id: 97, group: "QF", date: "Jul 9", team1: "TBD", team2: "TBD" },
+    { id: 98, group: "QF", date: "Jul 9", team1: "TBD", team2: "TBD" },
+    { id: 99, group: "QF", date: "Jul 10", team1: "TBD", team2: "TBD" },
+    { id: 100, group: "QF", date: "Jul 11", team1: "TBD", team2: "TBD" },
+
+    // Semifinals
+    { id: 101, group: "SF", date: "Jul 14", team1: "TBD", team2: "TBD" },
+    { id: 102, group: "SF", date: "Jul 15", team1: "TBD", team2: "TBD" },
+
+    // Third place and final
+    { id: 103, group: "3rd", date: "Jul 18", team1: "TBD", team2: "TBD" },
+    { id: 104, group: "Final", date: "Jul 19", team1: "TBD", team2: "TBD" }
 ];
 
 // Load matches into dropdown
@@ -99,7 +141,8 @@ function loadMatchesDropdown() {
     ALL_MATCHES.forEach(match => {
         const option = document.createElement('option');
         option.value = match.id;
-        option.textContent = `${match.date} - Group ${match.group}: ${match.team1} vs ${match.team2}`;
+        const stageLabel = match.group.length === 1 ? `Group ${match.group}` : match.group;
+        option.textContent = `${match.date} - ${stageLabel}: ${match.team1} vs ${match.team2}`;
         select.appendChild(option);
     });
 }
@@ -119,8 +162,9 @@ function selectMatch() {
     
     // Show form
     document.getElementById('matchResultForm').style.display = 'block';
-    document.getElementById('selectedMatchTitle').textContent = 
-        `${match.date} - Group ${match.group}`;
+    const stageLabel = match.group.length === 1 ? `Group ${match.group}` : match.group;
+    document.getElementById('selectedMatchTitle').textContent =
+        `${match.date} - ${stageLabel}`;
     document.getElementById('team1Name').textContent = match.team1;
     document.getElementById('team2Name').textContent = match.team2;
     
@@ -221,7 +265,7 @@ function updateSavedResultsList() {
             html += `
                 <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <strong>${match.date} - Group ${match.group}</strong><br>
+                        <strong>${match.date} - ${match.group.length === 1 ? `Group ${match.group}` : match.group}</strong><br>
                         <span style="font-size: 1.1em;">${result.team1} <strong>${result.score1} - ${result.score2}</strong> ${result.team2}</span>
                     </div>
                     <button onclick="editResult('${match.id}')" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">
