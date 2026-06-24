@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T22:03:47.710Z",
+  "lastUpdated": "2026-06-24T02:17:39.343Z",
   "totalUsers": 60,
   "rankings": [
     {
@@ -184,6 +184,15 @@
     },
     {
       "rank": 21,
+      "firstName": "Carlos",
+      "lastName": "Monge",
+      "ibmId": "calmonge@br.ibm.com",
+      "points": 30,
+      "predictionsCount": 72,
+      "completion": 100
+    },
+    {
+      "rank": 22,
       "firstName": "Anderson",
       "lastName": "Caichiolo",
       "ibmId": "acachiol@br.ibm.com",
@@ -192,31 +201,22 @@
       "completion": 100
     },
     {
-      "rank": 22,
-      "firstName": "Carlos",
-      "lastName": "Monge",
-      "ibmId": "calmonge@br.ibm.com",
+      "rank": 23,
+      "firstName": "Pete",
+      "lastName": "Bedell",
+      "ibmId": "pbedell@us.ibm.com",
       "points": 29,
-      "predictionsCount": 72,
-      "completion": 100
+      "predictionsCount": 56,
+      "completion": 78
     },
     {
-      "rank": 23,
+      "rank": 24,
       "firstName": "ARIADNA",
       "lastName": "SIRI",
       "ibmId": "siria@ar.ibm.com",
       "points": 28,
       "predictionsCount": 53,
       "completion": 74
-    },
-    {
-      "rank": 24,
-      "firstName": "Pete",
-      "lastName": "Bedell",
-      "ibmId": "pbedell@us.ibm.com",
-      "points": 28,
-      "predictionsCount": 56,
-      "completion": 78
     },
     {
       "rank": 25,
@@ -310,6 +310,15 @@
     },
     {
       "rank": 35,
+      "firstName": "Felipe",
+      "lastName": "Telesca",
+      "ibmId": "felipe.telesca@ibm.com",
+      "points": 18,
+      "predictionsCount": 53,
+      "completion": 74
+    },
+    {
+      "rank": 36,
       "firstName": "Tiago",
       "lastName": "Ramos",
       "ibmId": "tiagoor@br.ibm.com",
@@ -318,7 +327,7 @@
       "completion": 72
     },
     {
-      "rank": 36,
+      "rank": 37,
       "firstName": "Chu",
       "lastName": "Emily",
       "ibmId": "Emily.chu@ibm.com",
@@ -327,22 +336,13 @@
       "completion": 50
     },
     {
-      "rank": 37,
+      "rank": 38,
       "firstName": "chu",
       "lastName": "emily",
       "ibmId": "emily.chu@ibm.com",
       "points": 15,
       "predictionsCount": 17,
       "completion": 24
-    },
-    {
-      "rank": 38,
-      "firstName": "Felipe",
-      "lastName": "Telesca",
-      "ibmId": "felipe.telesca@ibm.com",
-      "points": 15,
-      "predictionsCount": 53,
-      "completion": 74
     },
     {
       "rank": 39,
