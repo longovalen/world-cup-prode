@@ -208,10 +208,14 @@
             
             <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
                 <strong>🔄 Restore from Backup:</strong>
-                <p style="margin: 10px 0; color: #856404;">If you lost your data, you can restore it from your rankings.json backup file.</p>
+                <p style="margin: 10px 0; color: #856404;">If you lost your data, you can restore users from your rankings.json backup file and results from your results.json backup file.</p>
                 <input type="file" id="backupFile" accept=".json" style="display: none;" onchange="handleBackupFile(event)">
+                <input type="file" id="resultsBackupFile" accept=".json" style="display: none;" onchange="handleResultsBackupFile(event)">
                 <button class="btn" onclick="document.getElementById('backupFile').click()" style="background: #ffc107; margin-top: 10px;">
                     📂 Import from rankings.json
+                </button>
+                <button class="btn" onclick="document.getElementById('resultsBackupFile').click()" style="background: #fd7e14; margin-top: 10px;">
+                    ⚽ Import from results.json
                 </button>
             </div>
 
@@ -295,7 +299,7 @@
             </div>
 
             <div id="savedResults" style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; color: #333;">📋 Saved Results (<span id="resultsCount">0</span>/72)</h3>
+                <h3 style="margin-bottom: 15px; color: #333;">📋 Saved Results (<span id="resultsCount">0</span>/104)</h3>
                 <div id="resultsList" style="max-height: 400px; overflow-y: auto;"></div>
             </div>
         </div>
@@ -436,11 +440,16 @@
             }
 
             // Calculate points for each user
-            const usersWithPoints = allUsers.map(user => ({
-                ...user,
-                points: calculateUserPoints(user),
-                predictionsCount: Object.keys(user.predictions || {}).length
-            }));
+            const usersWithPoints = allUsers.map(user => {
+                const hasPredictions = Object.keys(user.predictions || {}).length > 0;
+                return {
+                    ...user,
+                    points: hasPredictions ? calculateUserPoints(user) : (user.points || 0),
+                    predictionsCount: hasPredictions
+                        ? Object.keys(user.predictions || {}).length
+                        : (user.predictionsCount || 0)
+                };
+            });
 
             // Sort by points
             usersWithPoints.sort((a, b) => {
@@ -459,7 +468,7 @@
             tbody.innerHTML = usersWithPoints.map((user, idx) => {
                 const rankClass = idx === 0 ? 'gold' : idx === 1 ? 'silver' : idx === 2 ? 'bronze' : '';
                 const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '';
-                const completion = Math.round((user.predictionsCount / 72) * 100);
+                const completion = Math.round((user.predictionsCount / 104) * 100);
                 
                 return `
                     <tr>
@@ -467,7 +476,7 @@
                         <td>${user.firstName} ${user.lastName}</td>
                         <td>${user.ibmId}</td>
                         <td><strong style="color: #667eea; font-size: 1.1em;">${user.points}</strong></td>
-                        <td>${user.predictionsCount}/72</td>
+                        <td>${user.predictionsCount}/104</td>
                         <td>${completion}%</td>
                     </tr>
                 `;
@@ -480,11 +489,16 @@
                 return;
             }
 
-            const usersWithPoints = allUsers.map(user => ({
-                ...user,
-                points: calculateUserPoints(user),
-                predictionsCount: Object.keys(user.predictions || {}).length
-            }));
+            const usersWithPoints = allUsers.map(user => {
+                const hasPredictions = Object.keys(user.predictions || {}).length > 0;
+                return {
+                    ...user,
+                    points: hasPredictions ? calculateUserPoints(user) : (user.points || 0),
+                    predictionsCount: hasPredictions
+                        ? Object.keys(user.predictions || {}).length
+                        : (user.predictionsCount || 0)
+                };
+            });
 
             usersWithPoints.sort((a, b) => b.points - a.points);
 
@@ -493,8 +507,8 @@
                 'Name': `${user.firstName} ${user.lastName}`,
                 'IBM ID': user.ibmId,
                 'Points': user.points,
-                'Predictions': `${user.predictionsCount}/72`,
-                'Completion %': Math.round((user.predictionsCount / 72) * 100)
+                'Predictions': `${user.predictionsCount}/104`,
+                'Completion %': Math.round((user.predictionsCount / 104) * 100)
             }));
 
             const ws = XLSX.utils.json_to_sheet(excelData);
@@ -510,11 +524,16 @@
                 return;
             }
 
-            const usersWithPoints = allUsers.map(user => ({
-                ...user,
-                points: calculateUserPoints(user),
-                predictionsCount: Object.keys(user.predictions || {}).length
-            }));
+            const usersWithPoints = allUsers.map(user => {
+                const hasPredictions = Object.keys(user.predictions || {}).length > 0;
+                return {
+                    ...user,
+                    points: hasPredictions ? calculateUserPoints(user) : (user.points || 0),
+                    predictionsCount: hasPredictions
+                        ? Object.keys(user.predictions || {}).length
+                        : (user.predictionsCount || 0)
+                };
+            });
 
             usersWithPoints.sort((a, b) => b.points - a.points);
 
@@ -527,8 +546,9 @@
                     lastName: user.lastName,
                     ibmId: user.ibmId,
                     points: user.points,
+                    predictions: user.predictions || {},
                     predictionsCount: user.predictionsCount,
-                    completion: Math.round((user.predictionsCount / 72) * 100)
+                    completion: Math.round((user.predictionsCount / 104) * 100)
                 }))
             };
 
@@ -548,18 +568,23 @@
 
 
         function copyRanking() {
-            const usersWithPoints = allUsers.map(user => ({
-                ...user,
-                points: calculateUserPoints(user),
-                predictionsCount: Object.keys(user.predictions || {}).length
-            }));
+            const usersWithPoints = allUsers.map(user => {
+                const hasPredictions = Object.keys(user.predictions || {}).length > 0;
+                return {
+                    ...user,
+                    points: hasPredictions ? calculateUserPoints(user) : (user.points || 0),
+                    predictionsCount: hasPredictions
+                        ? Object.keys(user.predictions || {}).length
+                        : (user.predictionsCount || 0)
+                };
+            });
 
             usersWithPoints.sort((a, b) => b.points - a.points);
 
             let text = '🏆 WORLD CUP 2026 RANKINGS 🏆\n\n';
             usersWithPoints.forEach((user, idx) => {
                 const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx + 1}.`;
-                text += `${medal} ${user.firstName} ${user.lastName} - ${user.points} pts (${user.predictionsCount}/72)\n`;
+                text += `${medal} ${user.firstName} ${user.lastName} - ${user.points} pts (${user.predictionsCount}/104)\n`;
             });
 
             navigator.clipboard.writeText(text);
@@ -614,22 +639,31 @@
                     let skipped = 0;
 
                     rankingsData.rankings.forEach(rankingUser => {
-                        // Check if user already exists
+                        const restoredUser = {
+                            firstName: rankingUser.firstName,
+                            lastName: rankingUser.lastName,
+                            ibmId: rankingUser.ibmId,
+                            predictions: rankingUser.predictions || {},
+                            points: rankingUser.points || 0,
+                            predictionsCount: rankingUser.predictionsCount || Object.keys(rankingUser.predictions || {}).length,
+                            completion: rankingUser.completion || 0,
+                            timestamp: rankingsData.lastUpdated
+                        };
+
                         const existingIndex = allUsers.findIndex(u => u.ibmId === rankingUser.ibmId);
                         
                         if (existingIndex >= 0) {
-                            // User exists - keep their full data (predictions)
-                            skipped++;
+                            if (action === 'merge' && Object.keys(allUsers[existingIndex].predictions || {}).length > 0) {
+                                skipped++;
+                            } else {
+                                allUsers[existingIndex] = {
+                                    ...allUsers[existingIndex],
+                                    ...restoredUser
+                                };
+                                updated++;
+                            }
                         } else {
-                            // New user - create basic structure
-                            // Note: We don't have their predictions, they'll need to be added from emails
-                            allUsers.push({
-                                firstName: rankingUser.firstName,
-                                lastName: rankingUser.lastName,
-                                ibmId: rankingUser.ibmId,
-                                predictions: {}, // Empty - will be filled when you paste their JSON from email
-                                timestamp: rankingsData.lastUpdated
-                            });
+                            allUsers.push(restoredUser);
                             imported++;
                         }
                     });
@@ -639,10 +673,10 @@
 
                     let message = `✅ Backup imported successfully!\n\n`;
                     message += `• ${imported} new users added\n`;
-                    message += `• ${skipped} existing users kept (with their predictions)\n`;
-                    if (imported > 0) {
-                        message += `\n⚠️ Note: New users from backup don't have predictions yet.\n`;
-                        message += `You'll need to paste their full JSON from emails to add predictions.`;
+                    message += `• ${updated} users restored/updated from backup\n`;
+                    message += `• ${skipped} existing users kept as-is\n`;
+                    if (imported > 0 || updated > 0) {
+                        message += `\nℹ️ If the backup only contains ranking totals and not full predictions, points will depend on the imported backup data.`;
                     }
 
                     showMessage(message, 'success');
@@ -658,6 +692,54 @@
             reader.readAsText(file);
         }
 
+
+        function handleResultsBackupFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const resultsData = JSON.parse(e.target.result);
+
+                    if (!resultsData.results || typeof resultsData.results !== 'object') {
+                        showMessage('❌ Invalid results.json format', 'error');
+                        return;
+                    }
+
+                    const importedResults = resultsData.results;
+                    const importedCount = Object.keys(importedResults).length;
+                    const currentCount = Object.keys(actualResults).length;
+
+                    let action = 'replace';
+                    if (currentCount > 0) {
+                        const userChoice = confirm(
+                            `You currently have ${currentCount} results loaded.\n\n` +
+                            `The backup file contains ${importedCount} results.\n\n` +
+                            `Click OK to MERGE (add/overwrite imported results)\n` +
+                            `Click CANCEL to REPLACE (delete current and load backup)`
+                        );
+                        action = userChoice ? 'merge' : 'replace';
+                    }
+
+                    actualResults = action === 'merge'
+                        ? { ...actualResults, ...importedResults }
+                        : importedResults;
+
+                    saveData();
+                    updateSavedResultsList();
+                    updateRanking();
+
+                    showMessage(`✅ Results backup imported successfully! ${Object.keys(actualResults).length} results now loaded.`, 'success');
+
+                    event.target.value = '';
+                } catch (error) {
+                    showMessage('❌ Error reading results backup: ' + error.message, 'error');
+                    console.error(error);
+                }
+            };
+            reader.readAsText(file);
+        }
 
         function showMessage(text, type) {
             const messageDiv = document.getElementById('message');
