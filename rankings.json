@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T15:34:27.422Z",
+  "lastUpdated": "2026-06-24T15:40:05.206Z",
   "totalUsers": 61,
   "rankings": [
     {
@@ -13407,6 +13407,20 @@
           "team1": "Colombia",
           "team2": "Congo DR"
         },
+        "65": {
+          "matchId": 65,
+          "score1": 1,
+          "score2": 3,
+          "team1": "Colombia",
+          "team2": "Portugal"
+        },
+        "66": {
+          "matchId": 66,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Congo DR",
+          "team2": "Uzbekistan"
+        },
         "67": {
           "matchId": 67,
           "score1": 2,
@@ -13441,10 +13455,17 @@
           "score2": 4,
           "team1": "Panama",
           "team2": "England"
+        },
+        "72": {
+          "matchId": 72,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Croatia",
+          "team2": "Ghana"
         }
       },
-      "predictionsCount": 69,
-      "completion": 66
+      "predictionsCount": 72,
+      "completion": 69
     },
     {
       "rank": 30,
