@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-24T17:21:07.108Z",
-  "totalMatches": 49,
+  "lastUpdated": "2026-06-25T00:07:42.642Z",
+  "totalMatches": 53,
   "results": {
     "1": {
       "score1": 2,
@@ -66,6 +66,22 @@
       "group": "B",
       "date": "Jun 18"
     },
+    "11": {
+      "score1": 2,
+      "score2": 1,
+      "team1": "Switzerland",
+      "team2": "Canada",
+      "group": "B",
+      "date": "Jun 24"
+    },
+    "12": {
+      "score1": 3,
+      "score2": 1,
+      "team1": "Bosnia and Herzegovina",
+      "team2": "Qatar",
+      "group": "B",
+      "date": "Jun 24"
+    },
     "13": {
       "score1": 1,
       "score2": 1,
@@ -97,6 +113,22 @@
       "team2": "Haiti",
       "group": "C",
       "date": "Jun 19"
+    },
+    "17": {
+      "score1": 0,
+      "score2": 3,
+      "team1": "Scotland",
+      "team2": "Brazil",
+      "group": "C",
+      "date": "Jun 24"
+    },
+    "18": {
+      "score1": 4,
+      "score2": 2,
+      "team1": "Morocco",
+      "team2": "Haiti",
+      "group": "C",
+      "date": "Jun 24"
     },
     "19": {
       "score1": 4,
