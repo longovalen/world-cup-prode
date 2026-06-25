@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-25T00:07:42.642Z",
-  "totalMatches": 53,
+  "lastUpdated": "2026-06-25T11:24:58.371Z",
+  "totalMatches": 55,
   "results": {
     "1": {
       "score1": 2,
@@ -33,6 +33,22 @@
       "team2": "South Korea",
       "group": "A",
       "date": "Jun 18"
+    },
+    "5": {
+      "score1": 0,
+      "score2": 3,
+      "team1": "Czechia",
+      "team2": "Mexico",
+      "group": "A",
+      "date": "Jun 24"
+    },
+    "6": {
+      "score1": 1,
+      "score2": 0,
+      "team1": "South Africa",
+      "team2": "South Korea",
+      "group": "A",
+      "date": "Jun 24"
     },
     "7": {
       "score1": 1,
