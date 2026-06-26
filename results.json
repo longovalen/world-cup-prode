@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-25T23:44:42.481Z",
-  "totalMatches": 57,
+  "lastUpdated": "2026-06-26T12:29:12.007Z",
+  "totalMatches": 61,
   "results": {
     "1": {
       "score1": 2,
@@ -178,6 +178,22 @@
       "group": "D",
       "date": "Jun 19"
     },
+    "23": {
+      "score1": 3,
+      "score2": 2,
+      "team1": "Turkey",
+      "team2": "USA",
+      "group": "D",
+      "date": "Jun 25"
+    },
+    "24": {
+      "score1": 0,
+      "score2": 0,
+      "team1": "Paraguay",
+      "team2": "Australia",
+      "group": "D",
+      "date": "Jun 25"
+    },
     "25": {
       "score1": 7,
       "score2": 1,
@@ -257,6 +273,22 @@
       "team2": "Japan",
       "group": "F",
       "date": "Jun 20"
+    },
+    "35": {
+      "score1": 1,
+      "score2": 3,
+      "team1": "Tunisia",
+      "team2": "Netherlands",
+      "group": "F",
+      "date": "Jun 25"
+    },
+    "36": {
+      "score1": 1,
+      "score2": 1,
+      "team1": "Japan",
+      "team2": "Sweden",
+      "group": "F",
+      "date": "Jun 25"
     },
     "37": {
       "score1": 1,
@@ -443,8 +475,8 @@
       "date": "Jun 23"
     },
     "70": {
-      "score1": 1,
-      "score2": 0,
+      "score1": 0,
+      "score2": 1,
       "team1": "Panama",
       "team2": "Croatia",
       "group": "L",
