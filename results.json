@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-29T18:35:31.445Z",
-  "totalMatches": 74,
+  "lastUpdated": "2026-06-29T19:03:46.477Z",
+  "totalMatches": 75,
   "results": {
     "1": {
       "score1": 2,
@@ -585,6 +585,14 @@
       "team2": "Canada",
       "group": "R32",
       "date": "Jun 28"
+    },
+    "81": {
+      "score1": 2,
+      "score2": 1,
+      "team1": "Brazil",
+      "team2": "Japan",
+      "group": "R32",
+      "date": "Jun 29"
     },
     "match_1": {
       "score1": 2,
