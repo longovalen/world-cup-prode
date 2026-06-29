@@ -602,7 +602,7 @@
         .bracket-match {
             position: absolute;
             width: 136px;
-            min-height: 66px;
+            min-height: 76px;
             background: white;
             border: 1.5px solid #e0e0e0;
             border-radius: 8px;
@@ -654,7 +654,8 @@
             color: #667eea;
             font-weight: 700;
             text-align: center;
-            line-height: 1.1;
+            white-space: nowrap;
+            line-height: 1.2;
             margin-bottom: 5px;
         }
 
@@ -709,11 +710,11 @@
 
         .bracket-result {
             text-align: center;
-            font-size: 0.65em;
+            font-size: 0.8em;
             color: #28a745;
             font-weight: bold;
             margin-top: 4px;
-            padding: 3px;
+            padding: 3px 4px;
             background: #d4edda;
             border-radius: 4px;
         }
@@ -2104,7 +2105,7 @@ Copy the JSON above to import into your system.
             if (isThirdPlace) {
                 return `
                     <div class="${matchClass} ${isLocked ? 'locked' : ''}" style="${style}">
-                        <div class="bracket-match-date">3rd Place<br>${match.date} - ${timeStr}</div>
+                        <div class="bracket-match-date">3rd Place · ${match.date} · ${timeStr}</div>
                         <div class="bracket-team">
                             <span class="${team1 === 'TBD' ? 'tbd-team' : ''}">${team1}</span>
                             <input type="number" class="bracket-score" id="match_${match.id}_team1"
@@ -2128,7 +2129,7 @@ Copy the JSON above to import into your system.
 
             return `
                 <div class="${matchClass} ${isLocked ? 'locked' : ''}" style="${style}">
-                    <div class="bracket-match-date">${match.date}<br>${timeStr}</div>
+                    <div class="bracket-match-date">${match.date} · ${timeStr}</div>
                     <div class="bracket-team">
                         ${team1 !== 'TBD' ? getFlagHTML(team1) : ''}
                         <span class="${team1 === 'TBD' ? 'tbd-team' : ''}">${team1}</span>
