@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-28T13:49:32.758Z",
-  "totalMatches": 73,
+  "lastUpdated": "2026-06-29T01:26:26.713Z",
+  "totalMatches": 74,
   "results": {
     "1": {
       "score1": 2,
@@ -577,6 +577,14 @@
       "team2": "Ghana",
       "group": "L",
       "date": "Jun 27"
+    },
+    "75": {
+      "score1": 0,
+      "score2": 1,
+      "team1": "South Africa",
+      "team2": "Canada",
+      "group": "R32",
+      "date": "Jun 28"
     },
     "match_1": {
       "score1": 2,
