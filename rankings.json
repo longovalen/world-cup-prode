@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T12:14:44.319Z",
+  "lastUpdated": "2026-06-29T15:16:08.061Z",
   "totalUsers": 61,
   "rankings": [
     {
@@ -513,6 +513,20 @@
           "team1": "Croatia",
           "team2": "Ghana"
         },
+        "73": {
+          "matchId": 73,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 3,
+          "score2": 1,
+          "team1": "France",
+          "team2": "Sweden"
+        },
         "75": {
           "matchId": 75,
           "score1": 0,
@@ -540,10 +554,24 @@
           "score2": 1,
           "team1": "Brazil",
           "team2": "Japan"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Mexico",
+          "team2": "Ecuador"
         }
       },
-      "predictionsCount": 76,
-      "completion": 73
+      "predictionsCount": 80,
+      "completion": 77
     },
     {
       "rank": 2,
@@ -1056,16 +1084,37 @@
           "team1": "Croatia",
           "team2": "Ghana"
         },
+        "73": {
+          "matchId": 73,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
         "75": {
           "matchId": 75,
           "score1": 0,
           "score2": 2,
           "team1": "South Africa",
           "team2": "Canada"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Brazil",
+          "team2": "Japan"
         }
       },
-      "predictionsCount": 73,
-      "completion": 70
+      "predictionsCount": 76,
+      "completion": 73
     },
     {
       "rank": 3,
@@ -1543,16 +1592,121 @@
           "team1": "Panama",
           "team2": "Croatia"
         },
+        "73": {
+          "matchId": 73,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 3,
+          "score2": 0,
+          "team1": "France",
+          "team2": "Sweden"
+        },
         "75": {
           "matchId": 75,
           "score1": 0,
           "score2": 2,
           "team1": "South Africa",
           "team2": "Canada"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "77": {
+          "matchId": 77,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Portugal",
+          "team2": "Croatia"
+        },
+        "78": {
+          "matchId": 78,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Spain",
+          "team2": "Austria"
+        },
+        "79": {
+          "matchId": 79,
+          "score1": 2,
+          "score2": 0,
+          "team1": "USA",
+          "team2": "Bosnia and Herzegovina"
+        },
+        "80": {
+          "matchId": 80,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Belgium",
+          "team2": "Senegal"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Brazil",
+          "team2": "Japan"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Mexico",
+          "team2": "Ecuador"
+        },
+        "84": {
+          "matchId": 84,
+          "score1": 2,
+          "score2": 0,
+          "team1": "England",
+          "team2": "Congo DR"
+        },
+        "85": {
+          "matchId": 85,
+          "score1": 3,
+          "score2": 0,
+          "team1": "Argentina",
+          "team2": "Cape Verde"
+        },
+        "86": {
+          "matchId": 86,
+          "score1": 0,
+          "score2": 1,
+          "team1": "Australia",
+          "team2": "Egypt"
+        },
+        "87": {
+          "matchId": 87,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Switzerland",
+          "team2": "Algeria"
+        },
+        "88": {
+          "matchId": 88,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Colombia",
+          "team2": "Ghana"
         }
       },
-      "predictionsCount": 68,
-      "completion": 65
+      "predictionsCount": 83,
+      "completion": 80
     },
     {
       "rank": 4,
@@ -3193,16 +3347,58 @@
           "team1": "Croatia",
           "team2": "Ghana"
         },
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 3,
+          "score2": 0,
+          "team1": "France",
+          "team2": "Sweden"
+        },
         "75": {
           "matchId": 75,
           "score1": 1,
           "score2": 2,
           "team1": "South Africa",
           "team2": "Canada"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Brazil",
+          "team2": "Japan"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Mexico",
+          "team2": "Ecuador"
         }
       },
-      "predictionsCount": 73,
-      "completion": 70
+      "predictionsCount": 79,
+      "completion": 76
     },
     {
       "rank": 7,
@@ -5354,7 +5550,7 @@
         "81": {
           "matchId": 81,
           "score1": 2,
-          "score2": 1,
+          "score2": 0,
           "team1": "Brazil",
           "team2": "Japan"
         }
@@ -8121,10 +8317,115 @@
           "score2": 1,
           "team1": "Croatia",
           "team2": "Ghana"
+        },
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 2,
+          "score2": 0,
+          "team1": "France",
+          "team2": "Sweden"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "77": {
+          "matchId": 77,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Portugal",
+          "team2": "Croatia"
+        },
+        "78": {
+          "matchId": 78,
+          "score1": 3,
+          "score2": 0,
+          "team1": "Spain",
+          "team2": "Austria"
+        },
+        "79": {
+          "matchId": 79,
+          "score1": 2,
+          "score2": 1,
+          "team1": "USA",
+          "team2": "Bosnia and Herzegovina"
+        },
+        "80": {
+          "matchId": 80,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Belgium",
+          "team2": "Senegal"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Brazil",
+          "team2": "Japan"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Mexico",
+          "team2": "Ecuador"
+        },
+        "84": {
+          "matchId": 84,
+          "score1": 3,
+          "score2": 0,
+          "team1": "England",
+          "team2": "Congo DR"
+        },
+        "85": {
+          "matchId": 85,
+          "score1": 4,
+          "score2": 0,
+          "team1": "Argentina",
+          "team2": "Cape Verde"
+        },
+        "86": {
+          "matchId": 86,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Australia",
+          "team2": "Egypt"
+        },
+        "87": {
+          "matchId": 87,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Switzerland",
+          "team2": "Algeria"
+        },
+        "88": {
+          "matchId": 88,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Colombia",
+          "team2": "Ghana"
         }
       },
-      "predictionsCount": 72,
-      "completion": 69
+      "predictionsCount": 87,
+      "completion": 84
     },
     {
       "rank": 16,
@@ -10910,7 +11211,7 @@
         "81": {
           "matchId": 81,
           "score1": 1,
-          "score2": 1,
+          "score2": 2,
           "team1": "Brazil",
           "team2": "Japan"
         },
@@ -10923,7 +11224,7 @@
         },
         "83": {
           "matchId": 83,
-          "score1": 1,
+          "score1": 2,
           "score2": 1,
           "team1": "Mexico",
           "team2": "Ecuador"
@@ -18326,7 +18627,7 @@
       "firstName": "Paula",
       "lastName": "Yamevo",
       "ibmId": "paula.yamevo@ibm.com",
-      "points": 24,
+      "points": 28,
       "predictions": {
         "5": {
           "matchId": 5,
@@ -18566,6 +18867,13 @@
           "team1": "Jordan",
           "team2": "Algeria"
         },
+        "59": {
+          "matchId": 59,
+          "score1": 0,
+          "score2": 3,
+          "team1": "Jordan",
+          "team2": "Argentina"
+        },
         "60": {
           "matchId": 60,
           "score1": 1,
@@ -18621,10 +18929,122 @@
           "score2": 1,
           "team1": "Panama",
           "team2": "England"
+        },
+        "72": {
+          "matchId": 72,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Croatia",
+          "team2": "Ghana"
+        },
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 2,
+          "score2": 1,
+          "team1": "France",
+          "team2": "Sweden"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "77": {
+          "matchId": 77,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Portugal",
+          "team2": "Croatia"
+        },
+        "78": {
+          "matchId": 78,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Spain",
+          "team2": "Austria"
+        },
+        "79": {
+          "matchId": 79,
+          "score1": 1,
+          "score2": 1,
+          "team1": "USA",
+          "team2": "Bosnia and Herzegovina"
+        },
+        "80": {
+          "matchId": 80,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Belgium",
+          "team2": "Senegal"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Brazil",
+          "team2": "Japan"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Mexico",
+          "team2": "Ecuador"
+        },
+        "84": {
+          "matchId": 84,
+          "score1": 1,
+          "score2": 2,
+          "team1": "England",
+          "team2": "Congo DR"
+        },
+        "85": {
+          "matchId": 85,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Argentina",
+          "team2": "Cape Verde"
+        },
+        "86": {
+          "matchId": 86,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Australia",
+          "team2": "Egypt"
+        },
+        "87": {
+          "matchId": 87,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Switzerland",
+          "team2": "Algeria"
+        },
+        "88": {
+          "matchId": 88,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Colombia",
+          "team2": "Ghana"
         }
       },
-      "predictionsCount": 42,
-      "completion": 40
+      "predictionsCount": 59,
+      "completion": 57
     },
     {
       "rank": 37,
@@ -19972,10 +20392,31 @@
           "score2": 3,
           "team1": "Panama",
           "team2": "Croatia"
+        },
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "81": {
+          "matchId": 81,
+          "score1": 3,
+          "score2": 0,
+          "team1": "Brazil",
+          "team2": "Japan"
         }
       },
-      "predictionsCount": 16,
-      "completion": 15
+      "predictionsCount": 19,
+      "completion": 18
     },
     {
       "rank": 44,
