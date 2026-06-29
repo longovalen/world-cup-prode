@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-29T19:03:45.446Z",
-  "totalUsers": 61,
+  "lastUpdated": "2026-06-29T23:59:05.337Z",
+  "totalUsers": 62,
   "rankings": [
     {
       "rank": 1,
@@ -1073,7 +1073,7 @@
         "76": {
           "matchId": 76,
           "score1": 1,
-          "score2": 1,
+          "score2": 0,
           "team1": "Netherlands",
           "team2": "Morocco"
         },
@@ -6824,8 +6824,8 @@
         },
         "76": {
           "matchId": 76,
-          "score1": 2,
-          "score2": 1,
+          "score1": 3,
+          "score2": 2,
           "team1": "Netherlands",
           "team2": "Morocco"
         },
@@ -15754,10 +15754,108 @@
           "score2": 1,
           "team1": "Croatia",
           "team2": "Ghana"
+        },
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 0,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 3,
+          "score2": 0,
+          "team1": "France",
+          "team2": "Sweden"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "77": {
+          "matchId": 77,
+          "score1": 2,
+          "score2": 2,
+          "team1": "Portugal",
+          "team2": "Croatia"
+        },
+        "78": {
+          "matchId": 78,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Spain",
+          "team2": "Austria"
+        },
+        "79": {
+          "matchId": 79,
+          "score1": 1,
+          "score2": 0,
+          "team1": "USA",
+          "team2": "Bosnia and Herzegovina"
+        },
+        "80": {
+          "matchId": 80,
+          "score1": 0,
+          "score2": 0,
+          "team1": "Belgium",
+          "team2": "Senegal"
+        },
+        "82": {
+          "matchId": 82,
+          "score1": 0,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Norway"
+        },
+        "83": {
+          "matchId": 83,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Mexico",
+          "team2": "Ecuador"
+        },
+        "84": {
+          "matchId": 84,
+          "score1": 2,
+          "score2": 0,
+          "team1": "England",
+          "team2": "Congo DR"
+        },
+        "85": {
+          "matchId": 85,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Argentina",
+          "team2": "Cape Verde"
+        },
+        "86": {
+          "matchId": 86,
+          "score1": 1,
+          "score2": 1,
+          "team1": "Australia",
+          "team2": "Egypt"
+        },
+        "87": {
+          "matchId": 87,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Switzerland",
+          "team2": "Algeria"
+        },
+        "88": {
+          "matchId": 88,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Colombia",
+          "team2": "Ghana"
         }
       },
-      "predictionsCount": 72,
-      "completion": 69
+      "predictionsCount": 86,
+      "completion": 83
     },
     {
       "rank": 29,
@@ -20813,158 +20911,10 @@
     },
     {
       "rank": 46,
-      "firstName": "Jacob",
-      "lastName": "Cherian",
-      "ibmId": "jacob.cherian@ibm.com",
-      "points": 6,
-      "predictions": {
-        "15": {
-          "matchId": 15,
-          "score1": 1,
-          "score2": 0,
-          "team1": "Scotland",
-          "team2": "Morocco"
-        },
-        "25": {
-          "matchId": 25,
-          "score1": 1,
-          "score2": 0,
-          "team1": "Germany",
-          "team2": "Curaçao"
-        },
-        "26": {
-          "matchId": 26,
-          "score1": 1,
-          "score2": 0,
-          "team1": "Ivory Coast",
-          "team2": "Ecuador"
-        },
-        "31": {
-          "matchId": 31,
-          "score1": 3,
-          "score2": 1,
-          "team1": "Netherlands",
-          "team2": "Japan"
-        },
-        "32": {
-          "matchId": 32,
-          "score1": 2,
-          "score2": 0,
-          "team1": "Sweden",
-          "team2": "Tunisia"
-        },
-        "40": {
-          "matchId": 40,
-          "score1": 0,
-          "score2": 1,
-          "team1": "New Zealand",
-          "team2": "Egypt"
-        }
-      },
-      "predictionsCount": 6,
-      "completion": 6
-    },
-    {
-      "rank": 47,
-      "firstName": "Juan Ignacio",
-      "lastName": "Franco",
-      "ibmId": "nacho.franco@ibm.com",
-      "points": 4,
-      "predictions": {
-        "7": {
-          "matchId": 7,
-          "score1": 2,
-          "score2": 1,
-          "team1": "Canada",
-          "team2": "Bosnia and Herzegovina"
-        },
-        "8": {
-          "matchId": 8,
-          "score1": 1,
-          "score2": 3,
-          "team1": "Qatar",
-          "team2": "Switzerland"
-        },
-        "13": {
-          "matchId": 13,
-          "score1": 1,
-          "score2": 2,
-          "team1": "Brazil",
-          "team2": "Morocco"
-        },
-        "14": {
-          "matchId": 14,
-          "score1": 0,
-          "score2": 3,
-          "team1": "Haiti",
-          "team2": "Scotland"
-        },
-        "19": {
-          "matchId": 19,
-          "score1": 1,
-          "score2": 3,
-          "team1": "USA",
-          "team2": "Paraguay"
-        },
-        "20": {
-          "matchId": 20,
-          "score1": 0,
-          "score2": 3,
-          "team1": "Australia",
-          "team2": "Turkey"
-        },
-        "25": {
-          "matchId": 25,
-          "score1": 5,
-          "score2": 0,
-          "team1": "Germany",
-          "team2": "Curaçao"
-        },
-        "26": {
-          "matchId": 26,
-          "score1": 2,
-          "score2": 2,
-          "team1": "Ivory Coast",
-          "team2": "Ecuador"
-        },
-        "31": {
-          "matchId": 31,
-          "score1": 1,
-          "score2": 2,
-          "team1": "Netherlands",
-          "team2": "Japan"
-        },
-        "32": {
-          "matchId": 32,
-          "score1": 2,
-          "score2": 1,
-          "team1": "Sweden",
-          "team2": "Tunisia"
-        },
-        "37": {
-          "matchId": 37,
-          "score1": 2,
-          "score2": 2,
-          "team1": "Belgium",
-          "team2": "Egypt"
-        },
-        "44": {
-          "matchId": 44,
-          "score1": 0,
-          "score2": 2,
-          "team1": "Saudi Arabia",
-          "team2": "Uruguay"
-        }
-      },
-      "predictionsCount": 12,
-      "completion": 12
-    },
-    {
-      "rank": 48,
       "firstName": "Nahuel",
       "lastName": "Foti",
       "ibmId": "nnfoti@ar.ibm.com",
-      "points": 4,
+      "points": 7,
       "predictions": {
         "73": {
           "matchId": 73,
@@ -21081,6 +21031,154 @@
       },
       "predictionsCount": 16,
       "completion": 15
+    },
+    {
+      "rank": 47,
+      "firstName": "Jacob",
+      "lastName": "Cherian",
+      "ibmId": "jacob.cherian@ibm.com",
+      "points": 6,
+      "predictions": {
+        "15": {
+          "matchId": 15,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Scotland",
+          "team2": "Morocco"
+        },
+        "25": {
+          "matchId": 25,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Germany",
+          "team2": "Curaçao"
+        },
+        "26": {
+          "matchId": 26,
+          "score1": 1,
+          "score2": 0,
+          "team1": "Ivory Coast",
+          "team2": "Ecuador"
+        },
+        "31": {
+          "matchId": 31,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Japan"
+        },
+        "32": {
+          "matchId": 32,
+          "score1": 2,
+          "score2": 0,
+          "team1": "Sweden",
+          "team2": "Tunisia"
+        },
+        "40": {
+          "matchId": 40,
+          "score1": 0,
+          "score2": 1,
+          "team1": "New Zealand",
+          "team2": "Egypt"
+        }
+      },
+      "predictionsCount": 6,
+      "completion": 6
+    },
+    {
+      "rank": 48,
+      "firstName": "Juan Ignacio",
+      "lastName": "Franco",
+      "ibmId": "nacho.franco@ibm.com",
+      "points": 4,
+      "predictions": {
+        "7": {
+          "matchId": 7,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Canada",
+          "team2": "Bosnia and Herzegovina"
+        },
+        "8": {
+          "matchId": 8,
+          "score1": 1,
+          "score2": 3,
+          "team1": "Qatar",
+          "team2": "Switzerland"
+        },
+        "13": {
+          "matchId": 13,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Brazil",
+          "team2": "Morocco"
+        },
+        "14": {
+          "matchId": 14,
+          "score1": 0,
+          "score2": 3,
+          "team1": "Haiti",
+          "team2": "Scotland"
+        },
+        "19": {
+          "matchId": 19,
+          "score1": 1,
+          "score2": 3,
+          "team1": "USA",
+          "team2": "Paraguay"
+        },
+        "20": {
+          "matchId": 20,
+          "score1": 0,
+          "score2": 3,
+          "team1": "Australia",
+          "team2": "Turkey"
+        },
+        "25": {
+          "matchId": 25,
+          "score1": 5,
+          "score2": 0,
+          "team1": "Germany",
+          "team2": "Curaçao"
+        },
+        "26": {
+          "matchId": 26,
+          "score1": 2,
+          "score2": 2,
+          "team1": "Ivory Coast",
+          "team2": "Ecuador"
+        },
+        "31": {
+          "matchId": 31,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Netherlands",
+          "team2": "Japan"
+        },
+        "32": {
+          "matchId": 32,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Sweden",
+          "team2": "Tunisia"
+        },
+        "37": {
+          "matchId": 37,
+          "score1": 2,
+          "score2": 2,
+          "team1": "Belgium",
+          "team2": "Egypt"
+        },
+        "44": {
+          "matchId": 44,
+          "score1": 0,
+          "score2": 2,
+          "team1": "Saudi Arabia",
+          "team2": "Uruguay"
+        }
+      },
+      "predictionsCount": 12,
+      "completion": 12
     },
     {
       "rank": 49,
@@ -21664,6 +21762,52 @@
       },
       "predictionsCount": 8,
       "completion": 8
+    },
+    {
+      "rank": 62,
+      "firstName": "Paula",
+      "lastName": "Yamevo",
+      "ibmId": "pauyamevo@ibm.com",
+      "points": 0,
+      "predictions": {
+        "73": {
+          "matchId": 73,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Germany",
+          "team2": "Paraguay"
+        },
+        "74": {
+          "matchId": 74,
+          "score1": 2,
+          "score2": 1,
+          "team1": "France",
+          "team2": "Sweden"
+        },
+        "76": {
+          "matchId": 76,
+          "score1": 2,
+          "score2": 1,
+          "team1": "Netherlands",
+          "team2": "Morocco"
+        },
+        "77": {
+          "matchId": 77,
+          "score1": 1,
+          "score2": 2,
+          "team1": "Portugal",
+          "team2": "Croatia"
+        },
+        "78": {
+          "matchId": 78,
+          "score1": 3,
+          "score2": 1,
+          "team1": "Spain",
+          "team2": "Austria"
+        }
+      },
+      "predictionsCount": 5,
+      "completion": 5
     }
   ]
 }
