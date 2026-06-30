@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-30T12:11:36.981Z",
-  "totalMatches": 77,
+  "lastUpdated": "2026-06-30T19:03:22.773Z",
+  "totalMatches": 78,
   "results": {
     "1": {
       "score1": 2,
@@ -609,6 +609,14 @@
       "team2": "Japan",
       "group": "R32",
       "date": "Jun 29"
+    },
+    "82": {
+      "score1": 1,
+      "score2": 2,
+      "team1": "Ivory Coast",
+      "team2": "Norway",
+      "group": "R32",
+      "date": "Jun 30"
     },
     "match_1": {
       "score1": 2,
