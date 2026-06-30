@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-30T19:03:22.773Z",
-  "totalMatches": 78,
+  "lastUpdated": "2026-06-30T22:57:00.459Z",
+  "totalMatches": 79,
   "results": {
     "1": {
       "score1": 2,
@@ -585,6 +585,14 @@
       "team2": "Paraguay",
       "group": "R32",
       "date": "Jun 29"
+    },
+    "74": {
+      "score1": 3,
+      "score2": 0,
+      "team1": "France",
+      "team2": "Sweden",
+      "group": "R32",
+      "date": "Jun 30"
     },
     "75": {
       "score1": 0,
