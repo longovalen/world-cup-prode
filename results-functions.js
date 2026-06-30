@@ -107,7 +107,7 @@ const ALL_MATCHES = [
     { id: 88, group: "R32", date: "Jul 3", team1: "Colombia", team2: "Ghana" },
 
     // Round of 16
-    { id: 89, group: "R16", date: "Jul 4", team1: "Paraguay", team2: "TBD" },
+    { id: 89, group: "R16", date: "Jul 4", team1: "Paraguay", team2: "France" },
     { id: 90, group: "R16", date: "Jul 4", team1: "Canada", team2: "Morocco" },
     { id: 91, group: "R16", date: "Jul 6", team1: "TBD", team2: "TBD" },
     { id: 92, group: "R16", date: "Jul 6", team1: "TBD", team2: "TBD" },
