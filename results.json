@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-30T22:57:00.459Z",
-  "totalMatches": 79,
+  "lastUpdated": "2026-07-01T12:31:47.894Z",
+  "totalMatches": 80,
   "results": {
     "1": {
       "score1": 2,
@@ -623,6 +623,14 @@
       "score2": 2,
       "team1": "Ivory Coast",
       "team2": "Norway",
+      "group": "R32",
+      "date": "Jun 30"
+    },
+    "83": {
+      "score1": 2,
+      "score2": 0,
+      "team1": "Mexico",
+      "team2": "Ecuador",
       "group": "R32",
       "date": "Jun 30"
     },
