@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-01T18:32:50.348Z",
-  "totalMatches": 81,
+  "lastUpdated": "2026-07-01T22:52:08.039Z",
+  "totalMatches": 82,
   "results": {
     "1": {
       "score1": 2,
@@ -609,6 +609,14 @@
       "team2": "Morocco",
       "group": "R32",
       "date": "Jun 29"
+    },
+    "80": {
+      "score1": 3,
+      "score2": 2,
+      "team1": "Belgium",
+      "team2": "Senegal",
+      "group": "R32",
+      "date": "Jul 1"
     },
     "81": {
       "score1": 2,
