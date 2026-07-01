@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-01T12:31:47.894Z",
-  "totalMatches": 80,
+  "lastUpdated": "2026-07-01T18:01:23.016Z",
+  "totalMatches": 81,
   "results": {
     "1": {
       "score1": 2,
@@ -633,6 +633,14 @@
       "team2": "Ecuador",
       "group": "R32",
       "date": "Jun 30"
+    },
+    "84": {
+      "score1": 2,
+      "score2": 1,
+      "team1": "England",
+      "team2": "Congo DR",
+      "group": "R32",
+      "date": "Jul 1"
     },
     "match_1": {
       "score1": 2,
