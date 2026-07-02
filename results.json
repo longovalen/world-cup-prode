@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-02T02:08:22.762Z",
-  "totalMatches": 83,
+  "lastUpdated": "2026-07-02T20:59:36.377Z",
+  "totalMatches": 84,
   "results": {
     "1": {
       "score1": 2,
@@ -609,6 +609,14 @@
       "team2": "Morocco",
       "group": "R32",
       "date": "Jun 29"
+    },
+    "78": {
+      "score1": 3,
+      "score2": 0,
+      "team1": "Spain",
+      "team2": "Austria",
+      "group": "R32",
+      "date": "Jul 2"
     },
     "79": {
       "score1": 2,
