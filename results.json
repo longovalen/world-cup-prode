@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-01T22:52:08.039Z",
-  "totalMatches": 82,
+  "lastUpdated": "2026-07-02T02:08:22.762Z",
+  "totalMatches": 83,
   "results": {
     "1": {
       "score1": 2,
@@ -609,6 +609,14 @@
       "team2": "Morocco",
       "group": "R32",
       "date": "Jun 29"
+    },
+    "79": {
+      "score1": 2,
+      "score2": 0,
+      "team1": "USA",
+      "team2": "Bosnia and Herzegovina",
+      "group": "R32",
+      "date": "Jul 1"
     },
     "80": {
       "score1": 3,
