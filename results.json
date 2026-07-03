@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-03T01:13:10.611Z",
-  "totalMatches": 85,
+  "lastUpdated": "2026-07-03T13:25:00.218Z",
+  "totalMatches": 86,
   "results": {
     "1": {
       "score1": 2,
@@ -673,6 +673,14 @@
       "team2": "Congo DR",
       "group": "R32",
       "date": "Jul 1"
+    },
+    "87": {
+      "score1": 2,
+      "score2": 0,
+      "team1": "Switzerland",
+      "team2": "Algeria",
+      "group": "R32",
+      "date": "Jul 2"
     },
     "match_1": {
       "score1": 2,
