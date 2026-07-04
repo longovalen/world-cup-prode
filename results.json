@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-04T01:21:16.708Z",
-  "totalMatches": 88,
+  "lastUpdated": "2026-07-04T13:21:08.503Z",
+  "totalMatches": 89,
   "results": {
     "1": {
       "score1": 2,
@@ -697,6 +697,14 @@
       "team2": "Algeria",
       "group": "R32",
       "date": "Jul 2"
+    },
+    "88": {
+      "score1": 1,
+      "score2": 0,
+      "team1": "Colombia",
+      "team2": "Ghana",
+      "group": "R32",
+      "date": "Jul 3"
     },
     "match_1": {
       "score1": 2,
