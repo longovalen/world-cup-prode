@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-03T13:25:00.218Z",
-  "totalMatches": 86,
+  "lastUpdated": "2026-07-04T01:21:16.708Z",
+  "totalMatches": 88,
   "results": {
     "1": {
       "score1": 2,
@@ -673,6 +673,22 @@
       "team2": "Congo DR",
       "group": "R32",
       "date": "Jul 1"
+    },
+    "85": {
+      "score1": 3,
+      "score2": 2,
+      "team1": "Argentina",
+      "team2": "Cape Verde",
+      "group": "R32",
+      "date": "Jul 3"
+    },
+    "86": {
+      "score1": 1,
+      "score2": 1,
+      "team1": "Australia",
+      "team2": "Egypt",
+      "group": "R32",
+      "date": "Jul 3"
     },
     "87": {
       "score1": 2,
