@@ -117,7 +117,7 @@ const ALL_MATCHES = [
     { id: 96, group: "R16", date: "Jul 7", team1: "Switzerland", team2: "Colombia" },
 
     // Quarterfinals
-    { id: 97, group: "QF", date: "Jul 9", team1: "Francia", team2: "Morocco" },
+    { id: 97, group: "QF", date: "Jul 9", team1: "France", team2: "Morocco" },
     { id: 98, group: "QF", date: "Jul 9", team1: "TBD", team2: "TBD" },
     { id: 99, group: "QF", date: "Jul 10", team1: "TBD", team2: "TBD" },
     { id: 100, group: "QF", date: "Jul 11", team1: "TBD", team2: "TBD" },
