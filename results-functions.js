@@ -111,8 +111,8 @@ const ALL_MATCHES = [
     { id: 90, group: "R16", date: "Jul 4", team1: "Canada", team2: "Morocco" },
     { id: 91, group: "R16", date: "Jul 6", team1: "Portugal", team2: "Spain" },
     { id: 92, group: "R16", date: "Jul 6", team1: "USA", team2: "Belgium" },
-    { id: 93, group: "R16", date: "Jul 5", team1: "Mexico", team2: "England" },
-    { id: 94, group: "R16", date: "Jul 5", team1: "Brazil", team2: "Norway" },
+    { id: 93, group: "R16", date: "Jul 5", team1: "Brazil", team2: "Norway" },
+    { id: 94, group: "R16", date: "Jul 5", team1: "Mexico", team2: "England" },
     { id: 95, group: "R16", date: "Jul 7", team1: "Argentina", team2: "Egypt" },
     { id: 96, group: "R16", date: "Jul 7", team1: "Switzerland", team2: "Colombia" },
 
