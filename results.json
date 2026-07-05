@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-04T13:21:08.503Z",
-  "totalMatches": 89,
+  "lastUpdated": "2026-07-05T01:50:22.947Z",
+  "totalMatches": 90,
   "results": {
     "1": {
       "score1": 2,
@@ -705,6 +705,14 @@
       "team2": "Ghana",
       "group": "R32",
       "date": "Jul 3"
+    },
+    "89": {
+      "score1": 0,
+      "score2": 1,
+      "team1": "Paraguay",
+      "team2": "France",
+      "group": "R16",
+      "date": "Jul 4"
     },
     "match_1": {
       "score1": 2,
