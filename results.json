@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-06T16:03:20.074Z",
-  "totalMatches": 93,
+  "lastUpdated": "2026-07-06T21:03:13.175Z",
+  "totalMatches": 94,
   "results": {
     "1": {
       "score1": 2,
@@ -721,6 +721,14 @@
       "team2": "Morocco",
       "group": "R16",
       "date": "Jul 4"
+    },
+    "91": {
+      "score1": 0,
+      "score2": 1,
+      "team1": "Portugal",
+      "team2": "Spain",
+      "group": "R16",
+      "date": "Jul 6"
     },
     "93": {
       "score1": 1,
