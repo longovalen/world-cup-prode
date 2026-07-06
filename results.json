@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-05T22:07:23.054Z",
-  "totalMatches": 92,
+  "lastUpdated": "2026-07-06T12:48:18.263Z",
+  "totalMatches": 93,
   "results": {
     "1": {
       "score1": 2,
@@ -727,6 +727,14 @@
       "score2": 2,
       "team1": "Brazil",
       "team2": "Norway",
+      "group": "R16",
+      "date": "Jul 5"
+    },
+    "94": {
+      "score1": 2,
+      "score2": 3,
+      "team1": "Mexico",
+      "team2": "England",
       "group": "R16",
       "date": "Jul 5"
     },
