@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-07T19:07:36.762Z",
-  "totalMatches": 96,
+  "lastUpdated": "2026-07-07T22:52:18.455Z",
+  "totalMatches": 97,
   "results": {
     "1": {
       "score1": 2,
@@ -753,6 +753,14 @@
       "team2": "England",
       "group": "R16",
       "date": "Jul 5"
+    },
+    "95": {
+      "score1": 0,
+      "score2": 0,
+      "team1": "Switzerland",
+      "team2": "Colombia",
+      "group": "R16",
+      "date": "Jul 7"
     },
     "96": {
       "score1": 3,
