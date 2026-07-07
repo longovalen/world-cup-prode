@@ -113,12 +113,12 @@ const ALL_MATCHES = [
     { id: 92, group: "R16", date: "Jul 6", team1: "Portugal", team2: "Spain" },
     { id: 93, group: "R16", date: "Jul 5", team1: "Brazil", team2: "Norway" },
     { id: 94, group: "R16", date: "Jul 5", team1: "Mexico", team2: "England" },
-    { id: 95, group: "R16", date: "Jul 7", team1: "Argentina", team2: "Egypt" },
-    { id: 96, group: "R16", date: "Jul 7", team1: "Switzerland", team2: "Colombia" },
+    { id: 95, group: "R16", date: "Jul 7", team1: "Switzerland", team2: "Colombia" },
+    { id: 96, group: "R16", date: "Jul 7", team1: "Argentina", team2: "Egypt" },
 
     // Quarterfinals
     { id: 97, group: "QF", date: "Jul 9", team1: "France", team2: "Morocco" },
-    { id: 98, group: "QF", date: "Jul 11", team1: "TBD", team2: "TBD" },
+    { id: 98, group: "QF", date: "Jul 11", team1: "Argentina", team2: "TBD" },
     { id: 99, group: "QF", date: "Jul 10", team1: "Spain", team2: "Belgium" },
     { id: 100, group: "QF", date: "Jul 11", team1: "Norway", team2: "England" },
 
