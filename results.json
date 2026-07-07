@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-07T12:09:55.540Z",
-  "totalMatches": 95,
+  "lastUpdated": "2026-07-07T19:07:36.762Z",
+  "totalMatches": 96,
   "results": {
     "1": {
       "score1": 2,
@@ -753,6 +753,14 @@
       "team2": "England",
       "group": "R16",
       "date": "Jul 5"
+    },
+    "96": {
+      "score1": 3,
+      "score2": 2,
+      "team1": "Argentina",
+      "team2": "Egypt",
+      "group": "R16",
+      "date": "Jul 7"
     },
     "match_1": {
       "score1": 2,
