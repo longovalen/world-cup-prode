@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-07T22:52:18.455Z",
-  "totalMatches": 97,
+  "lastUpdated": "2026-07-09T22:05:45.819Z",
+  "totalMatches": 98,
   "results": {
     "1": {
       "score1": 2,
@@ -769,6 +769,14 @@
       "team2": "Egypt",
       "group": "R16",
       "date": "Jul 7"
+    },
+    "97": {
+      "score1": 2,
+      "score2": 0,
+      "team1": "France",
+      "team2": "Morocco",
+      "group": "QF",
+      "date": "Jul 9"
     },
     "match_1": {
       "score1": 2,
