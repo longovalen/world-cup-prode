@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-09T22:05:45.819Z",
-  "totalMatches": 98,
+  "lastUpdated": "2026-07-10T21:00:01.210Z",
+  "totalMatches": 99,
   "results": {
     "1": {
       "score1": 2,
@@ -777,6 +777,14 @@
       "team2": "Morocco",
       "group": "QF",
       "date": "Jul 9"
+    },
+    "99": {
+      "score1": 2,
+      "score2": 1,
+      "team1": "Spain",
+      "team2": "Belgium",
+      "group": "QF",
+      "date": "Jul 10"
     },
     "match_1": {
       "score1": 2,
