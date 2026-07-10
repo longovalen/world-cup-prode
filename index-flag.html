@@ -1432,6 +1432,7 @@
             }
 
             setTimeout(() => renderApp(), 1000);
+            startSessionTimer();
         }
 
         // Render Main App
@@ -2543,6 +2544,20 @@ Copy the JSON above to import into your system.
                 setTimeout(() => container.innerHTML = '', 3000);
             }
         }
+
+        // ── Auto-logout exactly 5 minutes after login ───────────────
+        function startSessionTimer() {
+            setTimeout(() => {
+                currentUser = null;
+                userPredictions = {};
+                knockoutPredictions = {};
+                renderLoginForm();
+                setTimeout(() => {
+                    showMessage('loginMessage', 'Your session has expired. Please log in again.', 'info');
+                }, 50);
+            }, 5 * 60 * 1000);
+        }
+        // ────────────────────────────────────────────────────────────
 
         // Start
         init();
