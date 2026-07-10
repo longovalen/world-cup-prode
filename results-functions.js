@@ -123,7 +123,7 @@ const ALL_MATCHES = [
     { id: 100, group: "QF", date: "Jul 11", team1: "Norway", team2: "England" },
 
     // Semifinals
-    { id: 101, group: "SF", date: "Jul 14", team1: "France", team2: "TBD" },
+    { id: 101, group: "SF", date: "Jul 14", team1: "France", team2: "Spain" },
     { id: 102, group: "SF", date: "Jul 15", team1: "TBD", team2: "TBD" },
 
     // Third place and final
