@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-10T21:00:01.210Z",
-  "totalMatches": 99,
+  "lastUpdated": "2026-07-12T05:15:04.442Z",
+  "totalMatches": 101,
   "results": {
     "1": {
       "score1": 2,
@@ -778,6 +778,14 @@
       "group": "QF",
       "date": "Jul 9"
     },
+    "98": {
+      "score1": 3,
+      "score2": 1,
+      "team1": "Argentina",
+      "team2": "Switzerland",
+      "group": "QF",
+      "date": "Jul 11"
+    },
     "99": {
       "score1": 2,
       "score2": 1,
@@ -785,6 +793,14 @@
       "team2": "Belgium",
       "group": "QF",
       "date": "Jul 10"
+    },
+    "100": {
+      "score1": 1,
+      "score2": 2,
+      "team1": "Norway",
+      "team2": "England",
+      "group": "QF",
+      "date": "Jul 11"
     },
     "match_1": {
       "score1": 2,
