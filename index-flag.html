@@ -2083,6 +2083,7 @@ Copy the JSON above to import into your system.
                         <div class="final-main-time">${timeStr}</div>
                         <div class="final-team-line"><span>${team1}</span><span>${team2}</span></div>
                         <div class="bracket-team">
+                            ${team1 !== 'TBD' ? getFlagHTML(team1) : ''}
                             <span class="${team1 === 'TBD' ? 'tbd-team' : ''}">${team1}</span>
                             <input type="number" class="bracket-score" id="match_${match.id}_team1"
                                    value="${prediction.score1 !== undefined ? prediction.score1 : ''}"
@@ -2091,6 +2092,7 @@ Copy the JSON above to import into your system.
                                    placeholder="-">
                         </div>
                         <div class="bracket-team">
+                            ${team2 !== 'TBD' ? getFlagHTML(team2) : ''}
                             <span class="${team2 === 'TBD' ? 'tbd-team' : ''}">${team2}</span>
                             <input type="number" class="bracket-score" id="match_${match.id}_team2"
                                    value="${prediction.score2 !== undefined ? prediction.score2 : ''}"
@@ -2108,6 +2110,7 @@ Copy the JSON above to import into your system.
                     <div class="${matchClass} ${isLocked ? 'locked' : ''}" style="${style}">
                         <div class="bracket-match-date">3rd Place · ${match.date} · ${timeStr}</div>
                         <div class="bracket-team">
+                            ${team1 !== 'TBD' ? getFlagHTML(team1) : ''}
                             <span class="${team1 === 'TBD' ? 'tbd-team' : ''}">${team1}</span>
                             <input type="number" class="bracket-score" id="match_${match.id}_team1"
                                    value="${prediction.score1 !== undefined ? prediction.score1 : ''}"
@@ -2116,6 +2119,7 @@ Copy the JSON above to import into your system.
                                    placeholder="-">
                         </div>
                         <div class="bracket-team">
+                            ${team2 !== 'TBD' ? getFlagHTML(team2) : ''}
                             <span class="${team2 === 'TBD' ? 'tbd-team' : ''}">${team2}</span>
                             <input type="number" class="bracket-score" id="match_${match.id}_team2"
                                    value="${prediction.score2 !== undefined ? prediction.score2 : ''}"
