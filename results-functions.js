@@ -127,8 +127,8 @@ const ALL_MATCHES = [
     { id: 102, group: "SF", date: "Jul 15", team1: "England", team2: "Argentina" },
 
     // Third place and final
-    { id: 103, group: "3rd", date: "Jul 18", team1: "TBD", team2: "TBD" },
-    { id: 104, group: "Final", date: "Jul 19", team1: "TBD", team2: "TBD" }
+    { id: 103, group: "3rd", date: "Jul 18", team1: "France", team2: "TBD" },
+    { id: 104, group: "Final", date: "Jul 19", team1: "Spain", team2: "TBD" }
 ];
 
 // Load matches into dropdown
