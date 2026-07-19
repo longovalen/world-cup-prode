@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-19T00:42:08.862Z",
-  "totalMatches": 104,
+  "lastUpdated": "2026-07-19T22:23:15.763Z",
+  "totalMatches": 105,
   "results": {
     "1": {
       "score1": 2,
@@ -825,6 +825,14 @@
       "team2": "England",
       "group": "3rd",
       "date": "Jul 18"
+    },
+    "104": {
+      "score1": 1,
+      "score2": 0,
+      "team1": "Spain",
+      "team2": "Argentina",
+      "group": "Final",
+      "date": "Jul 19"
     },
     "match_1": {
       "score1": 2,
